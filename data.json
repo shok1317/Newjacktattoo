@@ -2,5 +2,11 @@
   "title": "",
   "description": "",
   "main_image": "",
-  "gallery": []
+  "gallery": [
+    {
+      "photo": "/images/uploads/IMG_7398.PNG",
+      "artist": "SASCHA",
+      "style": "BlackGreyRealism"
+    }
+  ]
 }
