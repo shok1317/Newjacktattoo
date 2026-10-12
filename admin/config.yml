@@ -1,0 +1,35 @@
+backend:
+  name: github
+  repo: shok1317/newjacktattoo
+  branch: main
+
+media_folder: "images/uploads"
+public_folder: "/images/uploads"
+
+collections:
+  - name: "content"
+    label: "Сайт"
+    files:
+      - file: "data.json"
+        label: "Данные сайта"
+        name: "index"
+        format: "json"
+        fields:
+          - { label: "Заголовок", name: "title", widget: "string", required: false }
+          - { label: "Описание", name: "description", widget: "string", required: false }
+          - { label: "Главное фото", name: "main_image", widget: "image", required: false }
+          - label: "Галерея работ"
+            name: "gallery"
+            widget: "list"
+            required: false
+            fields:
+              - { label: "Фото", name: "photo", widget: "image" }
+              - { label: "Мастер", name: "artist", widget: "select", options: ["ASTY", "ANDY", "SASCHA", "RIMMA"] }
+              - label: "Стиль"
+                name: "style"
+                widget: "select"
+                options:
+                  - { label: "Japanese", value: "Japanese" }
+                  - { label: "Black & Grey", value: "BlackGreyRealism" }
+                  - { label: "Color", value: "ColorRealism" }
+                  - { label: "Traditional", value: "Traditional" }
