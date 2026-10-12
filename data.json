@@ -1,3 +1,12 @@
 {
-  "gallery": []
+  "title": "",
+  "description": "",
+  "main_image": "",
+  "gallery": [
+    {
+      "photo": "/images/uploads/IMG_7398.PNG",
+      "artist": "ASTY",
+      "style": "ColorRealism"
+    }
+  ]
 }
