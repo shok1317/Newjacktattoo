@@ -2402,12 +2402,12 @@ video {
   }
 }
 
-/* Отключаем стандартный курсор на всем сайте и включаем кастомный */
+/* Возвращаем стандартный курсор странице, чтобы точки не пропадали */
 body {
-  cursor: none !important;
+  cursor: default !important;
 }
 
-/* Чтобы на интерактивных элементах стандартная стрелка тоже не появлялась */
-a, button, input, textarea, select, .portfolio-item {
-  cursor: none !important;
+/* А вот сами точки курсора и интерактивные элементы настраиваем корректно */
+#cursor-dot, #cursor-outline {
+  cursor: none;
 }
