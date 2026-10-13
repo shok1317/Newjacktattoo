@@ -2401,3 +2401,13 @@ video {
     line-height: 1rem;
   }
 }
+
+/* Отключаем стандартный курсор на всем сайте и включаем кастомный */
+body {
+  cursor: none !important;
+}
+
+/* Чтобы на интерактивных элементах стандартная стрелка тоже не появлялась */
+a, button, input, textarea, select, .portfolio-item {
+  cursor: none !important;
+}
