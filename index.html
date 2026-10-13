@@ -1519,13 +1519,26 @@
     };
   </script>
 
-    <!-- ПЛАВАЮЩАЯ КНОПКА WHATSAPP -->
-<a href="https://wa.me/4917632460273" target="_blank" class="fixed bottom-6 right-6 z-50 bg-[#25D366] text-white p-4 rounded-full shadow-lg hover:scale-110 transition-transform flex items-center justify-center">
-  <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24"><path d="M12.031 0C5.394 0 0 5.39 0 12.025c0 2.12.548 4.184 1.59 6.002L.15 23.367l5.485-1.442A11.956 11.956 0 0012.03 24c6.634 0 12.026-5.39 12.026-12.025S18.667 0 12.03 0zm5.82 17.15c-.247.695-1.433 1.341-1.97 1.455-.494.103-1.135.215-3.32-.693-2.637-1.096-4.321-3.79-4.468-3.985-.148-.198-1.066-1.417-1.066-2.702 0-1.284.665-1.916.903-2.164.237-.247.518-.308.69-.308.172 0 .344.004.494.011.168.008.396-.063.621.479.237.568.815 1.986.89 2.135.074.15.123.32.024.517-.098.197-.148.32-.296.493-.148.173-.314.364-.445.494-.148.148-.305.31-.138.598.168.288.75 1.237 1.611 2.007.114.982.906 1.155 1.217 1.298.312.143.493.123.68-.073.187-.197.808-1.034 1.025-1.39.217-.355.434-.296.755-.173.32.124 2.023.953 2.37 1.127.345.174.577.262.661.41.084.148.084.858-.163 1.554z"/></svg>
-</a>
-<!-- ЕДИНЫЙ БЛОК СКРИПТОВ ДЛЯ ВСЕГО САЙТА -->
-<script>
-  <script>
+    <!-- ПЛАВАЮЩАЯ КНОПКА WHATSAPP (ПРЕМИУМ ВЕРСИЯ) -->
+  <div class="fixed bottom-6 right-6 z-50 flex items-center gap-4 group cursor-pointer">
+    
+    <!-- Подсказка, которая появляется при наведении (Tooltip) -->
+    <span class="opacity-0 translate-x-4 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300 bg-petrol-900/90 text-slate-200 text-xs font-semibold uppercase tracking-widest px-4 py-2.5 rounded-xl backdrop-blur-md border border-petrol-700/50 shadow-[0_0_15px_rgba(56,146,174,0.3)] pointer-events-none">
+      Chat with us
+    </span>
+    
+    <!-- Сама кнопка -->
+    <a href="https://wa.me/4917632460273" target="_blank" class="relative flex items-center justify-center">
+      <!-- Пульсирующее фоновое кольцо -->
+      <span class="absolute inline-flex h-full w-full rounded-full bg-[#25D366] opacity-40 animate-ping"></span>
+      
+      <!-- Основной круг с градиентом и свечением -->
+      <span class="relative inline-flex w-14 h-14 items-center justify-center rounded-full bg-gradient-to-tr from-[#128C7E] to-[#25D366] text-white shadow-[0_0_20px_rgba(37,211,102,0.4)] group-hover:shadow-[0_0_30px_rgba(37,211,102,0.7)] group-hover:scale-110 transition-all duration-300">
+        <!-- Иконка WhatsApp -->
+        <svg class="w-7 h-7" fill="currentColor" viewBox="0 0 24 24"><path d="M12.031 0C5.394 0 0 5.39 0 12.025c0 2.12.548 4.184 1.59 6.002L.15 23.367l5.485-1.442A11.956 11.956 0 0012.03 24c6.634 0 12.026-5.39 12.026-12.025S18.667 0 12.03 0zm5.82 17.15c-.247.695-1.433 1.341-1.97 1.455-.494.103-1.135.215-3.32-.693-2.637-1.096-4.321-3.79-4.468-3.985-.148-.198-1.066-1.417-1.066-2.702 0-1.284.665-1.916.903-2.164.237-.247.518-.308.69-.308.172 0 .344.004.494.011.168.008.396-.063.621.479.237.568.815 1.986.89 2.135.074.15.123.32.024.517-.098.197-.148.32-.296.493-.148.173-.314.364-.445.494-.148.148-.305.31-.138.598.168.288.75 1.237 1.611 2.007.114.982.906 1.155 1.217 1.298.312.143.493.123.68-.073.187-.197.808-1.034 1.025-1.39.217-.355.434-.296.755-.173.32.124 2.023.953 2.37 1.127.345.174.577.262.661.41.084.148.084.858-.163 1.554z"/></svg>
+      </span>
+    </a>
+  </div>
   let currentLang = 'de';
 
   const i18n = {
