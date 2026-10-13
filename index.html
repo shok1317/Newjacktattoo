@@ -659,8 +659,10 @@
     ];
 
     
-    let currentLang = 'de'; 
-const i18n = { "de": 
+    let currentLang = 'de';
+
+    const i18n = {
+      de: { 
         nav_home: "Start", nav_artists: "Artists", nav_portfolio: "Portfolio", nav_studio: "Studio", nav_aftercare: "Aftercare", nav_faq: "FAQ", nav_contact: "Kontakt", btn_book_nav: "Termin",
         hero_sub: "Premium Custom Tattoo Studio im Herzen von Duisburg. Individuelle Designs, höchste Hygienestandards und echte Kunst-Atmosphäre.",
         hero_cta_primary: "Termin vereinbaren", hero_cta_secondary: "Portfolio ansehen",
@@ -1523,10 +1525,10 @@ const i18n = { "de":
   <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24"><path d="M12.031 0C5.394 0 0 5.39 0 12.025c0 2.12.548 4.184 1.59 6.002L.15 23.367l5.485-1.442A11.956 11.956 0 0012.03 24c6.634 0 12.026-5.39 12.026-12.025S18.667 0 12.03 0zm5.82 17.15c-.247.695-1.433 1.341-1.97 1.455-.494.103-1.135.215-3.32-.693-2.637-1.096-4.321-3.79-4.468-3.985-.148-.198-1.066-1.417-1.066-2.702 0-1.284.665-1.916.903-2.164.237-.247.518-.308.69-.308.172 0 .344.004.494.011.168.008.396-.063.621.479.237.568.815 1.986.89 2.135.074.15.123.32.024.517-.098.197-.148.32-.296.493-.148.173-.314.364-.445.494-.148.148-.305.31-.138.598.168.288.75 1.237 1.611 2.007.114.982.906 1.155 1.217 1.298.312.143.493.123.68-.073.187-.197.808-1.034 1.025-1.39.217-.355.434-.296.755-.173.32.124 2.023.953 2.37 1.127.345.174.577.262.661.41.084.148.084.858-.163 1.554z"/></svg>
 </a>
   </div>
-  let currentLang = 'de';
-
-  const i18n = {
-    "de": {
+  </footer>
+<script>
+let currentLang = 'de'; 
+const i18n = { "de": { "nav_home": "Start", ...
       "nav_home": "Start", "nav_artists": "Artists", "nav_portfolio": "Portfolio", "nav_studio": "Studio", "nav_contact": "Kontakt", "nav_aftercare": "Aftercare", "nav_faq": "FAQ", "nav_menu": "Menu", "btn_book_nav": "Termin",
       "hero_sub": "Premium Custom Tattoo Studio im Herzen von Duisburg. Individuelle Designs, höchste Hygienestandards und echte Kunst-Atmosphäre.", "hero_cta_primary": "Termin vereinbaren", "hero_cta_secondary": "Portfolio ansehen",
       "stat_sterile": "100% EU-Hygiene & Steril", "stat_artists": "Resident & Guest Artists", "stat_custom": "Individuelle Entwürfe", "stat_consult": "Kostenlose Beratung",
