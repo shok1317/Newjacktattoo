@@ -335,9 +335,11 @@
       </div>
   </section>
 
-  <!-- ПОРТФОЛИО -->
+<!-- ПОРТФОЛИО & INSTAGRAM -->
   <section id="portfolio" class="py-24 px-6 bg-petrol-900/30 border-y border-petrol-800/40">
     <div class="max-w-7xl mx-auto">
+      
+      <!-- ЧАСТЬ 1: Твоя сетка с фильтрами -->
       <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
         <div>
           <span class="text-petrol-400 text-xs uppercase tracking-[0.3em] font-semibold block mb-2" data-i18n="portfolio_tag">Selected Works</span>
@@ -353,45 +355,36 @@
         </div>
       </div>
 
-      <!-- Сетка с работами -->
-      <div id="portfolio-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-        
-        <!-- PORTFOLIO ITEM 1 -->
-        <div data-style="BlackGreyRealism" class="portfolio-item portfolio-card group relative h-80 rounded-2xl overflow-hidden border border-petrol-800/60 bg-petrol-950">
-          <img src="./img/portfolio/work-1.webp" alt="Portfolio Art" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
-        </div>
-
-        <!-- PORTFOLIO ITEM 2 -->
-        <div data-style="BlackGreyRealism" class="portfolio-item portfolio-card group relative h-80 rounded-2xl overflow-hidden border border-petrol-800/60 bg-petrol-950">
-          <img src="./img/portfolio/work-2.webp" alt="Portfolio Art" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
-        </div>
-
-        <!-- PORTFOLIO ITEM 3 -->
-        <div data-style="BlackGreyRealism" class="portfolio-item portfolio-card group relative h-80 rounded-2xl overflow-hidden border border-petrol-800/60 bg-petrol-950">
-          <img src="./img/portfolio/work-3.webp" alt="Portfolio Art" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
-        </div>
-
-        <!-- PORTFOLIO ITEM 4 -->
-        <div data-style="BlackGreyRealism" class="portfolio-item portfolio-card group relative h-80 rounded-2xl overflow-hidden border border-petrol-800/60 bg-petrol-950">
-          <img src="./img/portfolio/work-4.webp" alt="Portfolio Art" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
-        </div>
-
-        <!-- PORTFOLIO ITEM 5 -->
-        <div data-style="BlackGreyRealism" class="portfolio-item portfolio-card group relative h-80 rounded-2xl overflow-hidden border border-petrol-800/60 bg-petrol-950">
-          <img src="./img/portfolio/work-5.webp" alt="Portfolio Art" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
-        </div>
-
-        <!-- PORTFOLIO ITEM 6 -->
-        <div data-style="BlackGreyRealism" class="portfolio-item portfolio-card group relative h-80 rounded-2xl overflow-hidden border border-petrol-800/60 bg-petrol-950">
-          <img src="./img/portfolio/work-6.webp" alt="Portfolio Art" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
-        </div>
-
-        <!-- PORTFOLIO ITEM 7 -->
-        <div data-style="BlackGreyRealism" class="portfolio-item portfolio-card group relative h-80 rounded-2xl overflow-hidden border border-petrol-800/60 bg-petrol-950">
-          <img src="./img/portfolio/work-7.webp" alt="Portfolio Art" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
-        </div>
-
+      <!-- Твоя сетка с работами (Оставляем твой код как есть) -->
+      <div id="portfolio-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-24">
+        <!-- Здесь лежат твои картинки <div class="portfolio-item">...</div> -->
       </div>
+      
+      <!-- ЧАСТЬ 2: Живой Instagram Feed (Behold.so) -->
+      <div class="mt-16 border-t border-petrol-800/40 pt-16">
+        <div class="text-center mb-10">
+          <span class="text-petrol-400 text-xs uppercase tracking-[0.3em] font-semibold block mb-2">Live Feed</span>
+          <h3 class="font-cinzel text-2xl sm:text-3xl font-bold text-white tracking-wider uppercase">Latest on Instagram</h3>
+        </div>
+
+        <!-- Контейнер для виджета -->
+        <div class="w-full rounded-2xl overflow-hidden shadow-[0_0_30px_rgba(56,146,174,0.15)] border border-petrol-800/40 bg-petrol-950/50 p-2 sm:p-4">
+          
+          <!-- Скрипт и тег виджета Behold -->
+          <script type="module" src="https://w.behold.so/widget.js"></script>
+          <behold-widget feed-id="СЮДА_ВСТАВЬ_ID_ВИДЖЕТА"></behold-widget>
+          
+        </div>
+        
+        <!-- Кнопка перехода в Instagram -->
+        <div class="mt-8 text-center">
+          <a href="https://instagram.com/newjacktattoo" target="_blank" class="inline-flex items-center gap-3 px-6 py-3 rounded-full glass hover:bg-petrol-800/60 text-slate-200 font-semibold text-xs uppercase tracking-[0.2em] transition-all">
+            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+            Follow Us
+          </a>
+        </div>
+      </div>
+
     </div>
   </section>
  <!-- ИНТЕРЬЕР СТУДИИ -->
