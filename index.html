@@ -3,58 +3,24 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
   <title>New Jack Tattoo — Custom Tattoo Studio | Duisburg</title>
   <meta name="description" content="Premium Custom Tattoo Studio im Herzen von Duisburg (Beekstraße 6). Spezialisiert auf Japanese, Black &amp; Grey Realism, Color Realism und Traditional. Jetzt Termin vereinbaren!">
   <meta name="keywords" content="Tattoo Studio Duisburg, Custom Tattoo, Japanese Tattoo, Black and Grey Realism, Color Realism, Traditional Tattoo, Old School, New Jack Tattoo, NRW">
   <meta name="author" content="New Jack Tattoo">
   <meta name="robots" content="index, follow">
-  
   <meta property="og:type" content="website">
   <meta property="og:title" content="New Jack Tattoo — Custom Tattoo Studio | Duisburg">
   <meta property="og:description" content="Premium Custom Tattoo Studio in Duisburg. Individuelle Designs und höchste Hygienestandards.">
   <meta property="og:url" content="https://www.newjacktattoo.de/">
   <meta property="og:image" content="https://www.newjacktattoo.de/IMG_7398.jpg">
   <meta property="og:site_name" content="New Jack Tattoo">
-
-  <!-- ЛОКАЛЬНЫЙ TAILWIND (DSGVO-совместимый) -->
   <link rel="stylesheet" href="./style.css">
   
   <style id="main-custom-styles">
-    /* ЛОКАЛЬНЫЕ ШРИФТЫ */
     @font-face { font-family: 'Cinzel'; src: url('./fonts/cinzel-regular.woff2') format('woff2'); font-weight: 600; }
     @font-face { font-family: 'Great Vibes'; src: url('./fonts/great-vibes-regular.woff2') format('woff2'); }
     @font-face { font-family: 'Inter'; src: url('./fonts/inter-regular.woff2') format('woff2'); font-weight: 400; }
     @font-face { font-family: 'Syne'; src: url('./fonts/syne-regular.woff2') format('woff2'); font-weight: 700; }
-
-    /* Анимация плавного появления меню */
-    @keyframes menuPop {
-      0% { opacity: 0; transform: translateY(-20px) scale(0.98); }
-      100% { opacity: 1; transform: translateY(0) scale(1); }
-    }
-
-    /* Современное мобильное меню (Стеклянный остров) */
-    .glass-mobile-menu {
-      background: #050d10;
-      opacity: 0.95;
-      backdrop-filter: blur(20px);
-      -webkit-backdrop-filter: blur(20px);
-      border: 1px solid #3892ae;
-      border-radius: 1.5rem;
-      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.7);
-      top: 80px;
-      animation: menuPop 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-    }
-    
-    .glass-mobile-menu a {
-      border-radius: 1rem;
-      transition: all 0.3s ease;
-      display: block;
-    }
-    
-    .glass-mobile-menu a:hover {
-      background-color: #0e252d;
-    }
 
     body {
       background-color: #050d10;
@@ -62,25 +28,170 @@
       overflow-x: hidden;
     }
 
-    /* Кастомный синий ползунок (Scrollbar) */
-    html::-webkit-scrollbar {
-      width: 10px;
+    /* КРАСИВАЯ КНОПКА MENU В ШАПКЕ */
+    .custom-menu-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 14px;
+      border-radius: 9999px;
+      background: linear-gradient(135deg, rgba(56, 146, 174, 0.3) 0%, rgba(14, 37, 45, 0.95) 100%);
+      border: 1px solid rgba(75, 179, 210, 0.65);
+      box-shadow: 0 0 18px rgba(56, 146, 174, 0.35);
+      color: #ffffff;
+      cursor: pointer;
+      transition: all 0.25s ease;
     }
-    html::-webkit-scrollbar-track {
+    .custom-menu-btn:hover, .custom-menu-btn:active {
+      background: linear-gradient(135deg, rgba(56, 146, 174, 0.5) 0%, rgba(14, 37, 45, 1) 100%);
+      border-color: #7dd3fc;
+      box-shadow: 0 0 25px rgba(56, 146, 174, 0.6);
+      transform: scale(1.03);
+    }
+
+    /* ОБНОВЛЕННАЯ ПЛАШКА МОБИЛЬНОГО МЕНЮ */
+    @keyframes menuPop {
+      0% { opacity: 0; transform: translateY(-15px) scale(0.96); }
+      100% { opacity: 1; transform: translateY(0) scale(1); }
+    }
+    .glass-mobile-menu {
+      position: fixed;
+      top: 78px;
+      right: 16px;
+      left: 16px;
+      max-width: 340px;
+      margin-left: auto;
+      z-index: 9998;
+      background: linear-gradient(165deg, rgba(10, 28, 36, 0.97) 0%, rgba(5, 13, 16, 0.98) 100%);
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
+      border: 1px solid rgba(75, 179, 210, 0.6);
+      border-radius: 1.5rem;
+      padding: 14px;
+      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.9), 0 0 30px rgba(56, 146, 174, 0.3);
+      animation: menuPop 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+    .glass-mobile-menu a.menu-link {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 12px 18px;
+      margin-bottom: 6px;
+      border-radius: 0.9rem;
+      color: #f1f5f9;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(56, 146, 174, 0.15);
+      transition: all 0.25s ease;
+    }
+    .glass-mobile-menu a.menu-link:hover, .glass-mobile-menu a.menu-link:active {
+      background: linear-gradient(90deg, rgba(56, 146, 174, 0.35) 0%, rgba(14, 37, 45, 0.6) 100%);
+      border-color: rgba(75, 179, 210, 0.6);
+      color: #ffffff;
+      transform: translateX(4px);
+    }
+    .glass-mobile-menu a.menu-cta {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 13px 18px;
+      margin-top: 8px;
+      border-radius: 0.9rem;
+      background: linear-gradient(135deg, #3892ae 0%, #246980 100%);
+      color: #ffffff;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      box-shadow: 0 8px 20px rgba(56, 146, 174, 0.4);
+      border: 1px solid rgba(255, 255, 255, 0.25);
+    }
+
+    /* ЯРКАЯ КНОПКА ОТПРАВКИ ЗАЯВКИ (ANFRAGE ABSENDEN) */
+    .btn-submit-wa {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      padding: 16px 24px;
+      border-radius: 0.9rem;
+      background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
+      color: #ffffff;
+      font-weight: 700;
+      font-size: 14px;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      border: 1px solid rgba(255, 255, 255, 0.4);
+      box-shadow: 0 10px 30px rgba(37, 211, 102, 0.45), inset 0 1px 0 rgba(255, 255, 255, 0.3);
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    .btn-submit-wa:hover {
+      background: linear-gradient(135deg, #2be370 0%, #17a393 100%);
+      box-shadow: 0 12px 35px rgba(37, 211, 102, 0.65);
+      transform: translateY(-2px);
+    }
+    .btn-submit-wa:active {
+      transform: translateY(0);
+    }
+
+    /* ПЛАВАЮЩАЯ КНОПКА WHATSAPP С ПУЛЬСАЦИЕЙ */
+    @keyframes waPulse {
+      0% { box-shadow: 0 8px 28px rgba(37, 211, 102, 0.65), 0 0 0 0 rgba(37, 211, 102, 0.55); }
+      70% { box-shadow: 0 8px 28px rgba(37, 211, 102, 0.65), 0 0 0 14px rgba(37, 211, 102, 0); }
+      100% { box-shadow: 0 8px 28px rgba(37, 211, 102, 0.65), 0 0 0 0 rgba(37, 211, 102, 0); }
+    }
+    .floating-wa-btn {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      z-index: 99999;
+      width: 62px;
+      height: 62px;
+      border-radius: 9999px;
+      background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
+      color: #ffffff;
+      border: 2px solid #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      animation: waPulse 2.4s infinite;
+      transition: transform 0.3s ease;
+      text-decoration: none;
+    }
+    .floating-wa-btn:hover {
+      transform: scale(1.1);
+    }
+    .floating-wa-tooltip {
+      position: absolute;
+      right: 76px;
       background: #050d10;
-    }
-    html::-webkit-scrollbar-thumb {
-      background: #3892ae;
+      border: 1px solid #25D366;
+      color: #ffffff;
+      font-size: 12px;
+      font-weight: 600;
+      padding: 8px 14px;
       border-radius: 10px;
-      border: 2px solid #050d10;
+      white-space: nowrap;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.8);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.25s ease;
     }
-    html::-webkit-scrollbar-thumb:hover {
-      background: #4bb3d2;
+    .floating-wa-btn:hover .floating-wa-tooltip {
+      opacity: 1;
     }
-    html {
-      scrollbar-width: thin;
-      scrollbar-color: #3892ae #050d10;
-    }
+
+    /* Кастомный ползунок */
+    html::-webkit-scrollbar { width: 10px; }
+    html::-webkit-scrollbar-track { background: #050d10; }
+    html::-webkit-scrollbar-thumb { background: #3892ae; border-radius: 10px; border: 2px solid #050d10; }
+    html::-webkit-scrollbar-thumb:hover { background: #4bb3d2; }
+    html { scrollbar-width: thin; scrollbar-color: #3892ae #050d10; }
   </style>
 </head>
 <body class="antialiased selection:bg-petrol-500 selection:text-white" data-exported="true">
@@ -88,8 +199,6 @@
   <!-- НАВИГАЦИЯ -->
   <header class="fixed top-0 left-0 right-0 z-40 transition-all duration-300 bg-[#050d10]/80 backdrop-blur-md border-b border-petrol-800/40" id="navbar">
     <div class="max-w-7xl mx-auto px-4 sm:px-8 py-4 flex items-center justify-between">
-      
-      <!-- Логотип -->
       <a href="#hero" class="flex items-center gap-3 group lg:mr-8 xl:mr-16 flex-shrink-0">
         <div class="w-10 h-10 rounded-full border border-petrol-400/50 bg-petrol-900/80 flex items-center justify-center shadow-[0_0_15px_rgba(56,146,174,0.3)] group-hover:border-petrol-300 transition">
           <span class="font-cinzel font-bold text-sm tracking-widest text-petrol-300">NJT</span>
@@ -97,7 +206,6 @@
         <span class="font-cinzel font-bold tracking-widest text-sm sm:text-base text-white hidden sm:inline">NEW JACK TATTOO</span>
       </a>
 
-      <!-- Меню для ПК -->
       <nav class="hidden lg:flex items-center gap-3 xl:gap-5 text-[11px] xl:text-xs uppercase tracking-[0.15em] text-slate-300 font-medium">
         <a href="#hero" class="hover:text-petrol-300 transition whitespace-nowrap" data-i18n="nav_home">Start</a>
         <a href="#artists" class="hover:text-petrol-300 transition whitespace-nowrap" data-i18n="nav_artists">Artists</a>
@@ -109,9 +217,7 @@
         <a href="tel:+492034565569" class="text-petrol-300 font-semibold tracking-wider hover:text-white transition whitespace-nowrap">+49 203 4565569</a>
       </nav>
 
-      <!-- Правый блок кнопок -->
-      <div class="flex items-center gap-3">
-        <!-- Языки -->
+      <div class="flex items-center gap-2.5 sm:gap-3">
         <div class="flex items-center bg-petrol-900/90 border border-petrol-700/60 rounded-full p-1 text-xs font-semibold">
           <button onclick="setLang('de')" id="lang-de" class="px-2.5 py-1 rounded-full bg-petrol-500 text-white transition">DE</button>
           <button onclick="setLang('ru')" id="lang-ru" class="px-2.5 py-1 rounded-full text-slate-400 hover:text-white transition">RU</button>
@@ -120,39 +226,34 @@
         
         <a href="#contact" class="hidden sm:inline-flex items-center justify-center whitespace-nowrap flex-shrink-0 px-5 py-2 rounded-full bg-petrol-500 hover:bg-petrol-400 text-white text-xs font-semibold uppercase tracking-wider transition shadow-[0_0_20px_rgba(56,146,174,0.4)]" data-i18n="btn_book_nav">Termin</a>
         
-        <!-- Кнопка мобильного меню -->
-        <button onclick="toggleMobileMenu()" class="lg:hidden ml-2 text-petrol-300 hover:text-white p-1 focus:outline-none">
-          <span class="text-[10px] uppercase tracking-widest font-bold align-middle mr-1" data-i18n="nav_menu">Menu</span>
-          <svg class="w-8 h-8 inline-block align-middle" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+        <!-- Кнопка мобильного меню (Капсула) -->
+        <button onclick="toggleMobileMenu()" class="lg:hidden custom-menu-btn focus:outline-none" aria-label="Menu">
+          <span class="text-[11px] uppercase tracking-widest font-bold" data-i18n="nav_menu">Menu</span>
+          <svg class="w-5 h-5 text-petrol-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
         </button>
       </div>
     </div>
   </header>
 
-  <!-- Выпадающее мобильное меню (Стеклянный остров) -->
-  <div id="mobile-menu" class="hidden lg:hidden fixed right-4 left-4 sm:left-auto sm:w-72 flex-col p-3 z-50 glass-mobile-menu">
-    <a href="#hero" onclick="toggleMobileMenu()" class="text-white text-xs uppercase tracking-[0.15em] font-semibold py-3.5 px-5 text-center" data-i18n="nav_home">Start</a>
-    <a href="#artists" onclick="toggleMobileMenu()" class="text-white text-xs uppercase tracking-[0.15em] font-semibold py-3.5 px-5 text-center" data-i18n="nav_artists">Artists</a>
-    <a href="#portfolio" onclick="toggleMobileMenu()" class="text-white text-xs uppercase tracking-[0.15em] font-semibold py-3.5 px-5 text-center" data-i18n="nav_portfolio">Portfolio</a>
-    <a href="#studio" onclick="toggleMobileMenu()" class="text-white text-xs uppercase tracking-[0.15em] font-semibold py-3.5 px-5 text-center" data-i18n="nav_studio">Studio</a>
-    <a href="#contact" onclick="toggleMobileMenu()" class="text-white text-xs uppercase tracking-[0.15em] font-semibold py-3.5 px-5 text-center" data-i18n="nav_contact">Kontakt</a>
-    <a href="#aftercare" onclick="toggleMobileMenu()" class="text-white text-xs uppercase tracking-[0.15em] font-semibold py-3.5 px-5 text-center" data-i18n="nav_aftercare">Aftercare</a>
-    <a href="#faq" onclick="toggleMobileMenu()" class="text-white text-xs uppercase tracking-[0.15em] font-semibold py-3.5 px-5 text-center" data-i18n="nav_faq">FAQ</a>
+  <!-- Выпадающее мобильное меню -->
+  <div id="mobile-menu" class="hidden lg:hidden flex-col glass-mobile-menu">
+    <a href="#hero" onclick="toggleMobileMenu()" class="menu-link"><span data-i18n="nav_home">Start</span><span>›</span></a>
+    <a href="#artists" onclick="toggleMobileMenu()" class="menu-link"><span data-i18n="nav_artists">Artists</span><span>›</span></a>
+    <a href="#portfolio" onclick="toggleMobileMenu()" class="menu-link"><span data-i18n="nav_portfolio">Portfolio</span><span>›</span></a>
+    <a href="#studio" onclick="toggleMobileMenu()" class="menu-link"><span data-i18n="nav_studio">Studio</span><span>›</span></a>
+    <a href="#aftercare" onclick="toggleMobileMenu()" class="menu-link"><span data-i18n="nav_aftercare">Aftercare</span><span>›</span></a>
+    <a href="#faq" onclick="toggleMobileMenu()" class="menu-link"><span data-i18n="nav_faq">FAQ</span><span>›</span></a>
+    <a href="#contact" onclick="toggleMobileMenu()" class="menu-cta" data-i18n="hero_cta_primary">Termin vereinbaren</a>
   </div>
 
   <!-- ГЛАВНЫЙ ЭКРАН -->
   <section id="hero" class="relative h-screen w-full overflow-hidden flex items-center justify-center">
-    
-    <!-- Видео фон -->
     <video id="hero-video" autoplay loop muted playsinline webkit-playsinline preload="auto" poster="./video/poster.jpg" class="absolute inset-0 w-full h-full object-cover video-zoom filter brightness-[0.55] contrast-110 saturate-75">
       <source src="./video/hero.mp4" type="video/mp4">
     </video>
-
-    <!-- Затемнение поверх видео -->
     <div class="absolute inset-0 bg-gradient-to-b from-petrol-950/80 via-petrol-900/35 to-petrol-950"></div>
     <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_20%,#050d10_100%)] opacity-80"></div>
 
-    <!-- Центральная композиция -->
     <div class="relative z-10 text-center px-6 max-w-4xl mx-auto flex flex-col items-center mt-8">
       <div class="relative group mb-5">
         <div class="w-28 h-28 sm:w-32 sm:h-32 rounded-full border-2 border-petrol-400/70 bg-petrol-950/80 backdrop-blur-md flex flex-col items-center justify-center shadow-[0_0_45px_rgba(56,146,174,0.45)] overflow-hidden">
@@ -163,16 +264,9 @@
           </div>
         </div>
       </div>
-      <h1 class="font-script text-6xl sm:text-8xl md:text-9xl text-white drop-shadow-[0_6px_25px_rgba(0,0,0,0.9)] leading-none mb-2">
-        New Jack
-      </h1>
-      <p class="font-cinzel text-sm sm:text-lg uppercase tracking-[0.4em] text-petrol-300 font-semibold mb-4 drop-shadow">
-        Tattoo &amp; Custom Art • Beekstraße 6
-      </p>
-
-      <p class="max-w-xl text-slate-300/90 text-sm sm:text-base font-light mb-9 leading-relaxed" data-i18n="hero_sub">
-        Premium Custom Tattoo Studio im Herzen von Duisburg. Individuelle Designs, höchste Hygienestandards und echte Kunst-Atmosphäre.
-      </p>
+      <h1 class="font-script text-6xl sm:text-8xl md:text-9xl text-white drop-shadow-[0_6px_25px_rgba(0,0,0,0.9)] leading-none mb-2">New Jack</h1>
+      <p class="font-cinzel text-sm sm:text-lg uppercase tracking-[0.4em] text-petrol-300 font-semibold mb-4 drop-shadow">Tattoo &amp; Custom Art • Beekstraße 6</p>
+      <p class="max-w-xl text-slate-300/90 text-sm sm:text-base font-light mb-9 leading-relaxed" data-i18n="hero_sub">Premium Custom Tattoo Studio im Herzen von Duisburg. Individuelle Designs, höchste Hygienestandards und echte Kunst-Atmosphäre.</p>
 
       <div class="flex flex-col sm:flex-row items-center gap-4">
         <a href="#contact" class="px-8 py-4 rounded-full bg-gradient-to-r from-petrol-500 to-petrol-400 hover:from-petrol-400 hover:to-petrol-300 text-white font-semibold text-xs sm:text-sm uppercase tracking-[0.2em] transition-all shadow-[0_0_30px_rgba(56,146,174,0.5)] hover:scale-105" data-i18n="hero_cta_primary">Termin vereinbaren</a>
@@ -180,9 +274,7 @@
       </div>
 
       <a href="#artists" class="mt-14 text-white/80 hover:text-petrol-300 transition animate-bounce" aria-label="Scroll Down">
-        <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-        </svg>
+        <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
       </a>
     </div>
   </section>
@@ -218,119 +310,89 @@
     </div>
 
     <div id="artists-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-        
       <!-- ARTIST 1: Andy -->
       <div class="glass-card rounded-3xl overflow-hidden flex flex-col relative">
         <div class="relative h-80 overflow-hidden group">
           <img src="./img/artists/ADNY.webp" alt="Andy • Artist" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
           <div class="absolute inset-0 bg-gradient-to-t from-petrol-950 via-transparent to-transparent"></div>
-          <span class="absolute bottom-3 left-4 px-3 py-1 rounded-full bg-petrol-600/90 text-white text-[11px] uppercase tracking-widest font-semibold">
-            JAPANESE / COLOR / BLACK &amp; GREY
-          </span>
+          <span class="absolute bottom-3 left-4 px-3 py-1 rounded-full bg-petrol-600/90 text-white text-[11px] uppercase tracking-widest font-semibold">JAPANESE / COLOR / BLACK &amp; GREY</span>
         </div>
         <div class="p-6 flex-1 flex flex-col justify-between">
-          <div>
-            <h3 class="font-cinzel text-xl font-bold text-white mb-4">Andy • Artist</h3>
-          </div>
+          <div><h3 class="font-cinzel text-xl font-bold text-white mb-4">Andy • Artist</h3></div>
           <div class="flex flex-col gap-5 mt-auto">
             <a href="https://www.instagram.com/andy_blvck1" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2.5 px-4 py-2.5 rounded-xl bg-petrol-900/60 hover:bg-petrol-800 border border-petrol-700/50 hover:border-petrol-400/50 transition-all group w-fit shadow-md">
               <svg class="w-4 h-4 text-petrol-300 group-hover:text-white transition-colors" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.209-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"></path></svg>
               <span class="text-[11px] font-semibold text-slate-300 group-hover:text-white tracking-wider">@andy_blvck1</span>
             </a>
             <div class="flex items-center justify-between pt-4 border-t border-petrol-800/60">
-              <a href="#contact" class="inline-flex items-center gap-2 text-xs uppercase tracking-widest font-bold text-petrol-300 hover:text-white transition">
-                <span data-i18n="artists_book">Termin vereinbaren</span>
-                <span>→</span>
-              </a>
+              <a href="#contact" class="inline-flex items-center gap-2 text-xs uppercase tracking-widest font-bold text-petrol-300 hover:text-white transition"><span data-i18n="artists_book">Termin vereinbaren</span><span>→</span></a>
             </div>
           </div>
         </div>
       </div>
-    
+
       <!-- ARTIST 2: Asty -->
       <div class="glass-card rounded-3xl overflow-hidden flex flex-col relative">
         <div class="relative h-80 overflow-hidden group">
           <img src="./img/artists/ASTY.webp" alt="Asty • Artist" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
           <div class="absolute inset-0 bg-gradient-to-t from-petrol-950 via-transparent to-transparent"></div>
-          <span class="absolute bottom-3 left-4 px-3 py-1 rounded-full bg-petrol-600/90 text-white text-[11px] uppercase tracking-widest font-semibold">
-            JAPANESE / COLOR / BLACK &amp; GREY
-          </span>
+          <span class="absolute bottom-3 left-4 px-3 py-1 rounded-full bg-petrol-600/90 text-white text-[11px] uppercase tracking-widest font-semibold">JAPANESE / COLOR / BLACK &amp; GREY</span>
         </div>
         <div class="p-6 flex-1 flex flex-col justify-between">
-          <div>
-            <h3 class="font-cinzel text-xl font-bold text-white mb-4">Asty • Artist</h3>
-          </div>
+          <div><h3 class="font-cinzel text-xl font-bold text-white mb-4">Asty • Artist</h3></div>
           <div class="flex flex-col gap-5 mt-auto">
             <a href="https://www.instagram.com/tattoo.asty.mayer" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2.5 px-4 py-2.5 rounded-xl bg-petrol-900/60 hover:bg-petrol-800 border border-petrol-700/50 hover:border-petrol-400/50 transition-all group w-fit shadow-md">
               <svg class="w-4 h-4 text-petrol-300 group-hover:text-white transition-colors" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.209-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"></path></svg>
               <span class="text-[11px] font-semibold text-slate-300 group-hover:text-white tracking-wider">@tattoo.asty.mayer</span>
             </a>
             <div class="flex items-center justify-between pt-4 border-t border-petrol-800/60">
-              <a href="#contact" class="inline-flex items-center gap-2 text-xs uppercase tracking-widest font-bold text-petrol-300 hover:text-white transition">
-                <span data-i18n="artists_book">Termin vereinbaren</span>
-                <span>→</span>
-              </a>
+              <a href="#contact" class="inline-flex items-center gap-2 text-xs uppercase tracking-widest font-bold text-petrol-300 hover:text-white transition"><span data-i18n="artists_book">Termin vereinbaren</span><span>→</span></a>
             </div>
           </div>
         </div>
       </div>
-    
+
       <!-- ARTIST 3: Sascha -->
       <div class="glass-card rounded-3xl overflow-hidden flex flex-col relative">
         <div class="relative h-80 overflow-hidden group">
           <img src="./img/artists/SASCHA.webp" alt="Sascha • Artist" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
           <div class="absolute inset-0 bg-gradient-to-t from-petrol-950 via-transparent to-transparent"></div>
-          <span class="absolute bottom-3 left-4 px-3 py-1 rounded-full bg-petrol-600/90 text-white text-[11px] uppercase tracking-widest font-semibold">
-            Neo-Traditional / Fine Line
-          </span>
+          <span class="absolute bottom-3 left-4 px-3 py-1 rounded-full bg-petrol-600/90 text-white text-[11px] uppercase tracking-widest font-semibold">Neo-Traditional / Fine Line</span>
         </div>
         <div class="p-6 flex-1 flex flex-col justify-between">
-          <div>
-            <h3 class="font-cinzel text-xl font-bold text-white mb-4">Sascha • Artist</h3>
-          </div>
+          <div><h3 class="font-cinzel text-xl font-bold text-white mb-4">Sascha • Artist</h3></div>
           <div class="flex flex-col gap-5 mt-auto">
             <a href="https://www.instagram.com/whitedogtattoo" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2.5 px-4 py-2.5 rounded-xl bg-petrol-900/60 hover:bg-petrol-800 border border-petrol-700/50 hover:border-petrol-400/50 transition-all group w-fit shadow-md">
               <svg class="w-4 h-4 text-petrol-300 group-hover:text-white transition-colors" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.209-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"></path></svg>
               <span class="text-[11px] font-semibold text-slate-300 group-hover:text-white tracking-wider">@whitedogtattoo</span>
             </a>
             <div class="flex items-center justify-between pt-4 border-t border-petrol-800/60">
-              <a href="#contact" class="inline-flex items-center gap-2 text-xs uppercase tracking-widest font-bold text-petrol-300 hover:text-white transition">
-                <span data-i18n="artists_book">Termin vereinbaren</span>
-                <span>→</span>
-              </a>
+              <a href="#contact" class="inline-flex items-center gap-2 text-xs uppercase tracking-widest font-bold text-petrol-300 hover:text-white transition"><span data-i18n="artists_book">Termin vereinbaren</span><span>→</span></a>
             </div>
           </div>
         </div>
       </div>
-    
+
       <!-- ARTIST 4: Rimma -->
       <div class="glass-card rounded-3xl overflow-hidden flex flex-col relative">
         <div class="relative h-80 overflow-hidden group">
           <img src="./img/artists/RIMMA.webp" alt="Rimma • Apprentice" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
           <div class="absolute inset-0 bg-gradient-to-t from-petrol-950 via-transparent to-transparent"></div>
-          <span class="absolute bottom-3 left-4 px-3 py-1 rounded-full bg-petrol-600/90 text-white text-[11px] uppercase tracking-widest font-semibold">
-            Tattoo Apprentice
-          </span>
+          <span class="absolute bottom-3 left-4 px-3 py-1 rounded-full bg-petrol-600/90 text-white text-[11px] uppercase tracking-widest font-semibold">Tattoo Apprentice</span>
         </div>
         <div class="p-6 flex-1 flex flex-col justify-between">
-          <div>
-            <h3 class="font-cinzel text-xl font-bold text-white mb-4">Rimma • Apprentice</h3>
-          </div>
+          <div><h3 class="font-cinzel text-xl font-bold text-white mb-4">Rimma • Apprentice</h3></div>
           <div class="flex flex-col gap-5 mt-auto">
             <a href="https://www.instagram.com/ritmrimma" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2.5 px-4 py-2.5 rounded-xl bg-petrol-900/60 hover:bg-petrol-800 border border-petrol-700/50 hover:border-petrol-400/50 transition-all group w-fit shadow-md">
               <svg class="w-4 h-4 text-petrol-300 group-hover:text-white transition-colors" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.209-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"></path></svg>
               <span class="text-[11px] font-semibold text-slate-300 group-hover:text-white tracking-wider">@ritmrimma</span>
             </a>
             <div class="flex items-center justify-between pt-4 border-t border-petrol-800/60">
-              <a href="#contact" class="inline-flex items-center gap-2 text-xs uppercase tracking-widest font-bold text-petrol-300 hover:text-white transition">
-                <span data-i18n="artists_book">Termin vereinbaren</span>
-                <span>→</span>
-              </a>
+              <a href="#contact" class="inline-flex items-center gap-2 text-xs uppercase tracking-widest font-bold text-petrol-300 hover:text-white transition"><span data-i18n="artists_book">Termin vereinbaren</span><span>→</span></a>
             </div>
           </div>
         </div>
       </div>
-
     </div>
   </section>
 
@@ -342,7 +404,6 @@
           <span class="text-petrol-400 text-xs uppercase tracking-[0.3em] font-semibold block mb-2" data-i18n="portfolio_tag">Selected Works</span>
           <h2 class="font-cinzel text-3xl sm:text-5xl font-bold text-white tracking-wider uppercase" data-i18n="portfolio_title">Portfolio</h2>
         </div>
-
         <div class="flex flex-wrap gap-2" id="portfolio-filters">
           <button onclick="filterPortfolio('all')" data-filter="all" class="filter-btn active px-4 py-2 rounded-full text-xs uppercase tracking-widest font-semibold bg-petrol-500 text-white transition" data-i18n="filter_all">Alle</button>
           <button onclick="filterPortfolio('Japanese')" data-filter="Japanese" class="filter-btn px-4 py-2 rounded-full text-xs uppercase tracking-widest font-semibold glass text-slate-300 hover:text-white transition">Japanese</button>
@@ -352,37 +413,14 @@
         </div>
       </div>
 
-      <!-- Сетка с работами -->
       <div id="portfolio-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-        
-        <div data-style="BlackGreyRealism" class="portfolio-item portfolio-card group relative h-80 rounded-2xl overflow-hidden border border-petrol-800/60 bg-petrol-950">
-          <img src="./img/portfolio/work-1.webp" alt="Portfolio Art 1" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
-        </div>
-
-        <div data-style="BlackGreyRealism" class="portfolio-item portfolio-card group relative h-80 rounded-2xl overflow-hidden border border-petrol-800/60 bg-petrol-950">
-          <img src="./img/portfolio/work-2.webp" alt="Portfolio Art 2" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
-        </div>
-
-        <div data-style="BlackGreyRealism" class="portfolio-item portfolio-card group relative h-80 rounded-2xl overflow-hidden border border-petrol-800/60 bg-petrol-950">
-          <img src="./img/portfolio/work-3.webp" alt="Portfolio Art 3" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
-        </div>
-
-        <div data-style="BlackGreyRealism" class="portfolio-item portfolio-card group relative h-80 rounded-2xl overflow-hidden border border-petrol-800/60 bg-petrol-950">
-          <img src="./img/portfolio/work-4.webp" alt="Portfolio Art 4" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
-        </div>
-
-        <div data-style="BlackGreyRealism" class="portfolio-item portfolio-card group relative h-80 rounded-2xl overflow-hidden border border-petrol-800/60 bg-petrol-950">
-          <img src="./img/portfolio/work-5.webp" alt="Portfolio Art 5" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
-        </div>
-
-        <div data-style="BlackGreyRealism" class="portfolio-item portfolio-card group relative h-80 rounded-2xl overflow-hidden border border-petrol-800/60 bg-petrol-950">
-          <img src="./img/portfolio/work-6.webp" alt="Portfolio Art 6" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
-        </div>
-
-        <div data-style="BlackGreyRealism" class="portfolio-item portfolio-card group relative h-80 rounded-2xl overflow-hidden border border-petrol-800/60 bg-petrol-950">
-          <img src="./img/portfolio/work-7.webp" alt="Portfolio Art 7" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
-        </div>
-
+        <div data-style="BlackGreyRealism" class="portfolio-item portfolio-card group relative h-80 rounded-2xl overflow-hidden border border-petrol-800/60 bg-petrol-950"><img src="./img/portfolio/work-1.webp" alt="Portfolio Art 1" class="w-full h-full object-cover group-hover:scale-105 transition duration-500"></div>
+        <div data-style="BlackGreyRealism" class="portfolio-item portfolio-card group relative h-80 rounded-2xl overflow-hidden border border-petrol-800/60 bg-petrol-950"><img src="./img/portfolio/work-2.webp" alt="Portfolio Art 2" class="w-full h-full object-cover group-hover:scale-105 transition duration-500"></div>
+        <div data-style="BlackGreyRealism" class="portfolio-item portfolio-card group relative h-80 rounded-2xl overflow-hidden border border-petrol-800/60 bg-petrol-950"><img src="./img/portfolio/work-3.webp" alt="Portfolio Art 3" class="w-full h-full object-cover group-hover:scale-105 transition duration-500"></div>
+        <div data-style="BlackGreyRealism" class="portfolio-item portfolio-card group relative h-80 rounded-2xl overflow-hidden border border-petrol-800/60 bg-petrol-950"><img src="./img/portfolio/work-4.webp" alt="Portfolio Art 4" class="w-full h-full object-cover group-hover:scale-105 transition duration-500"></div>
+        <div data-style="BlackGreyRealism" class="portfolio-item portfolio-card group relative h-80 rounded-2xl overflow-hidden border border-petrol-800/60 bg-petrol-950"><img src="./img/portfolio/work-5.webp" alt="Portfolio Art 5" class="w-full h-full object-cover group-hover:scale-105 transition duration-500"></div>
+        <div data-style="BlackGreyRealism" class="portfolio-item portfolio-card group relative h-80 rounded-2xl overflow-hidden border border-petrol-800/60 bg-petrol-950"><img src="./img/portfolio/work-6.webp" alt="Portfolio Art 6" class="w-full h-full object-cover group-hover:scale-105 transition duration-500"></div>
+        <div data-style="BlackGreyRealism" class="portfolio-item portfolio-card group relative h-80 rounded-2xl overflow-hidden border border-petrol-800/60 bg-petrol-950"><img src="./img/portfolio/work-7.webp" alt="Portfolio Art 7" class="w-full h-full object-cover group-hover:scale-105 transition duration-500"></div>
       </div>
     </div>
   </section>
@@ -400,35 +438,12 @@
     </div>
 
     <div id="studio-grid" class="grid grid-cols-1 md:grid-cols-3 gap-6">
-      <div class="relative h-72 rounded-3xl overflow-hidden group">
-        <img src="./img/studio/stidia-1.jpg" alt="New Jack Tattoo Studio 1" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
-        <div class="absolute inset-0 bg-gradient-to-t from-petrol-950/90 via-transparent to-transparent flex items-end p-5"></div>
-      </div>
-    
-      <div class="relative h-72 rounded-3xl overflow-hidden group">
-        <img src="./img/studio/stidia-2.jpg" alt="New Jack Tattoo Studio 2" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
-        <div class="absolute inset-0 bg-gradient-to-t from-petrol-950/90 via-transparent to-transparent flex items-end p-5"></div>
-      </div>
-    
-      <div class="relative h-72 rounded-3xl overflow-hidden group">
-        <img src="./img/studio/stidia-3.jpg" alt="New Jack Tattoo Studio 3" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
-        <div class="absolute inset-0 bg-gradient-to-t from-petrol-950/90 via-transparent to-transparent flex items-end p-5"></div>
-      </div>
-    
-      <div class="relative h-72 rounded-3xl overflow-hidden group">
-        <img src="./img/studio/stidia-4.jpg" alt="New Jack Tattoo Studio 4" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
-        <div class="absolute inset-0 bg-gradient-to-t from-petrol-950/90 via-transparent to-transparent flex items-end p-5"></div>
-      </div>
-    
-      <div class="relative h-72 rounded-3xl overflow-hidden group">
-        <img src="./img/studio/stidia-5.jpg" alt="New Jack Tattoo Studio 5" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
-        <div class="absolute inset-0 bg-gradient-to-t from-petrol-950/90 via-transparent to-transparent flex items-end p-5"></div>
-      </div>
-    
-      <div class="relative h-72 rounded-3xl overflow-hidden group">
-        <img src="./img/studio/stidia-6.jpg" alt="New Jack Tattoo Studio 6" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
-        <div class="absolute inset-0 bg-gradient-to-t from-petrol-950/90 via-transparent to-transparent flex items-end p-5"></div>
-      </div>
+      <div class="relative h-72 rounded-3xl overflow-hidden group"><img src="./img/studio/stidia-1.jpg" alt="New Jack Tattoo Studio 1" class="w-full h-full object-cover group-hover:scale-105 transition duration-500"><div class="absolute inset-0 bg-gradient-to-t from-petrol-950/90 via-transparent to-transparent flex items-end p-5"></div></div>
+      <div class="relative h-72 rounded-3xl overflow-hidden group"><img src="./img/studio/stidia-2.jpg" alt="New Jack Tattoo Studio 2" class="w-full h-full object-cover group-hover:scale-105 transition duration-500"><div class="absolute inset-0 bg-gradient-to-t from-petrol-950/90 via-transparent to-transparent flex items-end p-5"></div></div>
+      <div class="relative h-72 rounded-3xl overflow-hidden group"><img src="./img/studio/stidia-3.jpg" alt="New Jack Tattoo Studio 3" class="w-full h-full object-cover group-hover:scale-105 transition duration-500"><div class="absolute inset-0 bg-gradient-to-t from-petrol-950/90 via-transparent to-transparent flex items-end p-5"></div></div>
+      <div class="relative h-72 rounded-3xl overflow-hidden group"><img src="./img/studio/stidia-4.jpg" alt="New Jack Tattoo Studio 4" class="w-full h-full object-cover group-hover:scale-105 transition duration-500"><div class="absolute inset-0 bg-gradient-to-t from-petrol-950/90 via-transparent to-transparent flex items-end p-5"></div></div>
+      <div class="relative h-72 rounded-3xl overflow-hidden group"><img src="./img/studio/stidia-5.jpg" alt="New Jack Tattoo Studio 5" class="w-full h-full object-cover group-hover:scale-105 transition duration-500"><div class="absolute inset-0 bg-gradient-to-t from-petrol-950/90 via-transparent to-transparent flex items-end p-5"></div></div>
+      <div class="relative h-72 rounded-3xl overflow-hidden group"><img src="./img/studio/stidia-6.jpg" alt="New Jack Tattoo Studio 6" class="w-full h-full object-cover group-hover:scale-105 transition duration-500"><div class="absolute inset-0 bg-gradient-to-t from-petrol-950/90 via-transparent to-transparent flex items-end p-5"></div></div>
     </div>
   </section>
 
@@ -479,8 +494,9 @@
             <p class="text-xs text-petrol-300" data-i18n="form_hint">Hinweis: Referenzbilder können Sie direkt im WhatsApp-Chat senden, der sich gleich öffnet.</p>
           </div>
 
-          <button type="submit" class="w-full flex items-center justify-center gap-3 py-4 px-6 bg-[#25D366] hover:bg-[#20ba5a] text-white font-semibold rounded-xl shadow-lg transition-all duration-300 hover:scale-[1.02] active:scale-[0.98]">
-            <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24">
+          <!-- ОБНОВЛЕННАЯ КНОПКА ОТПРАВКИ -->
+          <button type="submit" class="btn-submit-wa">
+            <svg style="width:22px;height:22px;fill:currentColor;flex-shrink:0;" viewBox="0 0 24 24">
               <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/>
             </svg>
             <span data-i18n="form_submit">Anfrage absenden</span>
@@ -492,7 +508,6 @@
       <div class="space-y-6">
         <div class="glass-card p-8 rounded-3xl space-y-5">
           <h3 class="font-cinzel text-2xl font-bold text-white uppercase tracking-wider">New Jack Tattoo Duisburg</h3>
-          
           <div class="space-y-3 text-sm text-slate-300">
             <p class="flex items-center gap-3">
               <span class="w-8 h-8 rounded-lg bg-petrol-800/80 flex items-center justify-center text-petrol-300">📍</span>
@@ -509,12 +524,8 @@
           </div>
 
           <div class="pt-4 border-t border-petrol-800/70 flex flex-wrap gap-3">
-            <a href="https://www.instagram.com/newjacktattoo/" target="_blank" rel="noopener noreferrer" class="px-5 py-2.5 rounded-xl bg-petrol-800 hover:bg-petrol-700 text-xs font-semibold uppercase tracking-wider text-white transition">
-              Instagram Direct
-            </a>
-            <a href="https://maps.google.com/?q=Beekstraße+6,+47051+Duisburg" target="_blank" rel="noopener noreferrer" class="px-5 py-2.5 rounded-xl glass hover:bg-petrol-800/60 text-xs font-semibold uppercase tracking-wider text-petrol-300 transition" data-i18n="contact_maps">
-              Google Maps
-            </a>
+            <a href="https://www.instagram.com/newjacktattoo/" target="_blank" rel="noopener noreferrer" class="px-5 py-2.5 rounded-xl bg-petrol-800 hover:bg-petrol-700 text-xs font-semibold uppercase tracking-wider text-white transition">Instagram Direct</a>
+            <a href="https://maps.google.com/?q=Beekstraße+6,+47051+Duisburg" target="_blank" rel="noopener noreferrer" class="px-5 py-2.5 rounded-xl glass hover:bg-petrol-800/60 text-xs font-semibold uppercase tracking-wider text-petrol-300 transition" data-i18n="contact_maps">Google Maps</a>
           </div>
         </div>
 
@@ -559,12 +570,9 @@
         </div>
       </div>
 
-      <!-- Кнопка скачивания памятки PDF -->
       <div class="mt-12 text-center">
         <a href="./aftercare.pdf" download="New_Jack_Tattoo_Aftercare.pdf" class="inline-flex items-center gap-3 px-8 py-4 rounded-full bg-gradient-to-r from-petrol-500 to-petrol-400 hover:from-petrol-400 hover:to-petrol-300 text-white font-semibold text-xs sm:text-sm uppercase tracking-[0.2em] transition-all shadow-[0_0_25px_rgba(56,146,174,0.4)] hover:scale-105">
-          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
-          </svg>
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
           <span data-i18n="btn_aftercare_pdf">PDF-Pflegeanleitung herunterladen</span>
         </a>
       </div>
@@ -632,18 +640,16 @@
     </div>
   </div>
 
-  <!-- ЖИРНАЯ ПЛАВАЮЩАЯ КНОПКА WHATSAPP -->
+  <!-- ЯРКАЯ ПЛАВАЮЩАЯ КНОПКА WHATSAPP -->
   <a href="https://wa.me/4917632460273?text=Hallo,%20ich%20interessiere%20mich%20f%C3%BCr%20ein%20Tattoo." 
      target="_blank" 
      rel="noopener noreferrer"
-     class="fixed bottom-6 right-6 z-[99999] flex items-center justify-center w-16 h-16 bg-[#25D366] hover:bg-[#20ba5a] text-white rounded-full border-2 border-white shadow-[0_0_35px_rgba(37,211,102,0.9)] transition-all duration-300 hover:scale-110 active:scale-95 group"
+     class="floating-wa-btn"
      aria-label="WhatsApp Kontakt">
-    <svg class="w-9 h-9 fill-current" viewBox="0 0 24 24">
+    <svg style="width:34px;height:34px;fill:currentColor;" viewBox="0 0 24 24">
       <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/>
     </svg>
-    <span class="absolute right-20 bg-petrol-950 border border-petrol-500 text-white text-xs font-semibold px-4 py-2.5 rounded-xl shadow-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none whitespace-nowrap">
-      Schreib uns auf WhatsApp
-    </span>
+    <span class="floating-wa-tooltip">Schreib uns auf WhatsApp</span>
   </a>
 
   <!-- ЕДИНЫЙ РАБОЧИЙ СКРИПТ САЙТА -->
@@ -678,7 +684,7 @@
         form_placement: "Körperstelle & Größe", form_placement_ph: "Unterarm, ~15 cm",
         form_message: "Deine Tattoo-Idee", form_msg_ph: "Beschreibe deine Idee, Wunschtermine oder Fragen...",
         form_hint: "Hinweis: Referenzbilder können Sie direkt im WhatsApp-Chat senden, der sich gleich öffnet.",
-        form_submit: "Anfrage absenden",
+        form_submit: "Anfrage per WhatsApp senden",
         contact_address: "Adresse:", contact_phone: "Telefon:", contact_maps: "Google Maps",
         cookie_text: "Wir nutzen Cookies und Analysetools, um unsere Website zu verbessern. Mit Klick auf „Alle akzeptieren“ stimmst du der Verwendung zu.",
         cookie_decline: "Nur Essenzielle", cookie_accept: "Alle akzeptieren",
@@ -711,7 +717,7 @@
         form_placement: "Место и размер (см)", form_placement_ph: "Предплечье, ~15 cm",
         form_message: "Описание идеи", form_msg_ph: "Опишите вашу идею, желаемые даты или вопросы...",
         form_hint: "Примечание: Референсы и фото можно будет прикрепить прямо в чате WhatsApp после отправки.",
-        form_submit: "Отправить заявку",
+        form_submit: "Отправить заявку в WhatsApp",
         contact_address: "Адрес:", contact_phone: "Телефон:", contact_maps: "Показать на карте",
         cookie_text: "Мы используем файлы cookie для улучшения работы сайта. Нажимая «Все принять», вы даете согласие на использование аналитики.",
         cookie_decline: "Только базовые", cookie_accept: "Все принять",
@@ -744,7 +750,7 @@
         form_placement: "Placement & Size (cm)", form_placement_ph: "Forearm, ~15 cm",
         form_message: "Your Tattoo Idea", form_msg_ph: "Describe your idea, preferred dates, or ask questions...",
         form_hint: "Note: You can attach reference images directly in the WhatsApp chat that opens next.",
-        form_submit: "Send Request",
+        form_submit: "Send Request via WhatsApp",
         contact_address: "Address:", contact_phone: "Phone:", contact_maps: "Google Maps",
         cookie_text: "We use cookies and analytics to improve your experience. By clicking 'Accept All', you consent to our use of cookies.",
         cookie_decline: "Essential Only", cookie_accept: "Accept All",
@@ -753,17 +759,14 @@
       }
     };
 
-    // Функция переключения языка
     function setLang(lang) {
       currentLang = lang;
       ['de', 'ru', 'en'].forEach(l => {
         const btn = document.getElementById('lang-' + l);
         if (btn) {
-          if (l === lang) {
-            btn.className = "px-2.5 py-1 rounded-full bg-petrol-500 text-white transition";
-          } else {
-            btn.className = "px-2.5 py-1 rounded-full text-slate-400 hover:text-white transition";
-          }
+          btn.className = (l === lang)
+            ? "px-2.5 py-1 rounded-full bg-petrol-500 text-white transition"
+            : "px-2.5 py-1 rounded-full text-slate-400 hover:text-white transition";
         }
       });
 
@@ -781,71 +784,48 @@
       });
     }
 
-    // Фильтрация портфолио
     function filterPortfolio(style) {
       currentFilter = style;
-
       document.querySelectorAll('.filter-btn').forEach(btn => {
-        if (btn.dataset.filter === style) {
-          btn.className = "filter-btn active px-4 py-2 rounded-full text-xs uppercase tracking-widest font-semibold bg-petrol-500 text-white transition";
-        } else {
-          btn.className = "filter-btn px-4 py-2 rounded-full text-xs uppercase tracking-widest font-semibold glass text-slate-300 hover:text-white transition";
-        }
+        btn.className = (btn.dataset.filter === style)
+          ? "filter-btn active px-4 py-2 rounded-full text-xs uppercase tracking-widest font-semibold bg-petrol-500 text-white transition"
+          : "filter-btn px-4 py-2 rounded-full text-xs uppercase tracking-widest font-semibold glass text-slate-300 hover:text-white transition";
       });
 
       document.querySelectorAll('.portfolio-item').forEach(el => {
-        if (style === 'all' || el.getAttribute('data-style') === style) {
-          el.style.display = '';
-        } else {
-          el.style.display = 'none';
-        }
+        el.style.display = (style === 'all' || el.getAttribute('data-style') === style) ? '' : 'none';
       });
     }
 
-    // Мобильное меню
     function toggleMobileMenu() {
       const menu = document.getElementById('mobile-menu');
       if (menu) {
-        if (menu.classList.contains('hidden')) {
-          menu.classList.remove('hidden');
-          menu.classList.add('flex');
-        } else {
-          menu.classList.add('hidden');
-          menu.classList.remove('flex');
-        }
+        menu.classList.toggle('hidden');
+        menu.classList.toggle('flex');
       }
     }
 
-    // Аккордеон FAQ
     function toggleFaq(btn) {
       const content = btn.nextElementSibling;
       const sign = btn.querySelector('span:last-child');
       if (!content || !sign) return;
-
       const isOpen = !content.classList.contains('hidden');
-
       document.querySelectorAll('#faq .glass-card div').forEach(el => el.classList.add('hidden'));
       document.querySelectorAll('#faq button span:last-child').forEach(el => el.style.transform = 'rotate(0deg)');
-
       if (!isOpen) {
         content.classList.remove('hidden');
         sign.style.transform = 'rotate(45deg)';
       }
     }
 
-    // Эффект шапки при скролле
     window.addEventListener('scroll', () => {
       const nav = document.getElementById('navbar');
       if (nav) {
-        if (window.scrollY > 40) {
-          nav.classList.add('glass', 'shadow-lg');
-        } else {
-          nav.classList.remove('glass', 'shadow-lg');
-        }
+        nav.classList.toggle('glass', window.scrollY > 40);
+        nav.classList.toggle('shadow-lg', window.scrollY > 40);
       }
     });
 
-    // Загрузка Google Maps по клику (DSGVO)
     function loadGoogleMap() {
       const wrapper = document.getElementById('map-wrapper');
       if (wrapper) {
@@ -853,58 +833,40 @@
       }
     }
 
-    // Cookie-баннер
     function acceptCookies(type) {
       localStorage.setItem('njt_cookie_consent', type);
       const banner = document.getElementById('cookie-banner');
       if (banner) banner.classList.add('hidden');
     }
 
-    const userConsent = localStorage.getItem('njt_cookie_consent');
-    if (!userConsent) {
+    if (!localStorage.getItem('njt_cookie_consent')) {
       setTimeout(() => {
         const banner = document.getElementById('cookie-banner');
         if (banner) banner.classList.remove('hidden');
       }, 1000);
     }
 
-    // Отправка формы в WhatsApp
     const bookingForm = document.getElementById('booking-form');
     if (bookingForm) {
       bookingForm.addEventListener('submit', function(event) {
         event.preventDefault();
-
         const name = document.getElementById('form-name') ? document.getElementById('form-name').value.trim() : '';
         const contact = document.getElementById('form-contact') ? document.getElementById('form-contact').value.trim() : '';
         const style = document.getElementById('form-style') ? document.getElementById('form-style').value : '';
         const size = document.getElementById('form-size') ? document.getElementById('form-size').value.trim() : '';
         const idea = document.getElementById('form-idea') ? document.getElementById('form-idea').value.trim() : '';
 
-        let message = `*Neue Tattoo-Anfrage über die Website!*\n\n`;
-        message += `*Name:* ${name}\n`;
-        message += `*Kontakt (Tel/Insta):* ${contact}\n`;
-        message += `*Stil:* ${style}\n`;
-        
-        if (size !== '') {
-          message += `*Körperstelle & Größe:* ${size}\n`;
-        }
-        if (idea !== '') {
-          message += `*Idee/Fragen:* ${idea}\n`;
-        }
-        
+        let message = `*Neue Tattoo-Anfrage über die Website!*\n\n*Name:* ${name}\n*Kontakt (Tel/Insta):* ${contact}\n*Stil:* ${style}\n`;
+        if (size !== '') message += `*Körperstelle & Größe:* ${size}\n`;
+        if (idea !== '') message += `*Idee/Fragen:* ${idea}\n`;
         message += `\n_Hier können Sie nun Ihre Referenzbilder anhängen!_`;
 
-        const phoneNumber = '4917632460273';
-        const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
-
-        window.location.href = whatsappUrl;
+        window.location.href = `https://wa.me/4917632460273?text=${encodeURIComponent(message)}`;
       });
     }
 
-    // Подгрузка работ из /data.json (если используется админка)
     document.addEventListener("DOMContentLoaded", function() {
       setLang('de');
-
       fetch('/data.json')
         .then(response => {
           if (!response.ok) throw new Error('Данные не найдены');
@@ -913,13 +875,10 @@
         .then(data => {
           const grid = document.getElementById('portfolio-grid');
           if (!grid || !data.gallery) return;
-
           data.gallery.reverse().forEach(item => {
             if (!item.photo) return;
-            
             const styleName = item.style ? item.style : 'BlackGreyRealism';
             const artistName = item.artist ? item.artist : 'New Jack Tattoo';
-            
             const cardHTML = `
               <div data-style="${styleName}" class="portfolio-item portfolio-card group relative h-80 rounded-2xl overflow-hidden border border-petrol-800/60 bg-petrol-950">
                 <img src="${item.photo}" alt="Tattoo by ${artistName}" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
@@ -927,9 +886,7 @@
                   <span class="text-[10px] uppercase tracking-[0.25em] text-petrol-300 font-bold">${styleName}</span>
                   <h4 class="text-white font-semibold text-sm mt-0.5">${artistName}</h4>
                 </div>
-              </div>
-            `;
-            
+              </div>`;
             grid.insertAdjacentHTML('afterbegin', cardHTML);
           });
         })
