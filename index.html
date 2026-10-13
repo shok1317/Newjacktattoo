@@ -338,61 +338,60 @@
 <!-- ПОРТФОЛИО -->
   <section id="portfolio" class="py-24 px-6 bg-petrol-900/30 border-y border-petrol-800/40">
     <div class="max-w-7xl mx-auto">
-      
-      <!-- Заголовок и кнопки фильтров -->
       <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
         <div>
           <span class="text-petrol-400 text-xs uppercase tracking-[0.3em] font-semibold block mb-2" data-i18n="portfolio_tag">Selected Works</span>
           <h2 class="font-cinzel text-3xl sm:text-5xl font-bold text-white tracking-wider uppercase" data-i18n="portfolio_title">Portfolio</h2>
         </div>
 
+        <!-- Кнопки фильтрации по стилям -->
         <div class="flex flex-wrap gap-2" id="portfolio-filters">
-          <button onclick="filterPortfolio('all')" data-filter="all" class="filter-btn px-4 py-2 rounded-full text-xs uppercase tracking-widest font-semibold bg-petrol-500 text-white transition">All</button>
-          <button onclick="filterPortfolio('Japanese')" data-filter="Japanese" class="filter-btn px-4 py-2 rounded-full text-xs uppercase tracking-widest font-semibold glass text-slate-300 hover:text-white transition">Japanese</button>
-          <button onclick="filterPortfolio('BlackGreyRealism')" data-filter="BlackGreyRealism" class="filter-btn px-4 py-2 rounded-full text-xs uppercase tracking-widest font-semibold glass text-slate-300 hover:text-white transition">Black &amp; Grey</button>
-          <button onclick="filterPortfolio('ColorRealism')" data-filter="ColorRealism" class="filter-btn px-4 py-2 rounded-full text-xs uppercase tracking-widest font-semibold glass text-slate-300 hover:text-white transition">Color</button>
+          <button onclick="filterPortfolio('all')" data-filter="all" class="filter-btn active px-4 py-2 rounded-full text-xs uppercase tracking-widest font-semibold bg-petrol-500 text-white transition">All</button>
+          <button onclick="filterPortfolio('Realism')" data-filter="Realism" class="filter-btn px-4 py-2 rounded-full text-xs uppercase tracking-widest font-semibold glass text-slate-300 hover:text-white transition">Realism</button>
+          <button onclick="filterPortfolio('Blackwork')" data-filter="Blackwork" class="filter-btn px-4 py-2 rounded-full text-xs uppercase tracking-widest font-semibold glass text-slate-300 hover:text-white transition">Blackwork</button>
+          <button onclick="filterPortfolio('Lettering')" data-filter="Lettering" class="filter-btn px-4 py-2 rounded-full text-xs uppercase tracking-widest font-semibold glass text-slate-300 hover:text-white transition">Dark Lettering</button>
           <button onclick="filterPortfolio('Traditional')" data-filter="Traditional" class="filter-btn px-4 py-2 rounded-full text-xs uppercase tracking-widest font-semibold glass text-slate-300 hover:text-white transition">Traditional</button>
         </div>
       </div>
 
-      <!-- Сетка с работами -->
+      <!-- Сетка портфолио -->
       <div id="portfolio-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
         
-        <!-- Карточка 1 (Japanese) -->
-        <div class="portfolio-item group relative rounded-2xl overflow-hidden aspect-[4/5] cursor-pointer" data-category="Japanese">
-          <!-- Путь к твоей картинке -->
-          <img src="./jap1.jpg" alt="Japanese Tattoo" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
-          <!-- Красивый градиент при наведении -->
+        <!-- КАРТОЧКА 1 (Realism) -->
+        <div class="portfolio-item group relative rounded-2xl overflow-hidden aspect-[4/5] cursor-pointer" data-category="Realism">
+          <!-- ЗДЕСЬ ДОЛЖНА БЫТЬ ТВОЯ КАРТИНКА, НАПРИМЕР bg1.jpg -->
+          <img src="./bg1.jpg" alt="Realism Tattoo" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
           <div class="absolute inset-0 bg-gradient-to-t from-petrol-950 via-petrol-900/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-6">
-            <span class="text-petrol-300 text-xs font-bold uppercase tracking-widest mb-1">Japanese</span>
+            <span class="text-petrol-300 text-xs font-bold uppercase tracking-widest mb-1">Realism</span>
           </div>
         </div>
 
-        <!-- Карточка 2 (Black & Grey) -->
-        <div class="portfolio-item group relative rounded-2xl overflow-hidden aspect-[4/5] cursor-pointer" data-category="BlackGreyRealism">
-          <img src="./bg1.jpg" alt="Black & Grey Tattoo" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+        <!-- КАРТОЧКА 2 (Blackwork) -->
+        <div class="portfolio-item group relative rounded-2xl overflow-hidden aspect-[4/5] cursor-pointer" data-category="Blackwork">
+           <!-- ЗДЕСЬ ДОЛЖНА БЫТЬ ТВОЯ КАРТИНКА -->
+          <img src="./blackwork1.jpg" alt="Blackwork Tattoo" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
           <div class="absolute inset-0 bg-gradient-to-t from-petrol-950 via-petrol-900/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-6">
-            <span class="text-petrol-300 text-xs font-bold uppercase tracking-widest mb-1">Black & Grey Realism</span>
+            <span class="text-petrol-300 text-xs font-bold uppercase tracking-widest mb-1">Blackwork</span>
           </div>
         </div>
         
-        <!-- Карточка 3 (Color Realism) -->
-        <div class="portfolio-item group relative rounded-2xl overflow-hidden aspect-[4/5] cursor-pointer" data-category="ColorRealism">
-          <img src="./color1.jpg" alt="Color Realism Tattoo" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+        <!-- КАРТОЧКА 3 (Dark Lettering) -->
+        <div class="portfolio-item group relative rounded-2xl overflow-hidden aspect-[4/5] cursor-pointer" data-category="Lettering">
+          <!-- ЗДЕСЬ ДОЛЖНА БЫТЬ ТВОЯ КАРТИНКА -->
+          <img src="./lettering1.jpg" alt="Dark Lettering Tattoo" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
           <div class="absolute inset-0 bg-gradient-to-t from-petrol-950 via-petrol-900/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-6">
-            <span class="text-petrol-300 text-xs font-bold uppercase tracking-widest mb-1">Color Realism</span>
+            <span class="text-petrol-300 text-xs font-bold uppercase tracking-widest mb-1">Dark Lettering</span>
           </div>
         </div>
 
-        <!-- Карточка 4 (Traditional) -->
+        <!-- КАРТОЧКА 4 (Traditional) -->
         <div class="portfolio-item group relative rounded-2xl overflow-hidden aspect-[4/5] cursor-pointer" data-category="Traditional">
+          <!-- ЗДЕСЬ ДОЛЖНА БЫТЬ ТВОЯ КАРТИНКА -->
           <img src="./trad1.jpg" alt="Traditional Tattoo" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
           <div class="absolute inset-0 bg-gradient-to-t from-petrol-950 via-petrol-900/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-6">
             <span class="text-petrol-300 text-xs font-bold uppercase tracking-widest mb-1">Traditional</span>
           </div>
         </div>
-
-        <!-- Можешь просто копировать эти карточки, чтобы добавить больше фото -->
 
       </div>
     </div>
@@ -1714,18 +1713,28 @@
     }
   });
 
-  // Логика фильтров портфолио
+ // Логика фильтров портфолио
   function filterPortfolio(category) {
-    // Меняем стили кнопок (активная/неактивная)
+    // 1. Меняем кнопки
     document.querySelectorAll('.filter-btn').forEach(btn => {
       if (btn.getAttribute('data-filter') === category) {
-        btn.classList.add('bg-petrol-500', 'text-white');
+        btn.classList.add('bg-petrol-500', 'text-white', 'active');
         btn.classList.remove('glass', 'text-slate-300');
       } else {
-        btn.classList.remove('bg-petrol-500', 'text-white');
+        btn.classList.remove('bg-petrol-500', 'text-white', 'active');
         btn.classList.add('glass', 'text-slate-300');
       }
     });
+
+    // 2. Скрываем/показываем карточки
+    document.querySelectorAll('.portfolio-item').forEach(item => {
+      if (category === 'all' || item.getAttribute('data-category') === category) {
+        item.style.display = 'block'; // Показываем
+      } else {
+        item.style.display = 'none';  // Скрываем
+      }
+    });
+  }
 
     // Показываем/скрываем картинки
     document.querySelectorAll('.portfolio-item').forEach(item => {
