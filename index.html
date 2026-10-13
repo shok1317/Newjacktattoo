@@ -452,60 +452,58 @@
       </div>
   </section>
 
-  <!-- КОНТАКТЫ & DSGVO Google Maps -->
+    <!-- КОНТАКТЫ И ФОРМА WHATSAPP -->
   <section id="contact" class="py-24 px-6 bg-petrol-900/30 border-y border-petrol-800/40">
     <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
       
+      <!-- ЛЕВАЯ ЧАСТЬ: ФОРМА -->
       <div class="glass-card p-8 sm:p-10 rounded-3xl">
-        <span class="text-petrol-400 text-xs uppercase tracking-[0.3em] font-semibold block mb-2" data-i18n="book_tag">Booking &amp; Consultation</span>
-        <h2 class="font-cinzel text-2xl sm:text-4xl font-bold text-white uppercase tracking-wider mb-6" data-i18n="book_title">Termin anfragen</h2>
+        <span class="text-petrol-400 text-xs uppercase tracking-[0.3em] font-semibold block mb-2">Booking &amp; Consultation</span>
+        <h2 class="font-cinzel text-2xl sm:text-4xl font-bold text-white uppercase tracking-wider mb-6">Termin anfragen</h2>
 
-        <form name="tattoo-booking" method="POST" data-netlify="true" onsubmit="handleBookingSubmit(event)" class="space-y-5">
-          <input type="hidden" name="form-name" value="tattoo-booking">
-          
+        <form id="booking-form" class="space-y-5">
           <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
             <div>
-              <label class="block text-xs uppercase tracking-wider text-slate-400 mb-2" data-i18n="form_name">Dein Name *</label>
-              <input type="text" name="name" required="" placeholder="Max Mustermann" data-i18n-placeholder="form_name_ph" class="w-full px-4 py-3.5 rounded-xl bg-petrol-950/90 border border-petrol-700/70 text-white text-sm focus:border-petrol-400 focus:outline-none transition">
+              <label class="block text-xs uppercase tracking-wider text-slate-400 mb-2">Dein Name *</label>
+              <input type="text" id="form-name" required placeholder="Max Mustermann" class="w-full px-4 py-3.5 rounded-xl bg-petrol-950/90 border border-petrol-700/70 text-white text-sm focus:border-petrol-400 focus:outline-none transition">
             </div>
             <div>
-              <label class="block text-xs uppercase tracking-wider text-slate-400 mb-2" data-i18n="form_phone">Telefon / WhatsApp / Instagram *</label>
-              <input type="text" name="contact" required="" placeholder="+49 176 ... / @username" data-i18n-placeholder="form_phone_ph" class="w-full px-4 py-3.5 rounded-xl bg-petrol-950/90 border border-petrol-700/70 text-white text-sm focus:border-petrol-400 focus:outline-none transition">
+              <label class="block text-xs uppercase tracking-wider text-slate-400 mb-2">Telefon / Insta *</label>
+              <input type="text" id="form-contact" required placeholder="+49 176 ... / @username" class="w-full px-4 py-3.5 rounded-xl bg-petrol-950/90 border border-petrol-700/70 text-white text-sm focus:border-petrol-400 focus:outline-none transition">
             </div>
           </div>
 
           <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
             <div>
-              <label class="block text-xs uppercase tracking-wider text-slate-400 mb-2" data-i18n="form_style">Stilrichtung</label>
-              <select name="style" class="w-full px-4 py-3.5 rounded-xl bg-petrol-950/90 border border-petrol-700/70 text-white text-sm focus:border-petrol-400 focus:outline-none transition">
-                <option value="Japanese" data-i18n="style_opt_japanese">Japanese</option>
-                <option value="BlackGreyRealism" data-i18n="style_opt_bg_realism">Black &amp; Grey Realism</option>
-                <option value="ColorRealism" data-i18n="style_opt_color_realism">Color Realism</option>
-                <option value="Traditional" data-i18n="style_opt_traditional">Traditional (Old School)</option>
-                <option value="Consultation" data-i18n="style_opt_consult">Beratung gewünscht</option>
+              <label class="block text-xs uppercase tracking-wider text-slate-400 mb-2">Stilrichtung</label>
+              <select id="form-style" class="w-full px-4 py-3.5 rounded-xl bg-petrol-950/90 border border-petrol-700/70 text-white text-sm focus:border-petrol-400 focus:outline-none appearance-none transition">
+                <option value="Japanese">Japanese</option>
+                <option value="Black & Grey Realism">Black & Grey Realism</option>
+                <option value="Color Realism">Color Realism</option>
+                <option value="Traditional">Traditional (Old School)</option>
+                <option value="Beratung gewünscht">Beratung gewünscht</option>
               </select>
             </div>
             <div>
-              <label class="block text-xs uppercase tracking-wider text-slate-400 mb-2" data-i18n="form_placement">Körperstelle &amp; Größe (cm)</label>
-              <input type="text" name="placement" placeholder="Unterarm, ~15 cm" data-i18n-placeholder="form_placement_ph" class="w-full px-4 py-3.5 rounded-xl bg-petrol-950/90 border border-petrol-700/70 text-white text-sm focus:border-petrol-400 focus:outline-none transition">
+              <label class="block text-xs uppercase tracking-wider text-slate-400 mb-2">Körperstelle &amp; Größe</label>
+              <input type="text" id="form-size" placeholder="Unterarm, ~15 cm" class="w-full px-4 py-3.5 rounded-xl bg-petrol-950/90 border border-petrol-700/70 text-white text-sm focus:border-petrol-400 focus:outline-none transition">
             </div>
           </div>
 
           <div>
-            <label class="block text-xs uppercase tracking-wider text-slate-400 mb-2" data-i18n="form_msg">Deine Tattoo-Idee</label>
-            <textarea name="message" rows="3" placeholder="Beschreibe deine Idee, Wunschtermine oder Fragen..." data-i18n-placeholder="form_msg_ph" class="w-full px-4 py-3.5 rounded-xl bg-petrol-950/90 border border-petrol-700/70 text-white text-sm focus:border-petrol-400 focus:outline-none transition"></textarea>
+            <label class="block text-xs uppercase tracking-wider text-slate-400 mb-2">Deine Tattoo-Idee</label>
+            <textarea id="form-idea" rows="3" placeholder="Beschreibe deine Idee, Wunschtermine oder Fragen..." class="w-full px-4 py-3.5 rounded-xl bg-petrol-950/90 border border-petrol-700/70 text-white text-sm focus:border-petrol-400 focus:outline-none transition"></textarea>
           </div>
 
-          <div>
-            <label class="block text-xs uppercase tracking-wider text-slate-400 mb-2" data-i18n="form_ref">Referenzbild hochladen (optional)</label>
-            <input type="file" name="reference_image" accept="image/*" class="w-full px-4 py-3 rounded-xl bg-petrol-950/90 border border-petrol-700/70 text-xs text-slate-300 file:mr-4 file:py-1 file:px-3 file:rounded-lg file:border-0 file:text-xs file:font-semibold file:bg-petrol-600 file:text-white hover:file:bg-petrol-500 cursor-pointer">
+          <div class="p-4 bg-petrol-800/40 border border-petrol-700/50 rounded-xl text-center">
+            <p class="text-xs text-petrol-300">Hinweis: Referenzbilder können Sie direkt im WhatsApp-Chat senden, der sich gleich öffnet.</p>
           </div>
 
-          <button type="submit" class="w-full py-4 rounded-xl bg-gradient-to-r from-petrol-500 to-petrol-400 hover:from-petrol-400 hover:to-petrol-300 text-white font-bold text-xs uppercase tracking-[0.22em] transition shadow-[0_0_25px_rgba(56,146,174,0.4)]" data-i18n="form_submit">Anfrage absenden</button>
-          <p id="booking-status" class="hidden text-center text-xs text-emerald-400 font-medium pt-2"></p>
+          <button type="submit" class="w-full py-4 rounded-xl bg-gradient-to-r from-petrol-500 to-petrol-400 hover:from-petrol-400 hover:to-petrol-300 text-white font-bold text-xs uppercase tracking-[0.22em] transition shadow-[0_0_25px_rgba(56,146,174,0.4)]">Anfrage absenden</button>
         </form>
       </div>
 
+      <!-- ПРАВАЯ ЧАСТЬ: ИНФО И КАРТЫ -->
       <div class="space-y-6">
         <div class="glass-card p-8 rounded-3xl space-y-5">
           <h3 class="font-cinzel text-2xl font-bold text-white uppercase tracking-wider">New Jack Tattoo Duisburg</h3>
@@ -517,11 +515,7 @@
             </p>
             <p class="flex items-center gap-3">
               <span class="w-8 h-8 rounded-lg bg-petrol-800/80 flex items-center justify-center text-petrol-300">📞</span>
-              <span><strong>Telefon:</strong> <a href="tel:+492034565569" class="text-petrol-300 hover:underline whitespace-nowrap">+49 203 4565569</a></span>
-            </p>
-            <p class="flex items-center gap-3">
-              <span class="w-8 h-8 rounded-lg bg-petrol-800/80 flex items-center justify-center text-petrol-300">✉️</span>
-              <span><strong>E-Mail:</strong> <a href="mailto:info@newjacktattoo.de" class="text-petrol-300 hover:underline">info@newjacktattoo.de</a></span>
+              <span><strong>Telefon:</strong> <a href="tel:+4917632460273" class="text-petrol-300 hover:underline whitespace-nowrap">+49 176 32460273</a></span>
             </p>
             <p class="flex items-center gap-3">
               <span class="w-8 h-8 rounded-lg bg-petrol-800/80 flex items-center justify-center text-petrol-300">📸</span>
@@ -538,6 +532,10 @@
             </a>
           </div>
         </div>
+      </div>
+    </div>
+  </section>
+  
 
         <!-- DSGVO Google Maps -->
         <div id="map-wrapper" class="rounded-3xl overflow-hidden border border-petrol-700/50 h-72 shadow-2xl relative bg-petrol-950 flex items-center justify-center">
