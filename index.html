@@ -21,12 +21,35 @@
     @font-face { font-family: 'Great Vibes'; src: url('./fonts/great-vibes-regular.woff2') format('woff2'); }
     @font-face { font-family: 'Inter'; src: url('./fonts/inter-regular.woff2') format('woff2'); font-weight: 400; }
     @font-face { font-family: 'Syne'; src: url('./fonts/syne-regular.woff2') format('woff2'); font-weight: 700; }
-   textarea { resize: none !important; }
-    
+
+    textarea { resize: none !important; }
+
     body {
       background-color: #050d10;
       color: #f1f5f9;
       overflow-x: hidden;
+    }
+
+    /* КАСТОМНАЯ СТРЕЛОЧКА ДЛЯ SELECT */
+    .custom-select {
+      appearance: none;
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%234bb3d2'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2.2' d='M19 9l-7 7-7-7'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 1rem center;
+      background-size: 1.15rem;
+      padding-right: 2.75rem !important;
+    }
+
+    /* ПОДСВЕТКА ПОЛЯ МАСТЕРА ПРИ АВТОВЫБОРЕ */
+    @keyframes fieldGlow {
+      0% { box-shadow: 0 0 0 0 rgba(75, 179, 210, 0.8); border-color: #7dd3fc; }
+      50% { box-shadow: 0 0 25px 4px rgba(56, 146, 174, 0.65); border-color: #7dd3fc; }
+      100% { box-shadow: 0 0 0 0 rgba(56, 146, 174, 0); }
+    }
+    .highlight-field {
+      animation: fieldGlow 1.6s ease-out;
     }
 
     /* КРАСИВАЯ КНОПКА MENU В ШАПКЕ */
@@ -50,7 +73,7 @@
       transform: scale(1.03);
     }
 
-    /* ОБНОВЛЕННАЯ ПЛАШКА МОБИЛЬНОГО МЕНЮ */
+    /* ПЛАШКА МОБИЛЬНОГО МЕНЮ */
     @keyframes menuPop {
       0% { opacity: 0; transform: translateY(-15px) scale(0.96); }
       100% { opacity: 1; transform: translateY(0) scale(1); }
@@ -136,9 +159,7 @@
       box-shadow: 0 12px 35px rgba(37, 211, 102, 0.65);
       transform: translateY(-2px);
     }
-    .btn-submit-wa:active {
-      transform: translateY(0);
-    }
+    .btn-submit-wa:active { transform: translateY(0); }
 
     /* ПЛАВАЮЩАЯ КНОПКА WHATSAPP С ПУЛЬСАЦИЕЙ */
     @keyframes waPulse {
@@ -150,7 +171,7 @@
       position: fixed;
       bottom: 24px;
       right: 24px;
-      z-index: 99999;
+      z-index: 99990;
       width: 62px;
       height: 62px;
       border-radius: 9999px;
@@ -164,9 +185,7 @@
       transition: transform 0.3s ease;
       text-decoration: none;
     }
-    .floating-wa-btn:hover {
-      transform: scale(1.1);
-    }
+    .floating-wa-btn:hover { transform: scale(1.1); }
     .floating-wa-tooltip {
       position: absolute;
       right: 76px;
@@ -183,8 +202,92 @@
       pointer-events: none;
       transition: opacity 0.25s ease;
     }
-    .floating-wa-btn:hover .floating-wa-tooltip {
+    .floating-wa-btn:hover .floating-wa-tooltip { opacity: 1; }
+
+    /* СВАЙП-КАРУСЕЛЬ ДЛЯ СТУДИИ НА МОБИЛЬНЫХ */
+    @media (max-width: 767px) {
+      #studio-grid {
+        display: flex !important;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        gap: 16px;
+        padding-bottom: 14px;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+      }
+      #studio-grid::-webkit-scrollbar { display: none; }
+      #studio-grid > div {
+        flex: 0 0 84%;
+        scroll-snap-align: center;
+      }
+    }
+
+    /* КУРСОР И ЛАЙТБОКС ДЛЯ ПРОСМОТРА ФОТО */
+    .portfolio-item, #studio-grid > div { cursor: zoom-in; }
+    .lightbox-overlay {
+      position: fixed;
+      inset: 0;
+      z-index: 99999;
+      background: rgba(5, 13, 16, 0.94);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+    }
+    .lightbox-overlay.open {
       opacity: 1;
+      pointer-events: auto;
+    }
+    .lightbox-img {
+      max-width: 92vw;
+      max-height: 86vh;
+      border-radius: 1.25rem;
+      border: 1px solid rgba(75, 179, 210, 0.5);
+      box-shadow: 0 25px 70px rgba(0, 0, 0, 0.95), 0 0 35px rgba(56, 146, 174, 0.25);
+      object-fit: contain;
+      transform: scale(0.94);
+      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .lightbox-overlay.open .lightbox-img {
+      transform: scale(1);
+    }
+    .lightbox-close {
+      position: absolute;
+      top: 22px;
+      right: 22px;
+      width: 46px;
+      height: 46px;
+      border-radius: 9999px;
+      background: rgba(14, 37, 45, 0.9);
+      border: 1px solid rgba(75, 179, 210, 0.6);
+      color: #ffffff;
+      font-size: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.6);
+      transition: all 0.2s ease;
+    }
+    .lightbox-close:hover {
+      background: #3892ae;
+      transform: scale(1.08);
+    }
+
+    /* ПЛАВНОЕ ПОЯВЛЕНИЕ БЛОКОВ ПРИ СКРОЛЛЕ */
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.65s ease-out, transform 0.65s ease-out;
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
     }
 
     /* Кастомный ползунок */
@@ -227,8 +330,7 @@
         
         <a href="#contact" class="hidden sm:inline-flex items-center justify-center whitespace-nowrap flex-shrink-0 px-5 py-2 rounded-full bg-petrol-500 hover:bg-petrol-400 text-white text-xs font-semibold uppercase tracking-wider transition shadow-[0_0_20px_rgba(56,146,174,0.4)]" data-i18n="btn_book_nav">Termin</a>
         
-        <!-- Кнопка мобильного меню (Капсула) -->
-        <button onclick="toggleMobileMenu()" class="lg:hidden custom-menu-btn focus:outline-none" aria-label="Menu">
+        <button id="menu-toggle-btn" onclick="toggleMobileMenu(event)" class="lg:hidden custom-menu-btn focus:outline-none" aria-label="Menu">
           <span class="text-[11px] uppercase tracking-widest font-bold" data-i18n="nav_menu">Menu</span>
           <svg class="w-5 h-5 text-petrol-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
         </button>
@@ -238,13 +340,13 @@
 
   <!-- Выпадающее мобильное меню -->
   <div id="mobile-menu" class="hidden lg:hidden flex-col glass-mobile-menu">
-    <a href="#hero" onclick="toggleMobileMenu()" class="menu-link"><span data-i18n="nav_home">Start</span><span>›</span></a>
-    <a href="#artists" onclick="toggleMobileMenu()" class="menu-link"><span data-i18n="nav_artists">Artists</span><span>›</span></a>
-    <a href="#portfolio" onclick="toggleMobileMenu()" class="menu-link"><span data-i18n="nav_portfolio">Portfolio</span><span>›</span></a>
-    <a href="#studio" onclick="toggleMobileMenu()" class="menu-link"><span data-i18n="nav_studio">Studio</span><span>›</span></a>
-    <a href="#aftercare" onclick="toggleMobileMenu()" class="menu-link"><span data-i18n="nav_aftercare">Aftercare</span><span>›</span></a>
-    <a href="#faq" onclick="toggleMobileMenu()" class="menu-link"><span data-i18n="nav_faq">FAQ</span><span>›</span></a>
-    <a href="#contact" onclick="toggleMobileMenu()" class="menu-cta" data-i18n="hero_cta_primary">Termin vereinbaren</a>
+    <a href="#hero" onclick="closeMobileMenu()" class="menu-link"><span data-i18n="nav_home">Start</span><span>›</span></a>
+    <a href="#artists" onclick="closeMobileMenu()" class="menu-link"><span data-i18n="nav_artists">Artists</span><span>›</span></a>
+    <a href="#portfolio" onclick="closeMobileMenu()" class="menu-link"><span data-i18n="nav_portfolio">Portfolio</span><span>›</span></a>
+    <a href="#studio" onclick="closeMobileMenu()" class="menu-link"><span data-i18n="nav_studio">Studio</span><span>›</span></a>
+    <a href="#aftercare" onclick="closeMobileMenu()" class="menu-link"><span data-i18n="nav_aftercare">Aftercare</span><span>›</span></a>
+    <a href="#faq" onclick="closeMobileMenu()" class="menu-link"><span data-i18n="nav_faq">FAQ</span><span>›</span></a>
+    <a href="#contact" onclick="closeMobileMenu()" class="menu-cta" data-i18n="hero_cta_primary">Termin vereinbaren</a>
   </div>
 
   <!-- ГЛАВНЫЙ ЭКРАН -->
@@ -303,7 +405,7 @@
   </section>
 
   <!-- МАСТЕРЫ -->
-  <section id="artists" class="py-24 px-6 max-w-7xl mx-auto">
+  <section id="artists" class="py-24 px-6 max-w-7xl mx-auto reveal">
     <div class="text-center max-w-2xl mx-auto mb-16">
       <span class="text-petrol-400 text-xs uppercase tracking-[0.3em] font-semibold block mb-2" data-i18n="artists_tag">Resident Artists</span>
       <h2 class="font-cinzel text-3xl sm:text-5xl font-bold text-white tracking-wider uppercase mb-4" data-i18n="artists_title">Unsere Tätowierer</h2>
@@ -326,7 +428,7 @@
               <span class="text-[11px] font-semibold text-slate-300 group-hover:text-white tracking-wider">@andy_blvck1</span>
             </a>
             <div class="flex items-center justify-between pt-4 border-t border-petrol-800/60">
-              <a href="#contact" class="inline-flex items-center gap-2 text-xs uppercase tracking-widest font-bold text-petrol-300 hover:text-white transition"><span data-i18n="artists_book">Termin vereinbaren</span><span>→</span></a>
+              <a href="#contact" onclick="selectArtistAndBook('Andy', event)" class="inline-flex items-center gap-2 text-xs uppercase tracking-widest font-bold text-petrol-300 hover:text-white transition"><span data-i18n="artists_book">Termin vereinbaren</span><span>→</span></a>
             </div>
           </div>
         </div>
@@ -347,7 +449,7 @@
               <span class="text-[11px] font-semibold text-slate-300 group-hover:text-white tracking-wider">@tattoo.asty.mayer</span>
             </a>
             <div class="flex items-center justify-between pt-4 border-t border-petrol-800/60">
-              <a href="#contact" class="inline-flex items-center gap-2 text-xs uppercase tracking-widest font-bold text-petrol-300 hover:text-white transition"><span data-i18n="artists_book">Termin vereinbaren</span><span>→</span></a>
+              <a href="#contact" onclick="selectArtistAndBook('Asty', event)" class="inline-flex items-center gap-2 text-xs uppercase tracking-widest font-bold text-petrol-300 hover:text-white transition"><span data-i18n="artists_book">Termin vereinbaren</span><span>→</span></a>
             </div>
           </div>
         </div>
@@ -368,7 +470,7 @@
               <span class="text-[11px] font-semibold text-slate-300 group-hover:text-white tracking-wider">@whitedogtattoo</span>
             </a>
             <div class="flex items-center justify-between pt-4 border-t border-petrol-800/60">
-              <a href="#contact" class="inline-flex items-center gap-2 text-xs uppercase tracking-widest font-bold text-petrol-300 hover:text-white transition"><span data-i18n="artists_book">Termin vereinbaren</span><span>→</span></a>
+              <a href="#contact" onclick="selectArtistAndBook('Sascha', event)" class="inline-flex items-center gap-2 text-xs uppercase tracking-widest font-bold text-petrol-300 hover:text-white transition"><span data-i18n="artists_book">Termin vereinbaren</span><span>→</span></a>
             </div>
           </div>
         </div>
@@ -389,7 +491,7 @@
               <span class="text-[11px] font-semibold text-slate-300 group-hover:text-white tracking-wider">@ritmrimma</span>
             </a>
             <div class="flex items-center justify-between pt-4 border-t border-petrol-800/60">
-              <a href="#contact" class="inline-flex items-center gap-2 text-xs uppercase tracking-widest font-bold text-petrol-300 hover:text-white transition"><span data-i18n="artists_book">Termin vereinbaren</span><span>→</span></a>
+              <a href="#contact" onclick="selectArtistAndBook('Rimma', event)" class="inline-flex items-center gap-2 text-xs uppercase tracking-widest font-bold text-petrol-300 hover:text-white transition"><span data-i18n="artists_book">Termin vereinbaren</span><span>→</span></a>
             </div>
           </div>
         </div>
@@ -398,7 +500,7 @@
   </section>
 
   <!-- ПОРТФОЛИО -->
-  <section id="portfolio" class="py-24 px-6 bg-petrol-900/30 border-y border-petrol-800/40">
+  <section id="portfolio" class="py-24 px-6 bg-petrol-900/30 border-y border-petrol-800/40 reveal">
     <div class="max-w-7xl mx-auto">
       <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
         <div>
@@ -427,8 +529,8 @@
   </section>
 
   <!-- ИНТЕРЬЕР СТУДИИ -->
-  <section id="studio" class="py-24 px-6 max-w-7xl mx-auto">
-    <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
+  <section id="studio" class="py-24 px-6 max-w-7xl mx-auto reveal">
+    <div class="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-6">
       <div>
         <span class="text-petrol-400 text-xs uppercase tracking-[0.3em] font-semibold block mb-2" data-i18n="studio_tag">Atmosphere &amp; Hygiene</span>
         <h2 class="font-cinzel text-3xl sm:text-5xl font-bold text-white tracking-wider uppercase" data-i18n="studio_title">Das Studio</h2>
@@ -439,17 +541,17 @@
     </div>
 
     <div id="studio-grid" class="grid grid-cols-1 md:grid-cols-3 gap-6">
-      <div class="relative h-72 rounded-3xl overflow-hidden group"><img src="./img/studio/stidia-1.jpg" alt="New Jack Tattoo Studio 1" class="w-full h-full object-cover group-hover:scale-105 transition duration-500"><div class="absolute inset-0 bg-gradient-to-t from-petrol-950/90 via-transparent to-transparent flex items-end p-5"></div></div>
-      <div class="relative h-72 rounded-3xl overflow-hidden group"><img src="./img/studio/stidia-2.jpg" alt="New Jack Tattoo Studio 2" class="w-full h-full object-cover group-hover:scale-105 transition duration-500"><div class="absolute inset-0 bg-gradient-to-t from-petrol-950/90 via-transparent to-transparent flex items-end p-5"></div></div>
-      <div class="relative h-72 rounded-3xl overflow-hidden group"><img src="./img/studio/stidia-3.jpg" alt="New Jack Tattoo Studio 3" class="w-full h-full object-cover group-hover:scale-105 transition duration-500"><div class="absolute inset-0 bg-gradient-to-t from-petrol-950/90 via-transparent to-transparent flex items-end p-5"></div></div>
-      <div class="relative h-72 rounded-3xl overflow-hidden group"><img src="./img/studio/stidia-4.jpg" alt="New Jack Tattoo Studio 4" class="w-full h-full object-cover group-hover:scale-105 transition duration-500"><div class="absolute inset-0 bg-gradient-to-t from-petrol-950/90 via-transparent to-transparent flex items-end p-5"></div></div>
-      <div class="relative h-72 rounded-3xl overflow-hidden group"><img src="./img/studio/stidia-5.jpg" alt="New Jack Tattoo Studio 5" class="w-full h-full object-cover group-hover:scale-105 transition duration-500"><div class="absolute inset-0 bg-gradient-to-t from-petrol-950/90 via-transparent to-transparent flex items-end p-5"></div></div>
-      <div class="relative h-72 rounded-3xl overflow-hidden group"><img src="./img/studio/stidia-6.jpg" alt="New Jack Tattoo Studio 6" class="w-full h-full object-cover group-hover:scale-105 transition duration-500"><div class="absolute inset-0 bg-gradient-to-t from-petrol-950/90 via-transparent to-transparent flex items-end p-5"></div></div>
+      <div class="relative h-72 rounded-3xl overflow-hidden group border border-petrol-800/60"><img src="./img/studio/stidia-1.jpg" alt="New Jack Tattoo Studio 1" class="w-full h-full object-cover group-hover:scale-105 transition duration-500"><div class="absolute inset-0 bg-gradient-to-t from-petrol-950/90 via-transparent to-transparent flex items-end p-5 pointer-events-none"></div></div>
+      <div class="relative h-72 rounded-3xl overflow-hidden group border border-petrol-800/60"><img src="./img/studio/stidia-2.jpg" alt="New Jack Tattoo Studio 2" class="w-full h-full object-cover group-hover:scale-105 transition duration-500"><div class="absolute inset-0 bg-gradient-to-t from-petrol-950/90 via-transparent to-transparent flex items-end p-5 pointer-events-none"></div></div>
+      <div class="relative h-72 rounded-3xl overflow-hidden group border border-petrol-800/60"><img src="./img/studio/stidia-3.jpg" alt="New Jack Tattoo Studio 3" class="w-full h-full object-cover group-hover:scale-105 transition duration-500"><div class="absolute inset-0 bg-gradient-to-t from-petrol-950/90 via-transparent to-transparent flex items-end p-5 pointer-events-none"></div></div>
+      <div class="relative h-72 rounded-3xl overflow-hidden group border border-petrol-800/60"><img src="./img/studio/stidia-4.jpg" alt="New Jack Tattoo Studio 4" class="w-full h-full object-cover group-hover:scale-105 transition duration-500"><div class="absolute inset-0 bg-gradient-to-t from-petrol-950/90 via-transparent to-transparent flex items-end p-5 pointer-events-none"></div></div>
+      <div class="relative h-72 rounded-3xl overflow-hidden group border border-petrol-800/60"><img src="./img/studio/stidia-5.jpg" alt="New Jack Tattoo Studio 5" class="w-full h-full object-cover group-hover:scale-105 transition duration-500"><div class="absolute inset-0 bg-gradient-to-t from-petrol-950/90 via-transparent to-transparent flex items-end p-5 pointer-events-none"></div></div>
+      <div class="relative h-72 rounded-3xl overflow-hidden group border border-petrol-800/60"><img src="./img/studio/stidia-6.jpg" alt="New Jack Tattoo Studio 6" class="w-full h-full object-cover group-hover:scale-105 transition duration-500"><div class="absolute inset-0 bg-gradient-to-t from-petrol-950/90 via-transparent to-transparent flex items-end p-5 pointer-events-none"></div></div>
     </div>
   </section>
 
   <!-- КОНТАКТЫ И ФОРМА WHATSAPP -->
-  <section id="contact" class="py-24 px-6 bg-petrol-900/30 border-y border-petrol-800/40">
+  <section id="contact" class="py-24 px-6 bg-petrol-900/30 border-y border-petrol-800/40 reveal">
     <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
       
       <!-- ЛЕВАЯ ЧАСТЬ: ФОРМА -->
@@ -471,19 +573,31 @@
 
           <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
             <div>
+              <label class="block text-xs uppercase tracking-wider text-slate-400 mb-2" data-i18n="form_artist">Tätowierer / Artist</label>
+              <select id="form-artist" class="custom-select w-full px-4 py-3.5 rounded-xl bg-petrol-950/90 border border-petrol-700/70 text-white text-sm focus:border-petrol-400 focus:outline-none transition">
+                <option value="Egal / Beratung" data-i18n="artist_opt_any">Egal / Beratung gewünscht</option>
+                <option value="Andy">Andy (Japanese / Realism)</option>
+                <option value="Asty">Asty (Japanese / Traditional)</option>
+                <option value="Sascha">Sascha (Neo-Traditional / Fine Line)</option>
+                <option value="Rimma">Rimma (Apprentice)</option>
+              </select>
+            </div>
+            <div>
               <label class="block text-xs uppercase tracking-wider text-slate-400 mb-2" data-i18n="form_style">Stilrichtung</label>
-              <select id="form-style" class="w-full px-4 py-3.5 rounded-xl bg-petrol-950/90 border border-petrol-700/70 text-white text-sm focus:border-petrol-400 focus:outline-none appearance-none transition">
+              <select id="form-style" class="custom-select w-full px-4 py-3.5 rounded-xl bg-petrol-950/90 border border-petrol-700/70 text-white text-sm focus:border-petrol-400 focus:outline-none transition">
                 <option value="Japanese" data-i18n="style_opt_japanese">Japanese</option>
                 <option value="Black & Grey Realism" data-i18n="style_opt_bg_realism">Black &amp; Grey Realism</option>
                 <option value="Color Realism" data-i18n="style_opt_color_realism">Color Realism</option>
                 <option value="Traditional" data-i18n="style_opt_traditional">Traditional (Old School)</option>
+                <option value="Neo-Traditional / Fine Line">Neo-Traditional / Fine Line</option>
                 <option value="Beratung gewünscht" data-i18n="style_opt_consult">Beratung gewünscht</option>
               </select>
             </div>
-            <div>
-              <label class="block text-xs uppercase tracking-wider text-slate-400 mb-2" data-i18n="form_placement">Körperstelle &amp; Größe</label>
-              <input type="text" id="form-size" placeholder="Unterarm, ~15 cm" data-i18n-placeholder="form_placement_ph" class="w-full px-4 py-3.5 rounded-xl bg-petrol-950/90 border border-petrol-700/70 text-white text-sm focus:border-petrol-400 focus:outline-none transition">
-            </div>
+          </div>
+
+          <div>
+            <label class="block text-xs uppercase tracking-wider text-slate-400 mb-2" data-i18n="form_placement">Körperstelle &amp; Größe</label>
+            <input type="text" id="form-size" placeholder="Unterarm, ~15 cm" data-i18n-placeholder="form_placement_ph" class="w-full px-4 py-3.5 rounded-xl bg-petrol-950/90 border border-petrol-700/70 text-white text-sm focus:border-petrol-400 focus:outline-none transition">
           </div>
 
           <div>
@@ -495,12 +609,11 @@
             <p class="text-xs text-petrol-300" data-i18n="form_hint">Hinweis: Referenzbilder können Sie direkt im WhatsApp-Chat senden, der sich gleich öffnet.</p>
           </div>
 
-          <!-- ОБНОВЛЕННАЯ КНОПКА ОТПРАВКИ -->
           <button type="submit" class="btn-submit-wa">
             <svg style="width:22px;height:22px;fill:currentColor;flex-shrink:0;" viewBox="0 0 24 24">
               <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/>
             </svg>
-            <span data-i18n="form_submit">Anfrage absenden</span>
+            <span data-i18n="form_submit">Anfrage per WhatsApp senden</span>
           </button>
         </form>
       </div>
@@ -545,7 +658,7 @@
   </section>
 
   <!-- УХОД -->
-  <section id="aftercare" class="py-24 px-6">
+  <section id="aftercare" class="py-24 px-6 reveal">
     <div class="max-w-7xl mx-auto">
       <div class="text-center max-w-2xl mx-auto mb-16">
         <span class="text-petrol-400 text-xs uppercase tracking-[0.3em] font-semibold block mb-2" data-i18n="aftercare_tag">Professional Care</span>
@@ -581,7 +694,7 @@
   </section>
 
   <!-- FAQ -->
-  <section id="faq" class="py-24 px-6 bg-gradient-to-b from-petrol-900/30 to-petrol-950 border-t border-petrol-800/40">
+  <section id="faq" class="py-24 px-6 bg-gradient-to-b from-petrol-900/30 to-petrol-950 border-t border-petrol-800/40 reveal">
     <div class="max-w-4xl mx-auto">
       <div class="text-center max-w-2xl mx-auto mb-16">
         <span class="text-petrol-400 text-xs uppercase tracking-[0.3em] font-semibold block mb-2" data-i18n="faq_tag">Help &amp; Info</span>
@@ -629,6 +742,12 @@
       </div>
     </div>
   </footer>
+
+  <!-- ПОЛНОЭКРАННЫЙ ПРОСМОТР ФОТО (LIGHTBOX) -->
+  <div id="lightbox" class="lightbox-overlay" onclick="closeLightbox(event)">
+    <button class="lightbox-close" onclick="closeLightbox(event)" aria-label="Close">✕</button>
+    <img id="lightbox-img" src="" alt="Fullscreen View" class="lightbox-img">
+  </div>
 
   <!-- COOKIE BANNER -->
   <div id="cookie-banner" class="fixed bottom-0 left-0 right-0 z-50 p-4 sm:p-6 bg-petrol-950/95 border-t border-petrol-700/60 backdrop-blur-xl shadow-2xl transition-transform duration-500 hidden">
@@ -680,6 +799,7 @@
         book_tag: "Booking & Consultation", book_title: "Termin anfragen",
         form_name: "Dein Name *", form_name_ph: "Max Mustermann",
         form_phone: "Telefon / Insta *", form_phone_ph: "+49 176 ... / @username",
+        form_artist: "Tätowierer / Artist", artist_opt_any: "Egal / Beratung gewünscht",
         form_style: "Stilrichtung",
         style_opt_japanese: "Japanese", style_opt_bg_realism: "Black & Grey Realism", style_opt_color_realism: "Color Realism", style_opt_traditional: "Traditional (Old School)", style_opt_consult: "Beratung gewünscht",
         form_placement: "Körperstelle & Größe", form_placement_ph: "Unterarm, ~15 cm",
@@ -713,6 +833,7 @@
         book_tag: "Запись и Консультация", book_title: "Оставить заявку",
         form_name: "Ваше имя *", form_name_ph: "Иван Иванов",
         form_phone: "Телефон / WhatsApp / Insta *", form_phone_ph: "+49 176 ... / @username",
+        form_artist: "Выберите мастера", artist_opt_any: "Любой мастер / Консультация",
         form_style: "Стиль татуировки",
         style_opt_japanese: "Японский стиль (Japanese)", style_opt_bg_realism: "Черно-белый реализм", style_opt_color_realism: "Цветной реализм", style_opt_traditional: "Традиционный (Old School)", style_opt_consult: "Нужна консультация",
         form_placement: "Место и размер (см)", form_placement_ph: "Предплечье, ~15 cm",
@@ -746,6 +867,7 @@
         book_tag: "Booking & Consultation", book_title: "Request an Appointment",
         form_name: "Your Name *", form_name_ph: "John Doe",
         form_phone: "Phone / WhatsApp / Insta *", form_phone_ph: "+49 176 ... / @username",
+        form_artist: "Preferred Artist", artist_opt_any: "Any Artist / Consultation",
         form_style: "Tattoo Style",
         style_opt_japanese: "Japanese", style_opt_bg_realism: "Black & Grey Realism", style_opt_color_realism: "Color Realism", style_opt_traditional: "Traditional (Old School)", style_opt_consult: "I need a consultation",
         form_placement: "Placement & Size (cm)", form_placement_ph: "Forearm, ~15 cm",
@@ -785,6 +907,63 @@
       });
     }
 
+    // Автоматический выбор мастера при клике на его карточку
+    function selectArtistAndBook(artistName, event) {
+      if (event) event.preventDefault();
+      const contactSection = document.getElementById('contact');
+      const artistSelect = document.getElementById('form-artist');
+      if (contactSection) {
+        contactSection.scrollIntoView({ behavior: 'smooth' });
+      }
+      if (artistSelect) {
+        artistSelect.value = artistName;
+        artistSelect.classList.remove('highlight-field');
+        void artistSelect.offsetWidth;
+        artistSelect.classList.add('highlight-field');
+      }
+    }
+
+    // Полноэкранный Lightbox для портфолио и фото студии
+    function openLightbox(src) {
+      const lb = document.getElementById('lightbox');
+      const lbImg = document.getElementById('lightbox-img');
+      if (lb && lbImg && src) {
+        lbImg.src = src;
+        lb.classList.add('open');
+      }
+    }
+
+    function closeLightbox(event) {
+      if (!event || event.target.id === 'lightbox' || event.target.classList.contains('lightbox-close')) {
+        const lb = document.getElementById('lightbox');
+        if (lb) lb.classList.remove('open');
+      }
+    }
+
+    document.addEventListener('click', function(e) {
+      const card = e.target.closest('.portfolio-item, #studio-grid > div');
+      if (card) {
+        const img = card.querySelector('img');
+        if (img && img.src) openLightbox(img.src);
+      }
+
+      // Закрытие мобильного меню при клике вне его
+      const menu = document.getElementById('mobile-menu');
+      const btn = document.getElementById('menu-toggle-btn');
+      if (menu && !menu.classList.contains('hidden')) {
+        if (!menu.contains(e.target) && (!btn || !btn.contains(e.target))) {
+          closeMobileMenu();
+        }
+      }
+    });
+
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') {
+        closeLightbox();
+        closeMobileMenu();
+      }
+    });
+
     function filterPortfolio(style) {
       currentFilter = style;
       document.querySelectorAll('.filter-btn').forEach(btn => {
@@ -798,11 +977,20 @@
       });
     }
 
-    function toggleMobileMenu() {
+    function toggleMobileMenu(e) {
+      if (e) e.stopPropagation();
       const menu = document.getElementById('mobile-menu');
       if (menu) {
         menu.classList.toggle('hidden');
         menu.classList.toggle('flex');
+      }
+    }
+
+    function closeMobileMenu() {
+      const menu = document.getElementById('mobile-menu');
+      if (menu && !menu.classList.contains('hidden')) {
+        menu.classList.add('hidden');
+        menu.classList.remove('flex');
       }
     }
 
@@ -847,17 +1035,21 @@
       }, 1000);
     }
 
+    // Отправка формы в WhatsApp (с учетом выбранного мастера)
     const bookingForm = document.getElementById('booking-form');
     if (bookingForm) {
       bookingForm.addEventListener('submit', function(event) {
         event.preventDefault();
         const name = document.getElementById('form-name') ? document.getElementById('form-name').value.trim() : '';
         const contact = document.getElementById('form-contact') ? document.getElementById('form-contact').value.trim() : '';
+        const artist = document.getElementById('form-artist') ? document.getElementById('form-artist').value : '';
         const style = document.getElementById('form-style') ? document.getElementById('form-style').value : '';
         const size = document.getElementById('form-size') ? document.getElementById('form-size').value.trim() : '';
         const idea = document.getElementById('form-idea') ? document.getElementById('form-idea').value.trim() : '';
 
-        let message = `*Neue Tattoo-Anfrage über die Website!*\n\n*Name:* ${name}\n*Kontakt (Tel/Insta):* ${contact}\n*Stil:* ${style}\n`;
+        let message = `*Neue Tattoo-Anfrage über die Website!*\n\n*Name:* ${name}\n*Kontakt (Tel/Insta):* ${contact}\n`;
+        if (artist !== '') message += `*Artist:* ${artist}\n`;
+        message += `*Stil:* ${style}\n`;
         if (size !== '') message += `*Körperstelle & Größe:* ${size}\n`;
         if (idea !== '') message += `*Idee/Fragen:* ${idea}\n`;
         message += `\n_Hier können Sie nun Ihre Referenzbilder anhängen!_`;
@@ -868,6 +1060,24 @@
 
     document.addEventListener("DOMContentLoaded", function() {
       setLang('de');
+
+      // Плавное появление секций при скролле
+      const revealEls = document.querySelectorAll('.reveal');
+      if ('IntersectionObserver' in window) {
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('visible');
+              observer.unobserve(entry.target);
+            }
+          });
+        }, { threshold: 0.12 });
+        revealEls.forEach(el => observer.observe(el));
+      } else {
+        revealEls.forEach(el => el.classList.add('visible'));
+      }
+
+      // Подгрузка галереи из Sveltia CMS (/data.json)
       fetch('/data.json')
         .then(response => {
           if (!response.ok) throw new Error('Данные не найдены');
@@ -883,7 +1093,7 @@
             const cardHTML = `
               <div data-style="${styleName}" class="portfolio-item portfolio-card group relative h-80 rounded-2xl overflow-hidden border border-petrol-800/60 bg-petrol-950">
                 <img src="${item.photo}" alt="Tattoo by ${artistName}" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
-                <div class="absolute inset-0 bg-gradient-to-t from-petrol-950/90 via-petrol-950/20 to-transparent opacity-85 group-hover:opacity-100 transition flex flex-col justify-end p-5">
+                <div class="absolute inset-0 bg-gradient-to-t from-petrol-950/90 via-petrol-950/20 to-transparent opacity-85 group-hover:opacity-100 transition flex flex-col justify-end p-5 pointer-events-none">
                   <span class="text-[10px] uppercase tracking-[0.25em] text-petrol-300 font-bold">${styleName}</span>
                   <h4 class="text-white font-semibold text-sm mt-0.5">${artistName}</h4>
                 </div>
