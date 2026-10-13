@@ -617,8 +617,58 @@
       </div>
     </div>
   </section>
+  <!-- КОНТАКТЫ И ФОРМА -->
+  <section id="contact" class="py-24 px-6 bg-petrol-950 relative z-10">
+    <div class="max-w-3xl mx-auto">
+      <div class="text-center mb-12">
+        <span class="text-petrol-400 text-xs uppercase tracking-[0.3em] font-semibold block mb-2" data-i18n="contact_tag">Booking & Consultation</span>
+        <h2 class="font-cinzel text-3xl sm:text-5xl font-bold text-white tracking-wider uppercase" data-i18n="contact_title">Termin Anfragen</h2>
+      </div>
 
-  <!-- ФУТЕР -->
+      <form id="booking-form" class="flex flex-col gap-6 bg-petrol-900/30 p-6 sm:p-10 rounded-3xl border border-petrol-800/50 backdrop-blur-md shadow-2xl">
+        
+        <div>
+          <label class="text-xs uppercase tracking-widest text-slate-400 mb-2 block" data-i18n="form_name">Dein Name *</label>
+          <input type="text" id="form-name" required placeholder="Max Mustermann" class="w-full bg-petrol-950 border border-petrol-800 rounded-xl p-4 text-white focus:border-petrol-400 outline-none transition-colors">
+        </div>
+
+        <div>
+          <label class="text-xs uppercase tracking-widest text-slate-400 mb-2 block" data-i18n="form_phone">Telefon / WhatsApp / Instagram *</label>
+          <input type="text" id="form-contact" required placeholder="+49 176 ... / @username" class="w-full bg-petrol-950 border border-petrol-800 rounded-xl p-4 text-white focus:border-petrol-400 outline-none transition-colors">
+        </div>
+
+        <div>
+          <label class="text-xs uppercase tracking-widest text-slate-400 mb-2 block">Stilrichtung</label>
+          <select id="form-style" class="w-full bg-petrol-950 border border-petrol-800 rounded-xl p-4 text-white focus:border-petrol-400 outline-none appearance-none transition-colors">
+            <option value="Japanese">Japanese</option>
+            <option value="Black & Grey Realism">Black & Grey Realism</option>
+            <option value="Color Realism">Color Realism</option>
+            <option value="Traditional">Traditional</option>
+            <option value="Anderes / Weiß noch nicht">Anderes / Weiß noch nicht</option>
+          </select>
+        </div>
+
+        <div>
+          <label class="text-xs uppercase tracking-widest text-slate-400 mb-2 block">Körperstelle & Größe (cm)</label>
+          <input type="text" id="form-size" placeholder="Unterarm, ~15 cm" class="w-full bg-petrol-950 border border-petrol-800 rounded-xl p-4 text-white focus:border-petrol-400 outline-none transition-colors">
+        </div>
+
+        <div>
+          <label class="text-xs uppercase tracking-widest text-slate-400 mb-2 block" data-i18n="form_message">Deine Tattoo-Idee</label>
+          <textarea id="form-idea" rows="4" placeholder="Beschreibe deine Idee, Wunschtermine oder Fragen..." class="w-full bg-petrol-950 border border-petrol-800 rounded-xl p-4 text-white focus:border-petrol-400 outline-none transition-colors"></textarea>
+        </div>
+
+        <div class="p-4 bg-petrol-800/40 border border-petrol-700/50 rounded-xl text-center">
+          <p class="text-xs text-petrol-300">Hinweis: Referenzbilder können Sie direkt im WhatsApp-Chat senden, der sich gleich öffnet.</p>
+        </div>
+
+        <button type="submit" class="w-full py-4 mt-2 rounded-xl bg-gradient-to-r from-petrol-500 to-petrol-400 hover:from-petrol-400 hover:to-petrol-300 text-white font-bold text-sm uppercase tracking-widest transition-all shadow-[0_0_20px_rgba(56,146,174,0.4)] hover:scale-105" data-i18n="form_submit">
+          Anfrage Absenden
+        </button>
+      </form>
+    </div>
+  </section>
+   <!-- ФУТЕР -->
   <footer class="py-10 px-6 border-t border-petrol-900 bg-petrol-950 text-center text-xs text-slate-500">
     <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
       <p>© 2026 <strong class="text-slate-300">New Jack Tattoo</strong> • Beekstraße 6, 47051 Duisburg.</p>
@@ -1464,4 +1514,42 @@
       }
     };
   </script>
-</body>
+<script>
+  document.getElementById('booking-form').addEventListener('submit', function(event) {
+    // Останавливаем стандартную отправку формы
+    event.preventDefault();
+
+    // Собираем данные из полей
+    const name = document.getElementById('form-name').value.trim();
+    const contact = document.getElementById('form-contact').value.trim();
+    const style = document.getElementById('form-style').value;
+    const size = document.getElementById('form-size').value.trim();
+    const idea = document.getElementById('form-idea').value.trim();
+
+    // Формируем текст сообщения (символы * делают текст жирным в WhatsApp)
+    let message = `*Neue Tattoo-Anfrage über die Website!*\n\n`;
+    message += `*Name:* ${name}\n`;
+    message += `*Kontakt (Tel/Insta):* ${contact}\n`;
+    message += `*Stil:* ${style}\n`;
+    
+    if (size !== '') {
+      message += `*Körperstelle & Größe:* ${size}\n`;
+    }
+    
+    if (idea !== '') {
+      message += `*Idee/Fragen:* ${idea}\n`;
+    }
+    
+    message += `\n_Hier können Sie nun Ihre Referenzbilder anhängen!_`;
+
+    // Номер телефона студии (тот же, что вы использовали ранее)
+    const phoneNumber = '4917632460273';
+
+    // Формируем финальную ссылку и кодируем пробелы/переносы строк
+    const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+
+    // Открываем WhatsApp в новой вкладке
+    window.open(whatsappUrl, '_blank');
+  });
+</script>
+  </body>
