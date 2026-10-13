@@ -2401,14 +2401,3 @@ video {
     line-height: 1rem;
   }
 }
-
-/* Скрываем стандартный курсор на всем сайте */
-body, a, button, input, textarea, select, .portfolio-item {
-  cursor: none !important;
-}
-
-/* Гарантируем, что наши точки кликабельны и не конфликтуют */
-#cursor-dot, #cursor-outline {
-  cursor: none !important;
-  pointer-events: none !important;
-}
