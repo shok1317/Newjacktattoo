@@ -1525,49 +1525,189 @@
   
 <!-- ЕДИНЫЙ БЛОК СКРИПТОВ ДЛЯ ВСЕГО САЙТА -->
 <script>
-  // 1. Отправка формы WhatsApp
-  document.getElementById('booking-form').addEventListener('submit', function(event) {
-    event.preventDefault();
+  let currentLang = 'de';
 
-    const name = document.getElementById('form-name').value.trim();
-    const contact = document.getElementById('form-contact').value.trim();
-    const style = document.getElementById('form-style').value;
-    const size = document.getElementById('form-size').value.trim();
-    const idea = document.getElementById('form-idea').value.trim();
-
-    let message = `*Neue Tattoo-Anfrage über die Website!*\n\n`;
-    message += `*Name:* ${name}\n`;
-    message += `*Kontakt (Tel/Insta):* ${contact}\n`;
-    message += `*Stil:* ${style}\n`;
-    
-    if (size !== '') {
-      message += `*Körperstelle & Größe:* ${size}\n`;
+  const i18n = {
+    "de": {
+      "nav_home": "Start", "nav_artists": "Artists", "nav_portfolio": "Portfolio", "nav_studio": "Studio", "nav_contact": "Kontakt", "nav_aftercare": "Aftercare", "nav_faq": "FAQ", "nav_menu": "Menu", "btn_book_nav": "Termin",
+      "hero_sub": "Premium Custom Tattoo Studio im Herzen von Duisburg. Individuelle Designs, höchste Hygienestandards und echte Kunst-Atmosphäre.", "hero_cta_primary": "Termin vereinbaren", "hero_cta_secondary": "Portfolio ansehen",
+      "stat_sterile": "100% EU-Hygiene & Steril", "stat_artists": "Resident & Guest Artists", "stat_custom": "Individuelle Entwürfe", "stat_consult": "Kostenlose Beratung",
+      "artists_tag": "Resident Artists", "artists_title": "Unsere Tätowierer", "artists_book": "Termin vereinbaren",
+      "portfolio_tag": "Selected Works", "portfolio_title": "Portfolio", "filter_all": "Alle",
+      "studio_tag": "Inside NJT", "studio_title": "Das Studio", "studio_desc": "Unser Studio bietet eine entspannte Atmosphäre, in der Kunst und Hygiene an erster Stelle stehen.",
+      "contact_tag": "Booking", "contact_title": "Kontakt", "faq_tag": "Fragen & Antworten", "faq_title": "FAQ",
+      "book_tag": "Booking & Consultation", "book_title": "Termin anfragen", "form_name": "Dein Name *", "form_name_ph": "Max Mustermann", "form_phone": "Telefon / Insta *", "form_phone_ph": "+49 176 ... / @username", "form_style": "Stilrichtung", "style_opt_japanese": "Japanese", "style_opt_bg_realism": "Black & Grey Realism", "style_opt_color_realism": "Color Realism", "style_opt_traditional": "Traditional (Old School)", "style_opt_consult": "Beratung gewünscht", "form_placement": "Körperstelle & Größe", "form_placement_ph": "Unterarm, ~15 cm", "form_message": "Deine Tattoo-Idee", "form_msg_ph": "Beschreibe deine Idee, Wunschtermine oder Fragen...", "form_hint": "Hinweis: Referenzbilder können Sie direkt im WhatsApp-Chat senden, der sich gleich öffnet.", "form_submit": "Anfrage absenden", "contact_address": "Adresse:", "contact_phone": "Telefon:", "contact_maps": "Google Maps",
+      "aftercare_tag": "Professional Care", "aftercare_title": "Tattoo Aftercare Guide",
+      "care_1_title": "Erste Tage (Folie & Reinigung)", "care_1_desc": "Lass die Schutzfolie je nach Anweisung des Künstlers (24-72 Std.) drauf. Danach vorsichtig mit lauwarmem Wasser und ph-neutraler Seife waschen.",
+      "care_2_title": "Eincremen & Regeneration", "care_2_desc": "Trage 3-4 mal täglich eine dünne Schicht Tattoo-Creme auf (z.B. Panthenol). Die Haut muss atmen können, vermeide dicke Fettschichten.",
+      "care_3_title": "Was du vermeiden solltest", "care_3_desc": "Kein Kratzen bei Schuppenbildung! Vermeide direkte Sonne, Solarium, Sauna und Vollbäder für mindestens 3–4 Wochen.",
+      "btn_aftercare_pdf": "PDF-Pflegeanleitung herunterladen",
+      "footer_rights": "© 2026 New Jack Tattoo. Alle Rechte vorbehalten."
+    },
+    "ru": {
+      "nav_home": "Главная", "nav_artists": "Мастера", "nav_portfolio": "Портфолио", "nav_studio": "Студия", "nav_contact": "Контакты", "nav_aftercare": "Уход", "nav_faq": "Вопросы", "nav_menu": "Меню", "btn_book_nav": "Запись",
+      "hero_sub": "Премиальная тату-студия в самом сердце Дуйсбурга. Индивидуальные эскизы, высшие стандарты гигиены и настоящая творческая атмосфера.", "hero_cta_primary": "Записаться на сеанс", "hero_cta_secondary": "Смотреть работы",
+      "stat_sterile": "100% стерильность (ЕС)", "stat_artists": "Резиденты и гости", "stat_custom": "Индивидуальные эскизы", "stat_consult": "Бесплатная консультация",
+      "artists_tag": "Наши резиденты", "artists_title": "Наши тату-мастера", "artists_book": "Записаться к мастеру",
+      "portfolio_tag": "Избранные работы", "portfolio_title": "Портфолио", "filter_all": "Все",
+      "studio_tag": "Внутри NJT", "studio_title": "Студия", "studio_desc": "Наша студия предлагает расслабляющую атмосферу, где искусство и гигиена стоят на первом месте.",
+      "contact_tag": "Бронирование", "contact_title": "Контакты", "faq_tag": "Вопросы и ответы", "faq_title": "Частые вопросы",
+      "book_tag": "Запись и Консультация", "book_title": "Оставить заявку", "form_name": "Ваше имя *", "form_name_ph": "Иван Иванов", "form_phone": "Телефон / WhatsApp / Insta *", "form_phone_ph": "+49 176 ... / @username", "form_style": "Стиль татуировки", "style_opt_japanese": "Японский стиль (Japanese)", "style_opt_bg_realism": "Черно-белый реализм", "style_opt_color_realism": "Цветной реализм", "style_opt_traditional": "Традиционный (Old School)", "style_opt_consult": "Нужна консультация", "form_placement": "Место и размер (см)", "form_placement_ph": "Предплечье, ~15 cm", "form_message": "Описание идеи", "form_msg_ph": "Опишите вашу идею, желаемые даты или вопросы...", "form_hint": "Примечание: Референсы и фото можно будет прикрепить прямо в чате WhatsApp после отправки.", "form_submit": "Отправить заявку", "contact_address": "Адрес:", "contact_phone": "Телефон:", "contact_maps": "Показать на карте",
+      "aftercare_tag": "Профессиональный уход", "aftercare_title": "Гид по заживлению татуировки",
+      "care_1_title": "Первые дни (Пленка и промывка)", "care_1_desc": "Носите защитную пленку столько, сколько рекомендовал мастер (24-72 ч). Затем аккуратно промойте теплой водой с мягким мылом.",
+      "care_2_title": "Увлажнение и регенерация", "care_2_desc": "Наносите тонкий слой заживляющего крема (например, Panthenol) 3-4 раза в день. Кожа должна дышать, избегайте жирных толстых слоев.",
+      "care_3_title": "Чего делать нельзя", "care_3_desc": "Ни в коем случае не сдирайте корочки! Избегайте прямого солнца, солярия, саун и бассейнов в течение первых 3-4 недель.",
+      "btn_aftercare_pdf": "Скачать памятку по уходу (PDF)",
+      "footer_rights": "© 2026 New Jack Tattoo. Все права защищены."
+    },
+    "en": {
+      "nav_home": "Home", "nav_artists": "Artists", "nav_portfolio": "Portfolio", "nav_studio": "Studio", "nav_contact": "Contact", "nav_aftercare": "Aftercare", "nav_faq": "FAQ", "nav_menu": "Menu", "btn_book_nav": "Book",
+      "hero_sub": "Premium Custom Tattoo Studio in the heart of Duisburg. Individual designs, highest hygiene standards and a true art atmosphere.", "hero_cta_primary": "Book an Appointment", "hero_cta_secondary": "View Portfolio",
+      "stat_sterile": "100% EU Hygiene & Sterile", "stat_artists": "Resident & Guest Artists", "stat_custom": "Custom Designs", "stat_consult": "Free Consultation",
+      "artists_tag": "Resident Artists", "artists_title": "Our Tattoo Artists", "artists_book": "Book an Appointment",
+      "portfolio_tag": "Selected Works", "portfolio_title": "Portfolio", "filter_all": "All",
+      "studio_tag": "Inside NJT", "studio_title": "The Studio", "studio_desc": "Our studio offers a relaxing atmosphere where art and hygiene come first.",
+      "contact_tag": "Booking", "contact_title": "Contact Us", "faq_tag": "Questions & Answers", "faq_title": "FAQ",
+      "book_tag": "Booking & Consultation", "book_title": "Request an Appointment", "form_name": "Your Name *", "form_name_ph": "John Doe", "form_phone": "Phone / WhatsApp / Insta *", "form_phone_ph": "+49 176 ... / @username", "form_style": "Tattoo Style", "style_opt_japanese": "Japanese", "style_opt_bg_realism": "Black & Grey Realism", "style_opt_color_realism": "Color Realism", "style_opt_traditional": "Traditional (Old School)", "style_opt_consult": "I need a consultation", "form_placement": "Placement & Size (cm)", "form_placement_ph": "Forearm, ~15 cm", "form_message": "Your Tattoo Idea", "form_msg_ph": "Describe your idea, preferred dates, or ask questions...", "form_hint": "Note: You can attach reference images directly in the WhatsApp chat that opens next.", "form_submit": "Send Request", "contact_address": "Address:", "contact_phone": "Phone:", "contact_maps": "Google Maps",
+      "aftercare_tag": "Professional Care", "aftercare_title": "Tattoo Aftercare Guide",
+      "care_1_title": "First Days (Film & Cleaning)", "care_1_desc": "Keep the bandage on as advised (24-72 hrs). Wash gently with lukewarm water and mild ph-neutral soap.",
+      "care_2_title": "Moisturizing & Healing", "care_2_desc": "Apply a thin layer of tattoo cream (e.g., Panthenol) 3-4 times a day. Let the skin breathe, avoid thick greasy layers.",
+      "care_3_title": "What to Avoid", "care_3_desc": "Do not pick or scratch! Avoid direct sunlight, tanning beds, saunas, and swimming pools for 3-4 weeks.",
+      "btn_aftercare_pdf": "Download Aftercare Guide (PDF)",
+      "footer_rights": "© 2026 New Jack Tattoo. All rights reserved."
     }
-    if (idea !== '') {
-      message += `*Idee/Fragen:* ${idea}\n`;
-    }
+  };
+
+  // Функция переключения языка
+  function setLang(lang) {
+    currentLang = lang;
+    ['de', 'ru', 'en'].forEach(l => {
+      const btn = document.getElementById('lang-' + l);
+      if (btn) {
+        if (l === lang) {
+          btn.className = "px-2.5 py-1 rounded-full bg-petrol-500 text-white transition";
+        } else {
+          btn.className = "px-2.5 py-1 rounded-full text-slate-400 hover:text-white transition";
+        }
+      }
+    });
     
-    message += `\n_Hier können Sie nun Ihre Referenzbilder anhängen!_`;
+    const dict = i18n[lang];
+    if (dict) {
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        if (dict[key]) {
+          el.innerText = dict[key];
+        }
+      });
+    }
+  }
 
-    const phoneNumber = '4917632460273';
-    const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+  // Мобильное меню
+  function toggleMobileMenu() {
+    const menu = document.getElementById('mobile-menu');
+    if (menu) {
+      if (menu.classList.contains('hidden')) {
+        menu.classList.remove('hidden');
+        menu.classList.add('flex');
+      } else {
+        menu.classList.add('hidden');
+        menu.classList.remove('flex');
+      }
+    }
+  }
 
-    window.location.href = whatsappUrl;
+  // Эффект шапки при скролле
+  window.addEventListener('scroll', () => {
+    const nav = document.getElementById('navbar');
+    if (nav) {
+      if (window.scrollY > 40) {
+        nav.classList.add('glass', 'shadow-lg');
+      } else {
+        nav.classList.remove('glass', 'shadow-lg');
+      }
+    }
   });
 
-  // 2. Логика аккордеона FAQ
+  // Отправка формы WhatsApp
+  const bookingForm = document.getElementById('booking-form');
+  if (bookingForm) {
+    bookingForm.addEventListener('submit', function(event) {
+      event.preventDefault();
+
+      const name = document.getElementById('form-name') ? document.getElementById('form-name').value.trim() : '';
+      const contact = document.getElementById('form-contact') ? document.getElementById('form-contact').value.trim() : '';
+      const style = document.getElementById('form-style') ? document.getElementById('form-style').value : '';
+      const size = document.getElementById('form-size') ? document.getElementById('form-size').value.trim() : '';
+      const idea = document.getElementById('form-idea') ? document.getElementById('form-idea').value.trim() : '';
+
+      let message = `*Neue Tattoo-Anfrage über die Website!*\n\n`;
+      message += `*Name:* ${name}\n`;
+      message += `*Kontakt (Tel/Insta):* ${contact}\n`;
+      message += `*Stil:* ${style}\n`;
+      
+      if (size !== '') {
+        message += `*Körperstelle & Größe:* ${size}\n`;
+      }
+      if (idea !== '') {
+        message += `*Idee/Fragen:* ${idea}\n`;
+      }
+      
+      message += `\n_Hier können Sie nun Ihre Referenzbilder anhängen!_`;
+
+      const phoneNumber = '4917632460273';
+      const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+
+      window.location.href = whatsappUrl;
+    });
+  }
+
+  // Логика аккордеона FAQ
   function toggleFaq(button) {
     const content = button.nextElementSibling;
     const icon = button.querySelector('span:last-child');
     
-    content.classList.toggle('hidden');
-    
-    if (content.classList.contains('hidden')) {
-      icon.style.transform = 'rotate(0deg)';
-    } else {
-      icon.style.transform = 'rotate(45deg)';
+    if (content && icon) {
+      content.classList.toggle('hidden');
+      if (content.classList.contains('hidden')) {
+        icon.style.transform = 'rotate(0deg)';
+      } else {
+        icon.style.transform = 'rotate(45deg)';
+      }
     }
   }
+
+  // Кастомный курсор
+  document.addEventListener("DOMContentLoaded", function() {
+    if (window.matchMedia("(pointer: fine)").matches) {
+      const cursorDot = document.getElementById('cursor-dot');
+      const cursorOutline = document.getElementById('cursor-outline');
+
+      if (cursorDot && cursorOutline) {
+        window.addEventListener('mousemove', function(e) {
+          cursorDot.style.left = `${e.clientX}px`;
+          cursorDot.style.top = `${e.clientY}px`;
+          cursorOutline.style.left = `${e.clientX}px`;
+          cursorOutline.style.top = `${e.clientY}px`;
+        });
+
+        const interactives = document.querySelectorAll('a, button, input, textarea, select, .portfolio-item');
+        interactives.forEach(el => {
+          el.addEventListener('mouseenter', () => {
+            cursorDot.classList.add('hover');
+            cursorOutline.classList.add('hover');
+          });
+          el.addEventListener('mouseleave', () => {
+            cursorDot.classList.remove('hover');
+            cursorOutline.classList.remove('hover');
+          });
+        });
+      }
+    }
+  });
+
+  // Запуск перевода при загрузке страницы
+  setLang('de');
 </script>
 </body>
 </html>
