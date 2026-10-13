@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<html lang="de" class="scroll-smooth">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -80,43 +81,9 @@
       scrollbar-width: thin;
       scrollbar-color: #3892ae #050d10;
     }
-
-    /* КАСТОМНЫЙ КУРСОР */
-    #cursor-dot, #cursor-outline {
-      pointer-events: none;
-      position: fixed;
-      top: 0;
-      left: 0;
-      transform: translate(-50%, -50%);
-      border-radius: 50%;
-      z-index: 9999;
-      transition: width 0.2s ease, height 0.2s ease, background-color 0.2s ease;
-    }
-    #cursor-dot {
-      width: 8px;
-      height: 8px;
-      background: #3892ae;
-    }
-    #cursor-outline {
-      width: 32px;
-      height: 32px;
-      border: 1px solid rgba(56, 146, 174, 0.6);
-    }
-    #cursor-dot.hover {
-      transform: translate(-50%, -50%) scale(1.5);
-      background: #ffffff;
-    }
-    #cursor-outline.hover {
-      transform: translate(-50%, -50%) scale(1.5);
-      border-color: #ffffff;
-    }
   </style>
 </head>
 <body class="antialiased selection:bg-petrol-500 selection:text-white" data-exported="true">
-
-  <!-- КАСТОМНЫЙ КУРСОР -->
-  <div id="cursor-dot"></div>
-  <div id="cursor-outline"></div>
 
   <!-- НАВИГАЦИЯ -->
   <header class="fixed top-0 left-0 right-0 z-40 transition-all duration-300 bg-[#050d10]/80 backdrop-blur-md border-b border-petrol-800/40" id="navbar">
@@ -193,8 +160,7 @@
           <div id="studio-logo-fallback" class="flex flex-col items-center justify-center p-2">
             <span class="font-cinzel text-2xl sm:text-3xl font-extrabold tracking-widest text-white">NJT</span>
             <span class="text-[9px] uppercase tracking-[0.25em] text-petrol-300 mt-0.5">Duisburg</span>
-          </div>
-        </div>
+      </div>
       </div>
 
       <h1 class="editable-text font-script text-6xl sm:text-8xl md:text-9xl text-white drop-shadow-[0_6px_25px_rgba(0,0,0,0.9)] leading-none mb-2">
