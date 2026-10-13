@@ -43,44 +43,38 @@
       box-shadow: 0 20px 50px rgba(0, 0, 0, 0.7);
       top: 80px;
       animation: menuPop 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-    }
-    
-    .glass-mobile-menu a {
-      border-radius: 1rem;
-      transition: all 0.3s ease;
-      display: block;
-    }
-    
-    .glass-mobile-menu a:hover {
-      background-color: #0e252d;
-    }
+    } 
 
-    body {
-      background-color: #050d10;
-      color: #f1f5f9;
-      overflow-x: hidden;
+    /* КАСТОМНЫЙ КУРСОР (вставляем сюда) */
+    #cursor-dot, #cursor-outline {
+      pointer-events: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      transform: translate(-50%, -50%);
+      border-radius: 50%;
+      z-index: 9999;
+      transition: width 0.2s ease, height 0.2s ease, background-color 0.2s ease;
     }
-
-    /* Кастомный синий ползунок (Scrollbar) */
-    html::-webkit-scrollbar {
-      width: 10px;
-    }
-    html::-webkit-scrollbar-track {
-      background: #050d10;
-    }
-    html::-webkit-scrollbar-thumb {
+    #cursor-dot {
+      width: 8px;
+      height: 8px;
       background: #3892ae;
-      border-radius: 10px;
-      border: 2px solid #050d10;
     }
-    html::-webkit-scrollbar-thumb:hover {
-      background: #4bb3d2;
+    #cursor-outline {
+      width: 32px;
+      height: 32px;
+      border: 1px solid rgba(56, 146, 174, 0.6);
     }
-    html {
-      scrollbar-width: thin;
-      scrollbar-color: #3892ae #050d10;
+    #cursor-dot.hover {
+      transform: translate(-50%, -50%) scale(1.5);
+      background: #ffffff;
     }
-  </style>
+    #cursor-outline.hover {
+      transform: translate(-50%, -50%) scale(1.5);
+      border-color: #ffffff;
+    }
+</style>
 </head>
 <body class="antialiased selection:bg-petrol-500 selection:text-white" data-exported="true">
 
@@ -1730,5 +1724,7 @@ const i18n = { "de": { "nav_home": "Start", ...
   // Запуск перевода при загрузке страницы
   setLang('de');
 </script>
+<div id="cursor-dot"></div>
+  <div id="cursor-outline"></div>
 </body>
 </html>
