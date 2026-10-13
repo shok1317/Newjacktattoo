@@ -1,6 +1,5 @@
 <!DOCTYPE html>
-<html lang="de" class="scroll-smooth">
-<head>
+<html lang="de" class="scroll-smooth"><head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
@@ -20,7 +19,7 @@
   <!-- ЛОКАЛЬНЫЙ TAILWIND (DSGVO-совместимый) -->
   <link rel="stylesheet" href="./style.css">
   
-  <style id="main-custom-styles">
+ <style id="main-custom-styles">
     /* ЛОКАЛЬНЫЕ ШРИФТЫ */
     @font-face { font-family: 'Cinzel'; src: url('./fonts/cinzel-regular.woff2') format('woff2'); font-weight: 600; }
     @font-face { font-family: 'Great Vibes'; src: url('./fonts/great-vibes-regular.woff2') format('woff2'); }
@@ -44,6 +43,42 @@
       box-shadow: 0 20px 50px rgba(0, 0, 0, 0.7);
       top: 80px;
       animation: menuPop 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+    
+    .glass-mobile-menu a {
+      border-radius: 1rem;
+      transition: all 0.3s ease;
+      display: block;
+    }
+    
+    .glass-mobile-menu a:hover {
+      background-color: #0e252d;
+    }
+
+    body {
+      background-color: #050d10;
+      color: #f1f5f9;
+      overflow-x: hidden;
+    }
+
+    /* Кастомный синий ползунок (Scrollbar) */
+    html::-webkit-scrollbar {
+      width: 10px;
+    }
+    html::-webkit-scrollbar-track {
+      background: #050d10;
+    }
+    html::-webkit-scrollbar-thumb {
+      background: #3892ae;
+      border-radius: 10px;
+      border: 2px solid #050d10;
+    }
+    html::-webkit-scrollbar-thumb:hover {
+      background: #4bb3d2;
+    }
+    html {
+      scrollbar-width: thin;
+      scrollbar-color: #3892ae #050d10;
     }
 
     /* КАСТОМНЫЙ КУРСОР */
@@ -79,7 +114,7 @@
 </head>
 <body class="antialiased selection:bg-petrol-500 selection:text-white" data-exported="true">
 
-  <!-- КАСТОМНЫЙ КУРСОР (ЭЛЕМЕНТЫ) -->
+  <!-- ЭЛЕМЕНТЫ КАСТОМНОГО КУРСОРА -->
   <div id="cursor-dot"></div>
   <div id="cursor-outline"></div>
 
