@@ -16,7 +16,6 @@
   <meta property="og:site_name" content="New Jack Tattoo">
   <link rel="stylesheet" href="./style.css">
 
-  <!-- SEO МИКРОРАЗМЕТКА ДЛЯ GOOGLE (TATTOO PARLOR DUISBURG) -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -33,22 +32,18 @@
       "postalCode": "47051",
       "addressCountry": "DE"
     },
-    "openingHoursSpecification": [
-      {
-        "@type": "OpeningHoursSpecification",
-        "dayOfWeek": ["Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
-        "opens": "11:00",
-        "closes": "19:00"
-      }
-    ],
+    "openingHoursSpecification": [{
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+      "opens": "11:00",
+      "closes": "19:00"
+    }],
     "aggregateRating": {
       "@type": "AggregateRating",
       "ratingValue": "5.0",
       "reviewCount": "48"
     },
-    "sameAs": [
-      "https://www.instagram.com/newjacktattoo/"
-    ]
+    "sameAs": ["https://www.instagram.com/newjacktattoo/"]
   }
   </script>
   
@@ -59,26 +54,14 @@
     @font-face { font-family: 'Syne'; src: url('./fonts/syne-regular.woff2') format('woff2'); font-weight: 700; }
 
     textarea { resize: none !important; }
+    body { background-color: #050d10; color: #f1f5f9; overflow-x: hidden; }
 
-    body {
-      background-color: #050d10;
-      color: #f1f5f9;
-      overflow-x: hidden;
-    }
-
-    /* КАСТОМНАЯ СТРЕЛОЧКА ДЛЯ SELECT */
     .custom-select {
-      appearance: none;
-      -webkit-appearance: none;
-      -moz-appearance: none;
+      appearance: none; -webkit-appearance: none; -moz-appearance: none;
       background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%234bb3d2'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2.2' d='M19 9l-7 7-7-7'/%3E%3C/svg%3E");
-      background-repeat: no-repeat;
-      background-position: right 1rem center;
-      background-size: 1.15rem;
-      padding-right: 2.75rem !important;
+      background-repeat: no-repeat; background-position: right 1rem center; background-size: 1.15rem; padding-right: 2.75rem !important;
     }
 
-    /* ПОДСВЕТКА ПОЛЯ МАСТЕРА ПРИ АВТОВЫБОРЕ */
     @keyframes fieldGlow {
       0% { box-shadow: 0 0 0 0 rgba(75, 179, 210, 0.8); border-color: #7dd3fc; }
       50% { box-shadow: 0 0 25px 4px rgba(56, 146, 174, 0.65); border-color: #7dd3fc; }
@@ -86,477 +69,164 @@
     }
     .highlight-field { animation: fieldGlow 1.6s ease-out; }
 
-    /* ПРЕМИУМ-КНОПКА INSTAGRAM ДЛЯ МАСТЕРОВ */
     .artist-ig-card {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      width: 100%;
-      padding: 10px 14px;
-      border-radius: 1rem;
+      display: flex; align-items: center; justify-content: space-between; width: 100%; padding: 10px 14px; border-radius: 1rem;
       background: linear-gradient(135deg, rgba(14, 37, 45, 0.85) 0%, rgba(5, 13, 16, 0.95) 100%);
-      border: 1px solid rgba(56, 146, 174, 0.35);
-      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.45);
-      text-decoration: none;
-      transition: all 0.3s ease;
+      border: 1px solid rgba(56, 146, 174, 0.35); box-shadow: 0 6px 18px rgba(0, 0, 0, 0.45); text-decoration: none; transition: all 0.3s ease;
     }
     .artist-ig-card:hover {
       border-color: rgba(225, 48, 108, 0.65);
       background: linear-gradient(135deg, rgba(25, 45, 55, 0.95) 0%, rgba(15, 20, 28, 0.98) 100%);
-      box-shadow: 0 8px 25px rgba(225, 48, 108, 0.25);
-      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(225, 48, 108, 0.25); transform: translateY(-2px);
     }
     .artist-ig-icon {
-      width: 34px;
-      height: 34px;
-      border-radius: 10px;
+      width: 34px; height: 34px; border-radius: 10px;
       background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: #ffffff;
-      flex-shrink: 0;
-      box-shadow: 0 4px 12px rgba(220, 39, 67, 0.4);
+      display: flex; align-items: center; justify-content: center; color: #ffffff; flex-shrink: 0; box-shadow: 0 4px 12px rgba(220, 39, 67, 0.4);
     }
-    .artist-ig-meta {
-      display: flex;
-      flex-direction: column;
-      margin-left: 11px;
-      overflow: hidden;
-    }
-    .artist-ig-label {
-      font-size: 9px;
-      text-transform: uppercase;
-      letter-spacing: 0.18em;
-      color: #64748b;
-      font-weight: 700;
-    }
-    .artist-ig-handle {
-      font-size: 12px;
-      font-weight: 700;
-      color: #f1f5f9;
-      letter-spacing: 0.03em;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-    }
+    .artist-ig-meta { display: flex; flex-direction: column; margin-left: 11px; overflow: hidden; }
+    .artist-ig-label { font-size: 9px; text-transform: uppercase; letter-spacing: 0.18em; color: #64748b; font-weight: 700; }
+    .artist-ig-handle { font-size: 12px; font-weight: 700; color: #f1f5f9; letter-spacing: 0.03em; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
     .artist-ig-arrow {
-      width: 26px;
-      height: 26px;
-      border-radius: 9999px;
-      background: rgba(255, 255, 255, 0.05);
-      color: #7dd3fc;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 12px;
-      flex-shrink: 0;
-      transition: all 0.25s ease;
+      width: 26px; height: 26px; border-radius: 9999px; background: rgba(255, 255, 255, 0.05); color: #7dd3fc;
+      display: flex; align-items: center; justify-content: center; font-size: 12px; flex-shrink: 0; transition: all 0.25s ease;
     }
-    .artist-ig-card:hover .artist-ig-arrow {
-      background: rgba(225, 48, 108, 0.2);
-      color: #ffffff;
-      transform: translate(2px, -2px);
-    }
+    .artist-ig-card:hover .artist-ig-arrow { background: rgba(225, 48, 108, 0.2); color: #ffffff; transform: translate(2px, -2px); }
 
-    /* КНОПКА MENU В ШАПКЕ */
     .custom-menu-btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 8px 14px;
-      border-radius: 9999px;
+      display: inline-flex; align-items: center; gap: 8px; padding: 8px 14px; border-radius: 9999px;
       background: linear-gradient(135deg, rgba(56, 146, 174, 0.3) 0%, rgba(14, 37, 45, 0.95) 100%);
-      border: 1px solid rgba(75, 179, 210, 0.65);
-      box-shadow: 0 0 18px rgba(56, 146, 174, 0.35);
-      color: #ffffff;
-      cursor: pointer;
-      transition: all 0.25s ease;
+      border: 1px solid rgba(75, 179, 210, 0.65); box-shadow: 0 0 18px rgba(56, 146, 174, 0.35); color: #ffffff; cursor: pointer; transition: all 0.25s ease;
     }
     .custom-menu-btn:hover, .custom-menu-btn:active {
       background: linear-gradient(135deg, rgba(56, 146, 174, 0.5) 0%, rgba(14, 37, 45, 1) 100%);
-      border-color: #7dd3fc;
-      box-shadow: 0 0 25px rgba(56, 146, 174, 0.6);
-      transform: scale(1.03);
+      border-color: #7dd3fc; box-shadow: 0 0 25px rgba(56, 146, 174, 0.6); transform: scale(1.03);
     }
 
-    /* ПРОКАЧАННАЯ ПЛАШКА МОБИЛЬНОГО МЕНЮ */
     @keyframes menuPop {
       0% { opacity: 0; transform: translateY(-14px) scale(0.96); }
       100% { opacity: 1; transform: translateY(0) scale(1); }
     }
     .glass-mobile-menu {
-      position: fixed;
-      top: 76px;
-      right: 14px;
-      left: 14px;
-      max-width: 355px;
-      margin-left: auto;
-      z-index: 9998;
+      position: fixed; top: 76px; right: 14px; left: 14px; max-width: 355px; margin-left: auto; z-index: 9998;
       background: radial-gradient(circle at top right, rgba(56, 146, 174, 0.24), transparent 60%), linear-gradient(165deg, rgba(9, 25, 32, 0.98) 0%, rgba(4, 11, 14, 0.99) 100%);
-      backdrop-filter: blur(26px);
-      -webkit-backdrop-filter: blur(26px);
-      border: 1px solid rgba(75, 179, 210, 0.65);
-      border-radius: 1.6rem;
-      padding: 16px;
+      backdrop-filter: blur(26px); -webkit-backdrop-filter: blur(26px);
+      border: 1px solid rgba(75, 179, 210, 0.65); border-radius: 1.6rem; padding: 16px;
       box-shadow: 0 28px 65px rgba(0, 0, 0, 0.92), 0 0 35px rgba(56, 146, 174, 0.32);
       animation: menuPop 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
     }
     .mobile-menu-header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 4px 6px 12px 6px;
-      margin-bottom: 10px;
+      display: flex; align-items: center; justify-content: space-between; padding: 4px 6px 12px 6px; margin-bottom: 10px;
       border-bottom: 1px solid rgba(56, 146, 174, 0.22);
     }
-    .mobile-menu-badge {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      font-size: 10px;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.22em;
-      color: #7dd3fc;
-    }
+    .mobile-menu-badge { display: flex; align-items: center; gap: 8px; font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.22em; color: #7dd3fc; }
     .mobile-menu-close {
-      width: 28px;
-      height: 28px;
-      border-radius: 9999px;
-      background: rgba(255, 255, 255, 0.06);
-      border: 1px solid rgba(75, 179, 210, 0.3);
-      color: #cbd5e1;
-      font-size: 13px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      cursor: pointer;
+      width: 28px; height: 28px; border-radius: 9999px; background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(75, 179, 210, 0.3); color: #cbd5e1; font-size: 13px; display: flex; align-items: center; justify-content: center; cursor: pointer;
     }
     .glass-mobile-menu a.menu-link {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 11px 14px;
-      margin-bottom: 6px;
-      border-radius: 0.95rem;
-      color: #f1f5f9;
-      font-size: 12px;
-      font-weight: 600;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      background: rgba(255, 255, 255, 0.03);
-      border: 1px solid rgba(56, 146, 174, 0.16);
-      text-decoration: none;
-      transition: all 0.25s ease;
+      display: flex; align-items: center; justify-content: space-between; padding: 11px 14px; margin-bottom: 6px; border-radius: 0.95rem;
+      color: #f1f5f9; font-size: 12px; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase;
+      background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(56, 146, 174, 0.16); text-decoration: none; transition: all 0.25s ease;
     }
     .glass-mobile-menu a.menu-link:hover, .glass-mobile-menu a.menu-link:active {
       background: linear-gradient(90deg, rgba(56, 146, 174, 0.35) 0%, rgba(14, 37, 45, 0.7) 100%);
-      border-color: rgba(75, 179, 210, 0.65);
-      color: #ffffff;
-      transform: translateX(4px);
+      border-color: rgba(75, 179, 210, 0.65); color: #ffffff; transform: translateX(4px);
     }
-    .menu-link-left {
-      display: flex;
-      align-items: center;
-      gap: 11px;
-    }
+    .menu-link-left { display: flex; align-items: center; gap: 11px; }
     .menu-num {
-      font-size: 10px;
-      font-weight: 700;
-      color: #4bb3d2;
-      background: rgba(56, 146, 174, 0.18);
-      border: 1px solid rgba(56, 146, 174, 0.35);
-      padding: 2px 7px;
-      border-radius: 6px;
-      letter-spacing: 0.05em;
+      font-size: 10px; font-weight: 700; color: #4bb3d2; background: rgba(56, 146, 174, 0.18);
+      border: 1px solid rgba(56, 146, 174, 0.35); padding: 2px 7px; border-radius: 6px; letter-spacing: 0.05em;
     }
-    .mobile-menu-socials {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 8px;
-      margin-top: 10px;
-      padding-top: 10px;
-      border-top: 1px solid rgba(56, 146, 174, 0.22);
-    }
+    .mobile-menu-socials { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 10px; padding-top: 10px; border-top: 1px solid rgba(56, 146, 174, 0.22); }
     .mobile-quick-btn {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 6px;
-      padding: 10px;
-      border-radius: 0.85rem;
-      background: rgba(14, 37, 45, 0.75);
-      border: 1px solid rgba(56, 146, 174, 0.3);
-      color: #e2e8f0;
-      font-size: 11px;
-      font-weight: 600;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      text-decoration: none;
+      display: flex; align-items: center; justify-content: center; gap: 6px; padding: 10px; border-radius: 0.85rem;
+      background: rgba(14, 37, 45, 0.75); border: 1px solid rgba(56, 146, 174, 0.3); color: #e2e8f0; font-size: 11px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; text-decoration: none;
     }
     .glass-mobile-menu a.menu-cta {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-      padding: 13px 18px;
-      margin-top: 8px;
-      border-radius: 0.95rem;
-      background: linear-gradient(135deg, #3892ae 0%, #1f5d72 100%);
-      color: #ffffff;
-      font-size: 12px;
-      font-weight: 700;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      text-decoration: none;
-      box-shadow: 0 8px 22px rgba(56, 146, 174, 0.45);
-      border: 1px solid rgba(255, 255, 255, 0.3);
+      display: flex; align-items: center; justify-content: center; gap: 8px; padding: 13px 18px; margin-top: 8px; border-radius: 0.95rem;
+      background: linear-gradient(135deg, #3892ae 0%, #1f5d72 100%); color: #ffffff; font-size: 12px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; text-decoration: none;
+      box-shadow: 0 8px 22px rgba(56, 146, 174, 0.45); border: 1px solid rgba(255, 255, 255, 0.3);
     }
 
-    /* БЫСТРЫЕ ЧИПСЫ-ПОДСКАЗКИ В ФОРМЕ (QUICK-TAGS) */
-    .quick-tags-wrap {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 7px;
-      margin-top: 9px;
-    }
+    .quick-tags-wrap { display: flex; flex-wrap: wrap; gap: 7px; margin-top: 9px; }
     .quick-tag {
-      padding: 6px 11px;
-      border-radius: 9999px;
-      background: rgba(14, 37, 45, 0.75);
-      border: 1px solid rgba(56, 146, 174, 0.35);
-      color: #cbd5e1;
-      font-size: 11px;
-      font-weight: 600;
-      letter-spacing: 0.04em;
-      cursor: pointer;
-      transition: all 0.2s ease;
+      padding: 6px 11px; border-radius: 9999px; background: rgba(14, 37, 45, 0.75); border: 1px solid rgba(56, 146, 174, 0.35);
+      color: #cbd5e1; font-size: 11px; font-weight: 600; letter-spacing: 0.04em; cursor: pointer; transition: all 0.2s ease;
     }
-    .quick-tag:hover {
-      border-color: #4bb3d2;
-      color: #ffffff;
-    }
-    .quick-tag.active {
-      background: linear-gradient(135deg, #3892ae 0%, #246980 100%);
-      border-color: #7dd3fc;
-      color: #ffffff;
-      box-shadow: 0 0 14px rgba(56, 146, 174, 0.5);
-    }
+    .quick-tag:hover { border-color: #4bb3d2; color: #ffffff; }
+    .quick-tag.active { background: linear-gradient(135deg, #3892ae 0%, #246980 100%); border-color: #7dd3fc; color: #ffffff; box-shadow: 0 0 14px rgba(56, 146, 174, 0.5); }
 
-    /* ЯРКАЯ КНОПКА ОТПРАВКИ ЗАЯВКИ (ANFRAGE ABSENDEN) */
     .btn-submit-wa {
-      width: 100%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 12px;
-      padding: 16px 24px;
-      border-radius: 0.9rem;
-      background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
-      color: #ffffff;
-      font-weight: 700;
-      font-size: 14px;
-      text-transform: uppercase;
-      letter-spacing: 0.14em;
-      border: 1px solid rgba(255, 255, 255, 0.4);
-      box-shadow: 0 10px 30px rgba(37, 211, 102, 0.45), inset 0 1px 0 rgba(255, 255, 255, 0.3);
-      cursor: pointer;
-      transition: all 0.3s ease;
+      width: 100%; display: flex; align-items: center; justify-content: center; gap: 12px; padding: 16px 24px; border-radius: 0.9rem;
+      background: linear-gradient(135deg, #25D366 0%, #128C7E 100%); color: #ffffff; font-weight: 700; font-size: 14px; text-transform: uppercase; letter-spacing: 0.14em;
+      border: 1px solid rgba(255, 255, 255, 0.4); box-shadow: 0 10px 30px rgba(37, 211, 102, 0.45), inset 0 1px 0 rgba(255, 255, 255, 0.3); cursor: pointer; transition: all 0.3s ease;
     }
-    .btn-submit-wa:hover {
-      background: linear-gradient(135deg, #2be370 0%, #17a393 100%);
-      box-shadow: 0 12px 35px rgba(37, 211, 102, 0.65);
-      transform: translateY(-2px);
-    }
-    .btn-submit-wa:active { transform: translateY(0); }
+    .btn-submit-wa:hover { background: linear-gradient(135deg, #2be370 0%, #17a393 100%); box-shadow: 0 12px 35px rgba(37, 211, 102, 0.65); transform: translateY(-2px); }
 
-    /* ПЛАВАЮЩАЯ КНОПКА WHATSAPP С ПУЛЬСАЦИЕЙ */
     @keyframes waPulse {
       0% { box-shadow: 0 8px 28px rgba(37, 211, 102, 0.65), 0 0 0 0 rgba(37, 211, 102, 0.55); }
       70% { box-shadow: 0 8px 28px rgba(37, 211, 102, 0.65), 0 0 0 14px rgba(37, 211, 102, 0); }
       100% { box-shadow: 0 8px 28px rgba(37, 211, 102, 0.65), 0 0 0 0 rgba(37, 211, 102, 0); }
     }
     .floating-wa-btn {
-      position: fixed;
-      bottom: 24px;
-      right: 24px;
-      z-index: 99990;
-      width: 62px;
-      height: 62px;
-      border-radius: 9999px;
-      background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
-      color: #ffffff;
-      border: 2px solid #ffffff;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      animation: waPulse 2.4s infinite;
-      transition: transform 0.3s ease;
-      text-decoration: none;
+      position: fixed; bottom: 24px; right: 24px; z-index: 99990; width: 62px; height: 62px; border-radius: 9999px;
+      background: linear-gradient(135deg, #25D366 0%, #128C7E 100%); color: #ffffff; border: 2px solid #ffffff;
+      display: flex; align-items: center; justify-content: center; animation: waPulse 2.4s infinite; transition: transform 0.3s ease; text-decoration: none;
     }
     .floating-wa-btn:hover { transform: scale(1.1); }
     .floating-wa-tooltip {
-      position: absolute;
-      right: 76px;
-      background: #050d10;
-      border: 1px solid #25D366;
-      color: #ffffff;
-      font-size: 12px;
-      font-weight: 600;
-      padding: 8px 14px;
-      border-radius: 10px;
-      white-space: nowrap;
-      box-shadow: 0 10px 25px rgba(0,0,0,0.8);
-      opacity: 0;
-      pointer-events: none;
-      transition: opacity 0.25s ease;
+      position: absolute; right: 76px; background: #050d10; border: 1px solid #25D366; color: #ffffff; font-size: 12px; font-weight: 600;
+      padding: 8px 14px; border-radius: 10px; white-space: nowrap; box-shadow: 0 10px 25px rgba(0,0,0,0.8); opacity: 0; pointer-events: none; transition: opacity 0.25s ease;
     }
     .floating-wa-btn:hover .floating-wa-tooltip { opacity: 1; }
 
-    /* СВАЙП-КАРУСЕЛЬ ДЛЯ СТУДИИ И ОТЗЫВОВ НА МОБИЛЬНЫХ */
     @media (max-width: 767px) {
       #studio-grid, #reviews-grid {
-        display: flex !important;
-        overflow-x: auto;
-        scroll-snap-type: x mandatory;
-        gap: 16px;
-        padding-bottom: 14px;
-        -webkit-overflow-scrolling: touch;
-        scrollbar-width: none;
+        display: flex !important; overflow-x: auto; scroll-snap-type: x mandatory; gap: 16px; padding-bottom: 14px; -webkit-overflow-scrolling: touch; scrollbar-width: none;
       }
       #studio-grid::-webkit-scrollbar, #reviews-grid::-webkit-scrollbar { display: none; }
-      #studio-grid > div, #reviews-grid > div {
-        flex: 0 0 85%;
-        scroll-snap-align: center;
-      }
+      #studio-grid > div, #reviews-grid > div { flex: 0 0 85%; scroll-snap-align: center; }
     }
 
-    /* ПРОКАЧАННЫЙ ЛАЙТБОКС С ЛИСТАНИЕМ */
     .portfolio-item, #studio-grid > div { cursor: zoom-in; }
     .lightbox-overlay {
-      position: fixed;
-      inset: 0;
-      z-index: 99999;
-      background: rgba(5, 13, 16, 0.95);
-      backdrop-filter: blur(18px);
-      -webkit-backdrop-filter: blur(18px);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 20px;
-      opacity: 0;
-      pointer-events: none;
-      transition: opacity 0.3s ease;
-      user-select: none;
+      position: fixed; inset: 0; z-index: 99999; background: rgba(5, 13, 16, 0.95); backdrop-filter: blur(18px); -webkit-backdrop-filter: blur(18px);
+      display: flex; align-items: center; justify-content: center; padding: 20px; opacity: 0; pointer-events: none; transition: opacity 0.3s ease; user-select: none;
     }
-    .lightbox-overlay.open {
-      opacity: 1;
-      pointer-events: auto;
-    }
+    .lightbox-overlay.open { opacity: 1; pointer-events: auto; }
     .lightbox-img {
-      max-width: 88vw;
-      max-height: 82vh;
-      border-radius: 1.25rem;
-      border: 1px solid rgba(75, 179, 210, 0.5);
-      box-shadow: 0 25px 70px rgba(0, 0, 0, 0.95), 0 0 35px rgba(56, 146, 174, 0.25);
-      object-fit: contain;
-      transform: scale(0.94);
-      transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+      max-width: 88vw; max-height: 82vh; border-radius: 1.25rem; border: 1px solid rgba(75, 179, 210, 0.5);
+      box-shadow: 0 25px 70px rgba(0, 0, 0, 0.95), 0 0 35px rgba(56, 146, 174, 0.25); object-fit: contain; transform: scale(0.94); transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1);
     }
     .lightbox-overlay.open .lightbox-img { transform: scale(1); }
     .lightbox-close {
-      position: absolute;
-      top: 20px;
-      right: 20px;
-      width: 44px;
-      height: 44px;
-      border-radius: 9999px;
-      background: rgba(14, 37, 45, 0.9);
-      border: 1px solid rgba(75, 179, 210, 0.6);
-      color: #ffffff;
-      font-size: 18px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      cursor: pointer;
-      box-shadow: 0 8px 25px rgba(0,0,0,0.6);
-      z-index: 10;
+      position: absolute; top: 20px; right: 20px; width: 44px; height: 44px; border-radius: 9999px; background: rgba(14, 37, 45, 0.9);
+      border: 1px solid rgba(75, 179, 210, 0.6); color: #ffffff; font-size: 18px; display: flex; align-items: center; justify-content: center; cursor: pointer; z-index: 10;
     }
     .lightbox-nav {
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      width: 46px;
-      height: 46px;
-      border-radius: 9999px;
-      background: rgba(14, 37, 45, 0.85);
-      border: 1px solid rgba(75, 179, 210, 0.55);
-      color: #ffffff;
-      font-size: 24px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      cursor: pointer;
-      box-shadow: 0 8px 25px rgba(0,0,0,0.7);
-      transition: all 0.2s ease;
-      z-index: 10;
+      position: absolute; top: 50%; transform: translateY(-50%); width: 46px; height: 46px; border-radius: 9999px; background: rgba(14, 37, 45, 0.85);
+      border: 1px solid rgba(75, 179, 210, 0.55); color: #ffffff; font-size: 24px; display: flex; align-items: center; justify-content: center; cursor: pointer; z-index: 10;
     }
-    .lightbox-nav:hover { background: #3892ae; }
     .lightbox-prev { left: 16px; }
     .lightbox-next { right: 16px; }
     .lightbox-counter {
-      position: absolute;
-      bottom: 22px;
-      left: 50%;
-      transform: translateX(-50%);
-      padding: 6px 16px;
-      border-radius: 9999px;
-      background: rgba(14, 37, 45, 0.9);
-      border: 1px solid rgba(75, 179, 210, 0.4);
-      color: #e2e8f0;
-      font-size: 12px;
-      font-weight: 600;
-      letter-spacing: 0.15em;
+      position: absolute; bottom: 22px; left: 50%; transform: translateX(-50%); padding: 6px 16px; border-radius: 9999px;
+      background: rgba(14, 37, 45, 0.9); border: 1px solid rgba(75, 179, 210, 0.4); color: #e2e8f0; font-size: 12px; font-weight: 600; letter-spacing: 0.15em;
     }
 
-    /* ЖИВОЙ ИНДИКАТОР СТАТУСА СТУДИИ */
     .status-pill {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 6px 12px;
-      border-radius: 9999px;
-      background: rgba(14, 37, 45, 0.85);
-      border: 1px solid rgba(56, 146, 174, 0.4);
-      font-size: 11px;
-      font-weight: 600;
-      color: #e2e8f0;
+      display: inline-flex; align-items: center; gap: 8px; padding: 6px 12px; border-radius: 9999px;
+      background: rgba(14, 37, 45, 0.85); border: 1px solid rgba(56, 146, 174, 0.4); font-size: 11px; font-weight: 600; color: #e2e8f0;
     }
-    .status-dot {
-      width: 8px;
-      height: 8px;
-      border-radius: 9999px;
-      background: #25D366;
-      box-shadow: 0 0 10px #25D366;
-    }
+    .status-dot { width: 8px; height: 8px; border-radius: 9999px; background: #25D366; box-shadow: 0 0 10px #25D366; }
 
-    /* ПЛАВНОЕ ПОЯВЛЕНИЕ БЛОКОВ ПРИ СКРОЛЛЕ */
-    .reveal {
-      opacity: 0;
-      transform: translateY(24px);
-      transition: opacity 0.65s ease-out, transform 0.65s ease-out;
-    }
-    .reveal.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
+    .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.65s ease-out, transform 0.65s ease-out; }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
 
-    /* Кастомный ползунок */
     html::-webkit-scrollbar { width: 10px; }
     html::-webkit-scrollbar-track { background: #050d10; }
     html::-webkit-scrollbar-thumb { background: #3892ae; border-radius: 10px; border: 2px solid #050d10; }
-    html::-webkit-scrollbar-thumb:hover { background: #4bb3d2; }
     html { scrollbar-width: thin; scrollbar-color: #3892ae #050d10; }
   </style>
 </head>
@@ -590,9 +260,7 @@
           <button onclick="setLang('ru')" id="lang-ru" class="px-2.5 py-1 rounded-full text-slate-400 hover:text-white transition">RU</button>
           <button onclick="setLang('en')" id="lang-en" class="px-2.5 py-1 rounded-full text-slate-400 hover:text-white transition">EN</button>
         </div>
-        
         <a href="#contact" class="hidden sm:inline-flex items-center justify-center whitespace-nowrap flex-shrink-0 px-5 py-2 rounded-full bg-petrol-500 hover:bg-petrol-400 text-white text-xs font-semibold uppercase tracking-wider transition shadow-[0_0_20px_rgba(56,146,174,0.4)]" data-i18n="btn_book_nav">Termin</a>
-        
         <button id="menu-toggle-btn" onclick="toggleMobileMenu(event)" class="lg:hidden custom-menu-btn focus:outline-none" aria-label="Menu">
           <span class="text-[11px] uppercase tracking-widest font-bold" data-i18n="nav_menu">Menu</span>
           <svg class="w-5 h-5 text-petrol-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
@@ -601,7 +269,7 @@
     </div>
   </header>
 
-  <!-- ПРОКАЧАННОЕ МОБИЛЬНОЕ МЕНЮ (СТЕКЛЯННЫЙ ОСТРОВ) -->
+  <!-- МОБИЛЬНОЕ МЕНЮ -->
   <div id="mobile-menu" class="hidden lg:hidden flex-col glass-mobile-menu">
     <div class="mobile-menu-header">
       <div class="mobile-menu-badge">
@@ -610,38 +278,18 @@
       </div>
       <button onclick="closeMobileMenu()" class="mobile-menu-close" aria-label="Close Menu">✕</button>
     </div>
-
-    <a href="#hero" onclick="closeMobileMenu()" class="menu-link">
-      <span class="menu-link-left"><span class="menu-num">01</span><span data-i18n="nav_home">Start</span></span><span>›</span>
-    </a>
-    <a href="#artists" onclick="closeMobileMenu()" class="menu-link">
-      <span class="menu-link-left"><span class="menu-num">02</span><span data-i18n="nav_artists">Artists</span></span><span>›</span>
-    </a>
-    <a href="#portfolio" onclick="closeMobileMenu()" class="menu-link">
-      <span class="menu-link-left"><span class="menu-num">03</span><span data-i18n="nav_portfolio">Portfolio</span></span><span>›</span>
-    </a>
-    <a href="#studio" onclick="closeMobileMenu()" class="menu-link">
-      <span class="menu-link-left"><span class="menu-num">04</span><span data-i18n="nav_studio">Studio</span></span><span>›</span>
-    </a>
-    <a href="#reviews" onclick="closeMobileMenu()" class="menu-link">
-      <span class="menu-link-left"><span class="menu-num">05</span><span data-i18n="nav_reviews">Reviews</span></span><span>›</span>
-    </a>
-    <a href="#aftercare" onclick="closeMobileMenu()" class="menu-link">
-      <span class="menu-link-left"><span class="menu-num">06</span><span data-i18n="nav_aftercare">Aftercare</span></span><span>›</span>
-    </a>
-    <a href="#faq" onclick="closeMobileMenu()" class="menu-link">
-      <span class="menu-link-left"><span class="menu-num">07</span><span data-i18n="nav_faq">FAQ</span></span><span>›</span>
-    </a>
-
+    <a href="#hero" onclick="closeMobileMenu()" class="menu-link"><span class="menu-link-left"><span class="menu-num">01</span><span data-i18n="nav_home">Start</span></span><span>›</span></a>
+    <a href="#artists" onclick="closeMobileMenu()" class="menu-link"><span class="menu-link-left"><span class="menu-num">02</span><span data-i18n="nav_artists">Artists</span></span><span>›</span></a>
+    <a href="#portfolio" onclick="closeMobileMenu()" class="menu-link"><span class="menu-link-left"><span class="menu-num">03</span><span data-i18n="nav_portfolio">Portfolio</span></span><span>›</span></a>
+    <a href="#studio" onclick="closeMobileMenu()" class="menu-link"><span class="menu-link-left"><span class="menu-num">04</span><span data-i18n="nav_studio">Studio</span></span><span>›</span></a>
+    <a href="#reviews" onclick="closeMobileMenu()" class="menu-link"><span class="menu-link-left"><span class="menu-num">05</span><span data-i18n="nav_reviews">Reviews</span></span><span>›</span></a>
+    <a href="#aftercare" onclick="closeMobileMenu()" class="menu-link"><span class="menu-link-left"><span class="menu-num">06</span><span data-i18n="nav_aftercare">Aftercare</span></span><span>›</span></a>
+    <a href="#faq" onclick="closeMobileMenu()" class="menu-link"><span class="menu-link-left"><span class="menu-num">07</span><span data-i18n="nav_faq">FAQ</span></span><span>›</span></a>
     <div class="mobile-menu-socials">
       <a href="tel:+4917632460273" class="mobile-quick-btn">📞 Call</a>
       <a href="https://www.instagram.com/newjacktattoo/" target="_blank" rel="noopener noreferrer" class="mobile-quick-btn">📸 Insta</a>
     </div>
-
-    <a href="#contact" onclick="closeMobileMenu()" class="menu-cta">
-      <span data-i18n="hero_cta_primary">Termin vereinbaren</span>
-      <span>→</span>
-    </a>
+    <a href="#contact" onclick="closeMobileMenu()" class="menu-cta"><span data-i18n="hero_cta_primary">Termin vereinbaren</span><span>→</span></a>
   </div>
 
   <!-- ГЛАВНЫЙ ЭКРАН -->
@@ -680,22 +328,10 @@
   <!-- ПРЕИМУЩЕСТВА -->
   <section class="py-12 border-y border-petrol-800/60 bg-petrol-950/90 relative z-10">
     <div class="max-w-7xl mx-auto px-6 grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
-      <div class="p-4">
-        <div class="text-2xl sm:text-3xl font-cinzel font-bold text-petrol-300 mb-1">100%</div>
-        <div class="text-xs uppercase tracking-widest text-slate-400" data-i18n="stat_sterile">100% EU-Hygiene &amp; Steril</div>
-      </div>
-      <div class="p-4">
-        <div class="text-2xl sm:text-3xl font-cinzel font-bold text-petrol-300 mb-1">5.0 ★</div>
-        <div class="text-xs uppercase tracking-widest text-slate-400" data-i18n="stat_artists">Top Google Bewertung</div>
-      </div>
-      <div class="p-4">
-        <div class="text-2xl sm:text-3xl font-cinzel font-bold text-petrol-300 mb-1">CUSTOM</div>
-        <div class="text-xs uppercase tracking-widest text-slate-400" data-i18n="stat_custom">Individuelle Entwürfe</div>
-      </div>
-      <div class="p-4">
-        <div class="text-2xl sm:text-3xl font-cinzel font-bold text-petrol-300 mb-1">FREE</div>
-        <div class="text-xs uppercase tracking-widest text-slate-400" data-i18n="stat_consult">Kostenlose Beratung</div>
-      </div>
+      <div class="p-4"><div class="text-2xl sm:text-3xl font-cinzel font-bold text-petrol-300 mb-1">100%</div><div class="text-xs uppercase tracking-widest text-slate-400" data-i18n="stat_sterile">100% EU-Hygiene &amp; Steril</div></div>
+      <div class="p-4"><div class="text-2xl sm:text-3xl font-cinzel font-bold text-petrol-300 mb-1">5.0 ★</div><div class="text-xs uppercase tracking-widest text-slate-400" data-i18n="stat_artists">Top Google Bewertung</div></div>
+      <div class="p-4"><div class="text-2xl sm:text-3xl font-cinzel font-bold text-petrol-300 mb-1">CUSTOM</div><div class="text-xs uppercase tracking-widest text-slate-400" data-i18n="stat_custom">Individuelle Entwürfe</div></div>
+      <div class="p-4"><div class="text-2xl sm:text-3xl font-cinzel font-bold text-petrol-300 mb-1">FREE</div><div class="text-xs uppercase tracking-widest text-slate-400" data-i18n="stat_consult">Kostenlose Beratung</div></div>
     </div>
   </section>
 
@@ -720,13 +356,8 @@
           <div class="flex flex-col gap-4 mt-auto">
             <a href="https://www.instagram.com/andy_blvck1" target="_blank" rel="noopener noreferrer" class="artist-ig-card">
               <div style="display:flex;align-items:center;min-width:0;">
-                <div class="artist-ig-icon">
-                  <svg style="width:18px;height:18px;fill:currentColor;" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.209-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"></path></svg>
-                </div>
-                <div class="artist-ig-meta">
-                  <span class="artist-ig-label">Instagram</span>
-                  <span class="artist-ig-handle">@andy_blvck1</span>
-                </div>
+                <div class="artist-ig-icon"><svg style="width:18px;height:18px;fill:currentColor;" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.209-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"></path></svg></div>
+                <div class="artist-ig-meta"><span class="artist-ig-label">Instagram</span><span class="artist-ig-handle">@andy_blvck1</span></div>
               </div>
               <span class="artist-ig-arrow">↗</span>
             </a>
@@ -749,13 +380,8 @@
           <div class="flex flex-col gap-4 mt-auto">
             <a href="https://www.instagram.com/tattoo.asty.mayer" target="_blank" rel="noopener noreferrer" class="artist-ig-card">
               <div style="display:flex;align-items:center;min-width:0;">
-                <div class="artist-ig-icon">
-                  <svg style="width:18px;height:18px;fill:currentColor;" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.209-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"></path></svg>
-                </div>
-                <div class="artist-ig-meta">
-                  <span class="artist-ig-label">Instagram</span>
-                  <span class="artist-ig-handle">@tattoo.asty.mayer</span>
-                </div>
+                <div class="artist-ig-icon"><svg style="width:18px;height:18px;fill:currentColor;" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.209-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"></path></svg></div>
+                <div class="artist-ig-meta"><span class="artist-ig-label">Instagram</span><span class="artist-ig-handle">@tattoo.asty.mayer</span></div>
               </div>
               <span class="artist-ig-arrow">↗</span>
             </a>
@@ -778,13 +404,8 @@
           <div class="flex flex-col gap-4 mt-auto">
             <a href="https://www.instagram.com/whitedogtattoo" target="_blank" rel="noopener noreferrer" class="artist-ig-card">
               <div style="display:flex;align-items:center;min-width:0;">
-                <div class="artist-ig-icon">
-                  <svg style="width:18px;height:18px;fill:currentColor;" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.209-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"></path></svg>
-                </div>
-                <div class="artist-ig-meta">
-                  <span class="artist-ig-label">Instagram</span>
-                  <span class="artist-ig-handle">@whitedogtattoo</span>
-                </div>
+                <div class="artist-ig-icon"><svg style="width:18px;height:18px;fill:currentColor;" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.209-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"></path></svg></div>
+                <div class="artist-ig-meta"><span class="artist-ig-label">Instagram</span><span class="artist-ig-handle">@whitedogtattoo</span></div>
               </div>
               <span class="artist-ig-arrow">↗</span>
             </a>
@@ -807,13 +428,8 @@
           <div class="flex flex-col gap-4 mt-auto">
             <a href="https://www.instagram.com/ritmrimma" target="_blank" rel="noopener noreferrer" class="artist-ig-card">
               <div style="display:flex;align-items:center;min-width:0;">
-                <div class="artist-ig-icon">
-                  <svg style="width:18px;height:18px;fill:currentColor;" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.209-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"></path></svg>
-                </div>
-                <div class="artist-ig-meta">
-                  <span class="artist-ig-label">Instagram</span>
-                  <span class="artist-ig-handle">@ritmrimma</span>
-                </div>
+                <div class="artist-ig-icon"><svg style="width:18px;height:18px;fill:currentColor;" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.209-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"></path></svg></div>
+                <div class="artist-ig-meta"><span class="artist-ig-label">Instagram</span><span class="artist-ig-handle">@ritmrimma</span></div>
               </div>
               <span class="artist-ig-arrow">↗</span>
             </a>
@@ -876,7 +492,7 @@
       <div class="relative h-72 rounded-3xl overflow-hidden group border border-petrol-800/60"><img src="./img/studio/stidia-6.jpg" alt="New Jack Tattoo Studio 6" class="w-full h-full object-cover group-hover:scale-105 transition duration-500"><div class="absolute inset-0 bg-gradient-to-t from-petrol-950/90 via-transparent to-transparent flex items-end p-5 pointer-events-none"></div></div>
     </div>
   </section>
-
+  <!-- КОНЕЦ 1 ЧАСТИ (СЮДА ВСТАВЛЯТЬ 2 ЧАСТЬ) -->
   <!-- ОТЗЫВЫ КЛИЕНТОВ (GOOGLE REVIEWS 5.0 ★) -->
   <section id="reviews" class="py-20 px-6 max-w-7xl mx-auto border-t border-petrol-800/40 reveal">
     <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
@@ -977,7 +593,6 @@
           <div>
             <label class="block text-xs uppercase tracking-wider text-slate-400 mb-2" data-i18n="form_placement">Körperstelle &amp; Größe</label>
             <input type="text" id="form-size" placeholder="Unterarm, ~15 cm" data-i18n-placeholder="form_placement_ph" class="w-full px-4 py-3.5 rounded-xl bg-petrol-950/90 border border-petrol-700/70 text-white text-sm focus:border-petrol-400 focus:outline-none transition">
-            <!-- БЫСТРЫЕ ЧИПСЫ-ПОДСКАЗКИ -->
             <div class="quick-tags-wrap">
               <button type="button" onclick="toggleQuickTag(this)" class="quick-tag" data-i18n="tag_forearm">Unterarm</button>
               <button type="button" onclick="toggleQuickTag(this)" class="quick-tag" data-i18n="tag_upperarm">Oberarm</button>
@@ -1312,7 +927,7 @@
       if (!dot || !text) return;
 
       const now = new Date();
-      const day = now.getDay(); // 0 = Sun, 1 = Mon, 2..6 = Tue..Sat
+      const day = now.getDay();
       const hour = now.getHours();
       const isOpen = (day >= 2 && day <= 6) && (hour >= 11 && hour < 19);
       const dict = i18n[currentLang] || i18n.de;
@@ -1355,7 +970,6 @@
       updateStudioLiveStatus();
     }
 
-    // Быстрые чипсы-подсказки для поля размера и места
     function toggleQuickTag(btn) {
       const input = document.getElementById('form-size');
       if (!input) return;
@@ -1371,7 +985,6 @@
       input.value = parts.join(', ');
     }
 
-    // Автоматический выбор мастера при клике на его карточку
     function selectArtistAndBook(artistName, event) {
       if (event) event.preventDefault();
       const contactSection = document.getElementById('contact');
@@ -1385,7 +998,6 @@
       }
     }
 
-    // Полноэкранный Lightbox с листанием
     function updateLightboxView() {
       const lbImg = document.getElementById('lightbox-img');
       const lbCounter = document.getElementById('lightbox-counter');
@@ -1427,7 +1039,6 @@
       }
     }
 
-    // Свайп пальцем в Lightbox
     const lbElement = document.getElementById('lightbox');
     if (lbElement) {
       lbElement.addEventListener('touchstart', e => {
@@ -1581,7 +1192,6 @@
         revealEls.forEach(el => el.classList.add('visible'));
       }
 
-      // Подгрузка галереи из Sveltia CMS (/data.json)
       fetch('/data.json')
         .then(response => {
           if (!response.ok) throw new Error('Данные не найдены');
