@@ -125,7 +125,7 @@
       border: 1px solid rgba(75, 179, 210, 0.3); color: #cbd5e1; font-size: 13px; display: flex; align-items: center; justify-content: center; cursor: pointer;
     }
     .glass-mobile-menu a.menu-link {
-      display: flex; align-items: center; justify-content: space-between; padding: 10px 14px; margin-bottom: 5px; border-radius: 0.95rem;
+      display: flex; align-items: center; justify-content: space-between; padding: 11px 14px; margin-bottom: 6px; border-radius: 0.95rem;
       color: #f1f5f9; font-size: 12px; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase;
       background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(56, 146, 174, 0.16); text-decoration: none; transition: all 0.25s ease;
     }
@@ -224,72 +224,6 @@
     .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.65s ease-out, transform 0.65s ease-out; }
     .reveal.visible { opacity: 1; transform: translateY(0); }
 
-    /* --- СТИЛИ ДЛЯ БЛОКА «4 ШАГА ОТ ИДЕИ ДО ТАТУ» --- */
-    .process-timeline-wrap { position: relative; }
-    @media (min-width: 1024px) {
-      .process-timeline-line {
-        position: absolute; top: 38px; left: 8%; right: 8%; height: 2px;
-        background: linear-gradient(90deg, rgba(56,146,174,0.1), #4bb3d2, #3892ae, rgba(56,146,174,0.1));
-        box-shadow: 0 0 15px rgba(75, 179, 210, 0.65); z-index: 0; pointer-events: none;
-      }
-    }
-    .process-step-card {
-      position: relative; z-index: 1;
-      transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
-    }
-    .process-step-card:hover {
-      transform: translateY(-6px);
-      border-color: rgba(75, 179, 210, 0.65);
-      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.6), 0 0 25px rgba(56, 146, 174, 0.25);
-    }
-    .process-step-num {
-      width: 52px; height: 52px; border-radius: 9999px;
-      background: radial-gradient(circle at 30% 30%, #163e4b, #050d10);
-      border: 2px solid #4bb3d2; color: #7dd3fc;
-      display: flex; align-items: center; justify-content: center;
-      font-family: 'Cinzel', serif; font-weight: 700; font-size: 16px;
-      box-shadow: 0 0 20px rgba(75, 179, 210, 0.45);
-    }
-
-    /* --- СТИЛИ ДЛЯ VIP-КАРТЫ И КНОПОК СУММЫ «TATTOO-GUTSCHEIN» --- */
-    .vip-gift-card {
-      position: relative; overflow: hidden; border-radius: 1.75rem; padding: 28px;
-      background: radial-gradient(circle at top right, rgba(75, 179, 210, 0.32) 0%, rgba(14, 37, 45, 0.96) 52%, #050d10 100%);
-      border: 1px solid rgba(125, 211, 252, 0.45);
-      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.8), 0 0 35px rgba(56, 146, 174, 0.28), inset 0 1px 0 rgba(255, 255, 255, 0.2);
-    }
-    .vip-gift-chip {
-      width: 44px; height: 32px; border-radius: 8px;
-      background: linear-gradient(135deg, #bae6fd 0%, #3892ae 55%, #0e252d 100%);
-      border: 1px solid rgba(255, 255, 255, 0.4);
-      box-shadow: inset 0 0 8px rgba(0, 0, 0, 0.4);
-    }
-    .gutschein-amount-grid {
-      display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px;
-    }
-    @media (min-width: 640px) {
-      .gutschein-amount-grid { grid-template-columns: repeat(4, 1fr); }
-    }
-    .gutschein-amount-btn {
-      padding: 13px 14px; border-radius: 0.9rem;
-      background: rgba(5, 13, 16, 0.85);
-      border: 1px solid rgba(56, 146, 174, 0.4);
-      color: #cbd5e1; font-size: 13px; font-weight: 700;
-      letter-spacing: 0.05em; cursor: pointer;
-      transition: all 0.22s ease; text-align: center;
-    }
-    .gutschein-amount-btn:hover {
-      border-color: #7dd3fc; color: #ffffff;
-      background: rgba(14, 37, 45, 0.95);
-    }
-    .gutschein-amount-btn.active {
-      background: linear-gradient(135deg, #3892ae 0%, #246980 100%) !important;
-      border-color: #7dd3fc !important;
-      color: #ffffff !important;
-      box-shadow: 0 0 20px rgba(75, 179, 210, 0.55);
-      transform: translateY(-2px);
-    }
-
     html::-webkit-scrollbar { width: 10px; }
     html::-webkit-scrollbar-track { background: #050d10; }
     html::-webkit-scrollbar-thumb { background: #3892ae; border-radius: 10px; border: 2px solid #050d10; }
@@ -301,24 +235,23 @@
   <!-- НАВИГАЦИЯ -->
   <header class="fixed top-0 left-0 right-0 z-40 transition-all duration-300 bg-[#050d10]/80 backdrop-blur-md border-b border-petrol-800/40" id="navbar">
     <div class="max-w-7xl mx-auto px-4 sm:px-8 py-4 flex items-center justify-between">
-      <a href="#hero" class="flex items-center gap-3 group lg:mr-6 xl:mr-12 flex-shrink-0">
+      <a href="#hero" class="flex items-center gap-3 group lg:mr-8 xl:mr-16 flex-shrink-0">
         <div class="w-10 h-10 rounded-full border border-petrol-400/50 bg-petrol-900/80 flex items-center justify-center shadow-[0_0_15px_rgba(56,146,174,0.3)] group-hover:border-petrol-300 transition">
           <span class="font-cinzel font-bold text-sm tracking-widest text-petrol-300">NJT</span>
         </div>
         <span class="font-cinzel font-bold tracking-widest text-sm sm:text-base text-white hidden sm:inline">NEW JACK TATTOO</span>
       </a>
 
-      <nav class="hidden lg:flex items-center gap-3 xl:gap-4 text-[11px] xl:text-xs uppercase tracking-[0.14em] text-slate-300 font-medium">
+      <nav class="hidden lg:flex items-center gap-3 xl:gap-5 text-[11px] xl:text-xs uppercase tracking-[0.15em] text-slate-300 font-medium">
         <a href="#hero" class="hover:text-petrol-300 transition whitespace-nowrap" data-i18n="nav_home">Start</a>
         <a href="#artists" class="hover:text-petrol-300 transition whitespace-nowrap" data-i18n="nav_artists">Artists</a>
         <a href="#portfolio" class="hover:text-petrol-300 transition whitespace-nowrap" data-i18n="nav_portfolio">Portfolio</a>
-        <a href="#process" class="hover:text-petrol-300 transition whitespace-nowrap" data-i18n="nav_process">Ablauf</a>
         <a href="#studio" class="hover:text-petrol-300 transition whitespace-nowrap" data-i18n="nav_studio">Studio</a>
-        <a href="#gutschein" class="hover:text-petrol-300 transition whitespace-nowrap text-petrol-300" data-i18n="nav_gutschein">Gutschein</a>
         <a href="#reviews" class="hover:text-petrol-300 transition whitespace-nowrap" data-i18n="nav_reviews">Reviews</a>
         <a href="#contact" class="hover:text-petrol-300 transition whitespace-nowrap" data-i18n="nav_contact">Kontakt</a>
         <a href="#aftercare" class="hover:text-petrol-300 transition whitespace-nowrap" data-i18n="nav_aftercare">Aftercare</a>
         <a href="#faq" class="hover:text-petrol-300 transition whitespace-nowrap" data-i18n="nav_faq">FAQ</a>
+        <a href="tel:+492034565569" class="text-petrol-300 font-semibold tracking-wider hover:text-white transition whitespace-nowrap">+49 203 4565569</a>
       </nav>
 
       <div class="flex items-center gap-2.5 sm:gap-3">
@@ -348,14 +281,12 @@
     <a href="#hero" onclick="closeMobileMenu()" class="menu-link"><span class="menu-link-left"><span class="menu-num">01</span><span data-i18n="nav_home">Start</span></span><span>›</span></a>
     <a href="#artists" onclick="closeMobileMenu()" class="menu-link"><span class="menu-link-left"><span class="menu-num">02</span><span data-i18n="nav_artists">Artists</span></span><span>›</span></a>
     <a href="#portfolio" onclick="closeMobileMenu()" class="menu-link"><span class="menu-link-left"><span class="menu-num">03</span><span data-i18n="nav_portfolio">Portfolio</span></span><span>›</span></a>
-    <a href="#process" onclick="closeMobileMenu()" class="menu-link"><span class="menu-link-left"><span class="menu-num">04</span><span data-i18n="nav_process">Ablauf</span></span><span>›</span></a>
-    <a href="#studio" onclick="closeMobileMenu()" class="menu-link"><span class="menu-link-left"><span class="menu-num">05</span><span data-i18n="nav_studio">Studio</span></span><span>›</span></a>
-    <a href="#gutschein" onclick="closeMobileMenu()" class="menu-link"><span class="menu-link-left"><span class="menu-num">06</span><span data-i18n="nav_gutschein">Gutschein</span></span><span>›</span></a>
-    <a href="#reviews" onclick="closeMobileMenu()" class="menu-link"><span class="menu-link-left"><span class="menu-num">07</span><span data-i18n="nav_reviews">Reviews</span></span><span>›</span></a>
-    <a href="#aftercare" onclick="closeMobileMenu()" class="menu-link"><span class="menu-link-left"><span class="menu-num">08</span><span data-i18n="nav_aftercare">Aftercare</span></span><span>›</span></a>
-    <a href="#faq" onclick="closeMobileMenu()" class="menu-link"><span class="menu-link-left"><span class="menu-num">09</span><span data-i18n="nav_faq">FAQ</span></span><span>›</span></a>
+    <a href="#studio" onclick="closeMobileMenu()" class="menu-link"><span class="menu-link-left"><span class="menu-num">04</span><span data-i18n="nav_studio">Studio</span></span><span>›</span></a>
+    <a href="#reviews" onclick="closeMobileMenu()" class="menu-link"><span class="menu-link-left"><span class="menu-num">05</span><span data-i18n="nav_reviews">Reviews</span></span><span>›</span></a>
+    <a href="#aftercare" onclick="closeMobileMenu()" class="menu-link"><span class="menu-link-left"><span class="menu-num">06</span><span data-i18n="nav_aftercare">Aftercare</span></span><span>›</span></a>
+    <a href="#faq" onclick="closeMobileMenu()" class="menu-link"><span class="menu-link-left"><span class="menu-num">07</span><span data-i18n="nav_faq">FAQ</span></span><span>›</span></a>
     <div class="mobile-menu-socials">
-      <a href="tel:+4917632460273" class="mobile-quick-btn" data-i18n="mobile_call">📞 Call</a>
+      <a href="tel:+4917632460273" class="mobile-quick-btn">📞 Call</a>
       <a href="https://www.instagram.com/newjacktattoo/" target="_blank" rel="noopener noreferrer" class="mobile-quick-btn">📸 Insta</a>
     </div>
     <a href="#contact" onclick="closeMobileMenu()" class="menu-cta"><span data-i18n="hero_cta_primary">Termin vereinbaren</span><span>→</span></a>
@@ -380,7 +311,7 @@
         </div>
       </div>
       <h1 class="font-script text-6xl sm:text-8xl md:text-9xl text-white drop-shadow-[0_6px_25px_rgba(0,0,0,0.9)] leading-none mb-2">New Jack</h1>
-      <p class="font-cinzel text-sm sm:text-lg uppercase tracking-[0.4em] text-petrol-300 font-semibold mb-4 drop-shadow" data-i18n="hero_tagline">Tattoo &amp; Custom Art • Beekstraße 6</p>
+      <p class="font-cinzel text-sm sm:text-lg uppercase tracking-[0.4em] text-petrol-300 font-semibold mb-4 drop-shadow">Tattoo &amp; Custom Art • Beekstraße 6</p>
       <p class="max-w-xl text-slate-300/90 text-sm sm:text-base font-light mb-9 leading-relaxed" data-i18n="hero_sub">Premium Custom Tattoo Studio im Herzen von Duisburg. Individuelle Designs, höchste Hygienestandards und echte Kunst-Atmosphäre.</p>
 
       <div class="flex flex-col sm:flex-row items-center gap-4">
@@ -404,7 +335,7 @@
     </div>
   </section>
 
-  <!-- МАСТЕРА -->
+  <!-- МАСТЕРЫ -->
   <section id="artists" class="py-24 px-6 max-w-7xl mx-auto reveal">
     <div class="text-center max-w-2xl mx-auto mb-16">
       <span class="text-petrol-400 text-xs uppercase tracking-[0.3em] font-semibold block mb-2" data-i18n="artists_tag">Resident Artists</span>
@@ -418,10 +349,10 @@
         <div class="relative h-80 overflow-hidden group">
           <img src="./img/artists/ADNY.webp" alt="Andy • Artist" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
           <div class="absolute inset-0 bg-gradient-to-t from-petrol-950 via-transparent to-transparent"></div>
-          <span class="absolute bottom-3 left-4 px-3 py-1 rounded-full bg-petrol-600/90 text-white text-[11px] uppercase tracking-widest font-semibold" data-i18n="artist_1_style">JAPANESE / COLOR / BLACK &amp; GREY</span>
+          <span class="absolute bottom-3 left-4 px-3 py-1 rounded-full bg-petrol-600/90 text-white text-[11px] uppercase tracking-widest font-semibold">JAPANESE / COLOR / BLACK &amp; GREY</span>
         </div>
         <div class="p-6 flex-1 flex flex-col justify-between">
-          <div><h3 class="font-cinzel text-xl font-bold text-white mb-4" data-i18n="artist_1_name">Andy • Artist</h3></div>
+          <div><h3 class="font-cinzel text-xl font-bold text-white mb-4">Andy • Artist</h3></div>
           <div class="flex flex-col gap-4 mt-auto">
             <a href="https://www.instagram.com/andy_blvck1" target="_blank" rel="noopener noreferrer" class="artist-ig-card">
               <div style="display:flex;align-items:center;min-width:0;">
@@ -442,10 +373,10 @@
         <div class="relative h-80 overflow-hidden group">
           <img src="./img/artists/ASTY.webp" alt="Asty • Artist" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
           <div class="absolute inset-0 bg-gradient-to-t from-petrol-950 via-transparent to-transparent"></div>
-          <span class="absolute bottom-3 left-4 px-3 py-1 rounded-full bg-petrol-600/90 text-white text-[11px] uppercase tracking-widest font-semibold" data-i18n="artist_2_style">JAPANESE / COLOR / BLACK &amp; GREY</span>
+          <span class="absolute bottom-3 left-4 px-3 py-1 rounded-full bg-petrol-600/90 text-white text-[11px] uppercase tracking-widest font-semibold">JAPANESE / COLOR / BLACK &amp; GREY</span>
         </div>
         <div class="p-6 flex-1 flex flex-col justify-between">
-          <div><h3 class="font-cinzel text-xl font-bold text-white mb-4" data-i18n="artist_2_name">Asty • Artist</h3></div>
+          <div><h3 class="font-cinzel text-xl font-bold text-white mb-4">Asty • Artist</h3></div>
           <div class="flex flex-col gap-4 mt-auto">
             <a href="https://www.instagram.com/tattoo.asty.mayer" target="_blank" rel="noopener noreferrer" class="artist-ig-card">
               <div style="display:flex;align-items:center;min-width:0;">
@@ -466,10 +397,10 @@
         <div class="relative h-80 overflow-hidden group">
           <img src="./img/artists/SASCHA.webp" alt="Sascha • Artist" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
           <div class="absolute inset-0 bg-gradient-to-t from-petrol-950 via-transparent to-transparent"></div>
-          <span class="absolute bottom-3 left-4 px-3 py-1 rounded-full bg-petrol-600/90 text-white text-[11px] uppercase tracking-widest font-semibold" data-i18n="artist_3_style">Neo-Traditional / Fine Line</span>
+          <span class="absolute bottom-3 left-4 px-3 py-1 rounded-full bg-petrol-600/90 text-white text-[11px] uppercase tracking-widest font-semibold">Neo-Traditional / Fine Line</span>
         </div>
         <div class="p-6 flex-1 flex flex-col justify-between">
-          <div><h3 class="font-cinzel text-xl font-bold text-white mb-4" data-i18n="artist_3_name">Sascha • Artist</h3></div>
+          <div><h3 class="font-cinzel text-xl font-bold text-white mb-4">Sascha • Artist</h3></div>
           <div class="flex flex-col gap-4 mt-auto">
             <a href="https://www.instagram.com/whitedogtattoo" target="_blank" rel="noopener noreferrer" class="artist-ig-card">
               <div style="display:flex;align-items:center;min-width:0;">
@@ -490,10 +421,10 @@
         <div class="relative h-80 overflow-hidden group">
           <img src="./img/artists/RIMMA.webp" alt="Rimma • Apprentice" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
           <div class="absolute inset-0 bg-gradient-to-t from-petrol-950 via-transparent to-transparent"></div>
-          <span class="absolute bottom-3 left-4 px-3 py-1 rounded-full bg-petrol-600/90 text-white text-[11px] uppercase tracking-widest font-semibold" data-i18n="artist_4_style">Tattoo Apprentice</span>
+          <span class="absolute bottom-3 left-4 px-3 py-1 rounded-full bg-petrol-600/90 text-white text-[11px] uppercase tracking-widest font-semibold">Tattoo Apprentice</span>
         </div>
         <div class="p-6 flex-1 flex flex-col justify-between">
-          <div><h3 class="font-cinzel text-xl font-bold text-white mb-4" data-i18n="artist_4_name">Rimma • Apprentice</h3></div>
+          <div><h3 class="font-cinzel text-xl font-bold text-white mb-4">Rimma • Apprentice</h3></div>
           <div class="flex flex-col gap-4 mt-auto">
             <a href="https://www.instagram.com/ritmrimma" target="_blank" rel="noopener noreferrer" class="artist-ig-card">
               <div style="display:flex;align-items:center;min-width:0;">
@@ -521,10 +452,10 @@
         </div>
         <div class="flex flex-wrap gap-2" id="portfolio-filters">
           <button onclick="filterPortfolio('all')" data-filter="all" class="filter-btn active px-4 py-2 rounded-full text-xs uppercase tracking-widest font-semibold bg-petrol-500 text-white transition" data-i18n="filter_all">Alle</button>
-          <button onclick="filterPortfolio('Japanese')" data-filter="Japanese" class="filter-btn px-4 py-2 rounded-full text-xs uppercase tracking-widest font-semibold glass text-slate-300 hover:text-white transition" data-i18n="filter_japanese">Japanese</button>
-          <button onclick="filterPortfolio('BlackGreyRealism')" data-filter="BlackGreyRealism" class="filter-btn px-4 py-2 rounded-full text-xs uppercase tracking-widest font-semibold glass text-slate-300 hover:text-white transition" data-i18n="filter_bg">Black &amp; Grey</button>
-          <button onclick="filterPortfolio('ColorRealism')" data-filter="ColorRealism" class="filter-btn px-4 py-2 rounded-full text-xs uppercase tracking-widest font-semibold glass text-slate-300 hover:text-white transition" data-i18n="filter_color">Color</button>
-          <button onclick="filterPortfolio('Traditional')" data-filter="Traditional" class="filter-btn px-4 py-2 rounded-full text-xs uppercase tracking-widest font-semibold glass text-slate-300 hover:text-white transition" data-i18n="filter_trad">Traditional</button>
+          <button onclick="filterPortfolio('Japanese')" data-filter="Japanese" class="filter-btn px-4 py-2 rounded-full text-xs uppercase tracking-widest font-semibold glass text-slate-300 hover:text-white transition">Japanese</button>
+          <button onclick="filterPortfolio('BlackGreyRealism')" data-filter="BlackGreyRealism" class="filter-btn px-4 py-2 rounded-full text-xs uppercase tracking-widest font-semibold glass text-slate-300 hover:text-white transition">Black &amp; Grey</button>
+          <button onclick="filterPortfolio('ColorRealism')" data-filter="ColorRealism" class="filter-btn px-4 py-2 rounded-full text-xs uppercase tracking-widest font-semibold glass text-slate-300 hover:text-white transition">Color</button>
+          <button onclick="filterPortfolio('Traditional')" data-filter="Traditional" class="filter-btn px-4 py-2 rounded-full text-xs uppercase tracking-widest font-semibold glass text-slate-300 hover:text-white transition">Traditional</button>
         </div>
       </div>
 
@@ -541,7 +472,7 @@
   </section>
 
   <!-- ИНТЕРЬЕР СТУДИИ -->
-  <section id="studio" class="py-24 px-6 max-w-7xl mx-auto border-t border-petrol-800/40 reveal">
+  <section id="studio" class="py-24 px-6 max-w-7xl mx-auto reveal">
     <div class="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-6">
       <div>
         <span class="text-petrol-400 text-xs uppercase tracking-[0.3em] font-semibold block mb-2" data-i18n="studio_tag">Atmosphere &amp; Hygiene</span>
@@ -561,67 +492,9 @@
       <div class="relative h-72 rounded-3xl overflow-hidden group border border-petrol-800/60"><img src="./img/studio/stidia-6.jpg" alt="New Jack Tattoo Studio 6" class="w-full h-full object-cover group-hover:scale-105 transition duration-500"><div class="absolute inset-0 bg-gradient-to-t from-petrol-950/90 via-transparent to-transparent flex items-end p-5 pointer-events-none"></div></div>
     </div>
   </section>
-    
-        <!-- ЛЕВАЯ ЧАСТЬ: ПРЕМИАЛЬНАЯ VIP-КАРТА -->
-        <div class="lg:col-span-5">
-          <div class="vip-gift-card">
-            <div class="flex items-center justify-between mb-8">
-              <div>
-                <span class="text-[10px] uppercase tracking-[0.28em] text-petrol-300 font-bold block" data-i18n="gift_card_sub">VIP GIFT CARD</span>
-                <span class="font-cinzel text-lg sm:text-xl font-bold text-white tracking-widest">NEW JACK TATTOO</span>
-              </div>
-              <div class="vip-gift-chip"></div>
-            </div>
-
-            <div class="my-6">
-              <span class="text-[10px] uppercase tracking-[0.22em] text-slate-400 block mb-1" data-i18n="gift_value_label">GUTSCHEINWERT</span>
-              <div id="gutschein-card-value" class="font-cinzel text-4xl sm:text-5xl font-bold text-petrol-300 drop-shadow-[0_0_20px_rgba(75,179,210,0.5)]">100 €</div>
-            </div>
-
-            <div class="pt-4 border-t border-petrol-700/50 flex items-center justify-between text-[10px] uppercase tracking-[0.2em] text-slate-300">
-              <span>BEEKSTR. 6 • DUISBURG</span>
-              <span class="text-petrol-300 font-bold" data-i18n="gift_card_valid">GÜLTIG FÜR ALLE STILE</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- ПРАВАЯ ЧАСТЬ: ВЫБОР НОМИНАЛА И ЗАКАЗ В 1 КЛИК -->
-        <div class="lg:col-span-7 space-y-6">
-          <div>
-            <span class="text-petrol-400 text-xs uppercase tracking-[0.3em] font-semibold block mb-2" data-i18n="gift_tag">Geschenkidee • Gift Card</span>
-            <h2 class="font-cinzel text-3xl sm:text-4xl font-bold text-white uppercase tracking-wider mb-3" data-i18n="gift_title">Tattoo-Gutschein bestellen</h2>
-            <p class="text-slate-300 text-sm leading-relaxed" data-i18n="gift_desc">Das perfekte Geschenk zum Geburtstag oder zu Feiertagen. Wähle den gewünschten Betrag aus und bestelle den Gutschein direkt in 1 Klick per WhatsApp (Abholung im Studio auf der Beekstraße 6 oder digital).</p>
-          </div>
-
-          <div>
-            <label class="block text-xs uppercase tracking-wider text-slate-400 mb-3" data-i18n="gift_choose_label">Betrag wählen:</label>
-            <div class="gutschein-amount-grid">
-              <button type="button" onclick="selectGutscheinAmount('50 €', this)" class="gutschein-amount-btn" data-amount="50 €">50 €</button>
-              <button type="button" onclick="selectGutscheinAmount('100 €', this)" class="gutschein-amount-btn active" data-amount="100 €">100 €</button>
-              <button type="button" onclick="selectGutscheinAmount('200 €', this)" class="gutschein-amount-btn" data-amount="200 €">200 €</button>
-              <button type="button" onclick="selectGutscheinAmount('custom', this)" id="gutschein-custom-btn" class="gutschein-amount-btn" data-amount="custom" data-i18n="gift_custom_btn">Wunschbetrag</button>
-            </div>
-
-            <!-- Поле ввода своей суммы (появляется при выборе "Wunschbetrag / Своя сумма") -->
-            <div id="gutschein-custom-wrap" class="hidden mt-4">
-              <input type="number" id="gutschein-custom-input" min="20" step="10" placeholder="Eigenen Betrag in € eingeben (z.B. 150)" data-i18n-placeholder="gift_custom_ph" oninput="handleCustomGutscheinInput(this.value)" class="w-full px-4 py-3.5 rounded-xl bg-petrol-950/90 border border-petrol-400 text-white text-sm focus:outline-none transition">
-            </div>
-          </div>
-
-          <button type="button" onclick="orderGutscheinWhatsApp()" class="btn-submit-wa">
-            <svg style="width:22px;height:22px;fill:currentColor;flex-shrink:0;" viewBox="0 0 24 24">
-              <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/>
-            </svg>
-            <span data-i18n="gift_order_btn">Gutschein per WhatsApp bestellen</span>
-          </button>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
+  <!-- КОНЕЦ 1 ЧАСТИ (СЮДА ВСТАВЛЯТЬ 2 ЧАСТЬ) -->
   <!-- ОТЗЫВЫ КЛИЕНТОВ (GOOGLE REVIEWS 5.0 ★) -->
-  <section id="reviews" class="py-20 px-6 max-w-7xl mx-auto reveal">
+  <section id="reviews" class="py-20 px-6 max-w-7xl mx-auto border-t border-petrol-800/40 reveal">
     <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
       <div>
         <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-petrol-900/90 border border-petrol-700/60 text-xs font-semibold text-amber-400 mb-3">
@@ -644,7 +517,7 @@
         </div>
         <div class="pt-3 border-t border-petrol-800/60 flex items-center justify-between text-xs">
           <strong class="text-white uppercase tracking-wider">Lukas M.</strong>
-          <span class="text-petrol-400" data-i18n="rev_source">Google Review</span>
+          <span class="text-petrol-400">Google Review</span>
         </div>
       </div>
 
@@ -655,7 +528,7 @@
         </div>
         <div class="pt-3 border-t border-petrol-800/60 flex items-center justify-between text-xs">
           <strong class="text-white uppercase tracking-wider">Sarah K.</strong>
-          <span class="text-petrol-400" data-i18n="rev_source">Google Review</span>
+          <span class="text-petrol-400">Google Review</span>
         </div>
       </div>
 
@@ -666,7 +539,7 @@
         </div>
         <div class="pt-3 border-t border-petrol-800/60 flex items-center justify-between text-xs">
           <strong class="text-white uppercase tracking-wider">Dennis R.</strong>
-          <span class="text-petrol-400" data-i18n="rev_source">Google Review</span>
+          <span class="text-petrol-400">Google Review</span>
         </div>
       </div>
     </div>
@@ -698,10 +571,10 @@
               <label class="block text-xs uppercase tracking-wider text-slate-400 mb-2" data-i18n="form_artist">Tätowierer / Artist</label>
               <select id="form-artist" class="custom-select w-full px-4 py-3.5 rounded-xl bg-petrol-950/90 border border-petrol-700/70 text-white text-sm focus:border-petrol-400 focus:outline-none transition">
                 <option value="Egal / Beratung" data-i18n="artist_opt_any">Egal / Beratung gewünscht</option>
-                <option value="Andy" data-i18n="artist_opt_andy">Andy (Japanese / Realism)</option>
-                <option value="Asty" data-i18n="artist_opt_asty">Asty (Japanese / Traditional)</option>
-                <option value="Sascha" data-i18n="artist_opt_sascha">Sascha (Neo-Traditional / Fine Line)</option>
-                <option value="Rimma" data-i18n="artist_opt_rimma">Rimma (Apprentice)</option>
+                <option value="Andy">Andy (Japanese / Realism)</option>
+                <option value="Asty">Asty (Japanese / Traditional)</option>
+                <option value="Sascha">Sascha (Neo-Traditional / Fine Line)</option>
+                <option value="Rimma">Rimma (Apprentice)</option>
               </select>
             </div>
             <div>
@@ -711,7 +584,7 @@
                 <option value="Black & Grey Realism" data-i18n="style_opt_bg_realism">Black &amp; Grey Realism</option>
                 <option value="Color Realism" data-i18n="style_opt_color_realism">Color Realism</option>
                 <option value="Traditional" data-i18n="style_opt_traditional">Traditional (Old School)</option>
-                <option value="Neo-Traditional / Fine Line" data-i18n="style_opt_neotrad">Neo-Traditional / Fine Line</option>
+                <option value="Neo-Traditional / Fine Line">Neo-Traditional / Fine Line</option>
                 <option value="Beratung gewünscht" data-i18n="style_opt_consult">Beratung gewünscht</option>
               </select>
             </div>
@@ -742,220 +615,131 @@
 
           <button type="submit" class="btn-submit-wa">
             <svg style="width:22px;height:22px;fill:currentColor;flex-shrink:0;" viewBox="0 0 24 24">
-                            <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/>
+              <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/>
             </svg>
             <span data-i18n="form_submit">Anfrage per WhatsApp senden</span>
           </button>
         </form>
       </div>
 
-      <!-- ПРАВАЯ ЧАСТЬ: КОНТАКТЫ, КОПИРОВАНИЕ АДРЕСА, ПАРКОВКА И КАРТА -->
+      <!-- ПРАВАЯ ЧАСТЬ: ИНФО, ЧАСЫ РАБОТЫ И КАРТА -->
       <div class="space-y-6">
-        <div class="glass-card p-8 sm:p-10 rounded-3xl space-y-6">
-          <div>
-            <span class="text-petrol-400 text-xs uppercase tracking-[0.25em] font-semibold block mb-2" data-i18n="contact_address">Studio Adresse</span>
-            <div class="flex items-center flex-wrap gap-3">
-              <p class="text-xl sm:text-2xl font-cinzel font-bold text-white">Beekstraße 6, 47051 Duisburg</p>
-              <button type="button" onclick="copyAddress()" class="px-3.5 py-1.5 rounded-xl bg-petrol-800/80 border border-petrol-400/40 text-petrol-300 text-xs font-semibold hover:bg-petrol-400 hover:text-petrol-950 transition" data-i18n="copy_btn">
-                📋 Adresse kopieren
-              </button>
-            </div>
-
-            <!-- Плашки Парковка и U-Bahn -->
-            <div class="flex flex-wrap gap-2.5 mt-4">
-              <span class="px-3.5 py-1.5 rounded-xl bg-petrol-950/90 border border-petrol-700/70 text-slate-300 text-xs font-medium" data-i18n="parking_info">🚗 Parkhäuser in 2–3 Min. Fußweg</span>
-              <span class="px-3.5 py-1.5 rounded-xl bg-petrol-950/90 border border-petrol-700/70 text-slate-300 text-xs font-medium" data-i18n="ubahn_info">🚇 U-Bahn: Steinsche Gasse / Rathaus</span>
+        <div class="glass-card p-8 rounded-3xl space-y-5">
+          <div class="flex flex-wrap items-center justify-between gap-3">
+            <h3 class="font-cinzel text-2xl font-bold text-white uppercase tracking-wider">New Jack Tattoo</h3>
+            <div class="status-pill">
+              <span id="studio-status-dot" class="status-dot"></span>
+              <span id="studio-status-text" data-i18n="status_open">WhatsApp Booking 24/7</span>
             </div>
           </div>
-
-          <div class="border-t border-petrol-800/70 pt-5">
-            <span class="text-petrol-400 text-xs uppercase tracking-[0.25em] font-semibold block mb-2" data-i18n="contact_phone">WhatsApp &amp; Telefon</span>
-            <a href="https://wa.me/4917632460273" target="_blank" rel="noopener" class="text-xl font-bold text-white hover:text-petrol-300 transition">+49 176 32460273</a>
+          
+          <div class="space-y-3 text-sm text-slate-300">
+            <p class="flex items-center gap-3">
+              <span class="w-8 h-8 rounded-lg bg-petrol-800/80 flex items-center justify-center text-petrol-300">📍</span>
+              <span><strong data-i18n="contact_address">Adresse:</strong> Beekstraße 6, 47051 Duisburg, Germany</span>
+            </p>
+            <p class="flex items-center gap-3">
+              <span class="w-8 h-8 rounded-lg bg-petrol-800/80 flex items-center justify-center text-petrol-300">🕒</span>
+              <span><strong data-i18n="contact_hours_label">Öffnungszeiten:</strong> <span data-i18n="contact_hours_val">Di – Sa: 11:00 – 19:00 Uhr</span></span>
+            </p>
+            <p class="flex items-center gap-3">
+              <span class="w-8 h-8 rounded-lg bg-petrol-800/80 flex items-center justify-center text-petrol-300">📞</span>
+              <span><strong data-i18n="contact_phone">Telefon:</strong> <a href="tel:+4917632460273" class="text-petrol-300 hover:underline whitespace-nowrap">+49 176 32460273</a></span>
+            </p>
+            <p class="flex items-center gap-3">
+              <span class="w-8 h-8 rounded-lg bg-petrol-800/80 flex items-center justify-center text-petrol-300">📸</span>
+              <span><strong>Instagram:</strong> <a href="https://www.instagram.com/newjacktattoo/" target="_blank" rel="noopener noreferrer" class="text-petrol-300 hover:underline">@newjacktattoo</a></span>
+            </p>
           </div>
 
-          <div class="border-t border-petrol-800/70 pt-5 flex items-center justify-between flex-wrap gap-3">
-            <div class="flex items-center gap-2.5">
-              <span class="w-2.5 h-2.5 rounded-full bg-emerald-400 shadow-[0_0_10px_#34d399]"></span>
-              <span class="text-xs text-slate-300 font-medium" data-i18n="status_open">Mo–Sa: 11:00 – 19:00 Uhr</span>
-            </div>
-            <a href="https://maps.google.com/?q=Beekstraße+6,+47051+Duisburg" target="_blank" rel="noopener" class="text-xs font-semibold text-petrol-300 hover:underline" data-i18n="contact_maps">
-              📍 In Google Maps öffnen →
-            </a>
+          <div class="pt-4 border-t border-petrol-800/70 flex flex-wrap gap-3">
+            <a href="https://www.instagram.com/newjacktattoo/" target="_blank" rel="noopener noreferrer" class="px-5 py-2.5 rounded-xl bg-petrol-800 hover:bg-petrol-700 text-xs font-semibold uppercase tracking-wider text-white transition">Instagram Direct</a>
+            <a href="https://maps.google.com/?q=Beekstraße+6,+47051+Duisburg" target="_blank" rel="noopener noreferrer" class="px-5 py-2.5 rounded-xl glass hover:bg-petrol-800/60 text-xs font-semibold uppercase tracking-wider text-petrol-300 transition" data-i18n="contact_maps">Google Maps</a>
           </div>
         </div>
 
-        <!-- Карта Google (DSGVO) -->
-        <div id="map-container" class="glass-card p-8 rounded-3xl min-h-[250px] flex flex-col items-center justify-center text-center">
-          <p class="text-xs text-slate-400 mb-4 max-w-xs leading-relaxed" data-i18n="map_consent">
-            Karte aus Datenschutzgründen (DSGVO) ausgeblendet. Mit Klick auf den Button wird Google Maps geladen.
-          </p>
-          <button type="button" onclick="loadGoogleMap()" class="px-5 py-2.5 rounded-xl bg-petrol-800 border border-petrol-400/50 text-white text-xs font-semibold hover:bg-petrol-400 hover:text-petrol-950 transition" data-i18n="map_btn">
-            Google Maps laden
-          </button>
+        <!-- DSGVO Google Maps -->
+        <div id="map-wrapper" class="rounded-3xl overflow-hidden border border-petrol-700/50 h-72 shadow-2xl relative bg-petrol-950 flex items-center justify-center">
+          <div id="map-placeholder" class="flex flex-col items-center justify-center p-6 text-center z-10 w-full h-full glass-card">
+            <span class="text-4xl mb-3 text-petrol-400">📍</span>
+            <h4 class="font-cinzel font-bold text-white uppercase tracking-wider mb-2">Google Maps</h4>
+            <p class="text-xs text-slate-300 mb-5 max-w-xs leading-relaxed" data-i18n="map_consent">Klicke hier, um die interaktive Karte zu laden. Dabei werden Daten (inkl. deiner IP-Adresse) an Google übertragen.</p>
+            <button onclick="loadGoogleMap()" class="px-6 py-2.5 rounded-xl bg-petrol-600 hover:bg-petrol-500 text-white text-xs font-semibold uppercase tracking-wider transition shadow-lg" data-i18n="map_btn">Karte laden</button>
+          </div>
         </div>
       </div>
 
     </div>
   </section>
 
-  <!-- ВИЗУАЛЬНЫЙ МАРШРУТ: 4 ШАГА ОТ ИДЕИ ДО ТАТУ -->
-  <section id="process" class="py-20 px-6 relative reveal">
+  <!-- УХОД -->
+  <section id="aftercare" class="py-24 px-6 reveal">
     <div class="max-w-7xl mx-auto">
-      <div class="text-center mb-14">
-        <span class="text-petrol-400 text-xs uppercase tracking-[0.3em] font-semibold block mb-2" data-i18n="process_tag">Dein Weg zum Tattoo</span>
-        <h2 class="font-cinzel text-2xl sm:text-4xl font-bold text-white uppercase tracking-wider" data-i18n="process_title">4 Schritte von der Idee zum Tattoo</h2>
-      </div>
-
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-        <div class="glass-card p-7 rounded-3xl relative">
-          <div class="w-11 h-11 rounded-full bg-petrol-950 border-2 border-petrol-400 text-petrol-300 font-bold flex items-center justify-center mb-5 shadow-[0_0_15px_rgba(75,179,210,0.4)]">01</div>
-          <h3 class="text-lg font-bold text-white mb-2" data-i18n="step1_title">Kostenlose Beratung</h3>
-          <p class="text-slate-300 text-sm leading-relaxed" data-i18n="step1_desc">Besprechung deiner Idee in WhatsApp oder im Studio auf der Beekstraße 6.</p>
-        </div>
-
-        <div class="glass-card p-7 rounded-3xl relative">
-          <div class="w-11 h-11 rounded-full bg-petrol-950 border-2 border-petrol-400 text-petrol-300 font-bold flex items-center justify-center mb-5 shadow-[0_0_15px_rgba(75,179,210,0.4)]">02</div>
-          <h3 class="text-lg font-bold text-white mb-2" data-i18n="step2_title">Individueller Entwurf</h3>
-          <p class="text-slate-300 text-sm leading-relaxed" data-i18n="step2_desc">Dein Artist bereitet ein maßgeschneidertes Projekt passend zu deiner Anatomie vor.</p>
-        </div>
-
-        <div class="glass-card p-7 rounded-3xl relative">
-          <div class="w-11 h-11 rounded-full bg-petrol-950 border-2 border-petrol-400 text-petrol-300 font-bold flex items-center justify-center mb-5 shadow-[0_0_15px_rgba(75,179,210,0.4)]">03</div>
-          <h3 class="text-lg font-bold text-white mb-2" data-i18n="step3_title">100% Sterile Session</h3>
-          <p class="text-slate-300 text-sm leading-relaxed" data-i18n="step3_desc">Komfortable Atmosphäre, höchste EU-Hygiene und modernstes Premium-Equipment.</p>
-        </div>
-
-        <div class="glass-card p-7 rounded-3xl relative">
-          <div class="w-11 h-11 rounded-full bg-petrol-950 border-2 border-petrol-400 text-petrol-300 font-bold flex items-center justify-center mb-5 shadow-[0_0_15px_rgba(75,179,210,0.4)]">04</div>
-          <h3 class="text-lg font-bold text-white mb-2" data-i18n="step4_title">Schnelle Heilung</h3>
-          <p class="text-slate-300 text-sm leading-relaxed" data-i18n="step4_desc">Pflege nach unserer Anleitung und direkter Support durch deinen Artist.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- БЛОК ПОДАРОЧНЫХ СЕРТИФИКАТОВ (TATTOO-GUTSCHEIN) -->
-  <section id="gutschein" class="py-20 px-6 relative reveal">
-    <div class="max-w-5xl mx-auto glass-card rounded-3xl p-8 sm:p-12 border border-petrol-500/40 shadow-[0_0_40px_rgba(56,146,174,0.15)]">
-      <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
-        <!-- Пластиковая VIP-карта -->
-        <div class="rounded-2xl p-7 bg-gradient-to-br from-petrol-800 via-petrol-900 to-petrol-950 border border-petrol-400/50 shadow-2xl relative overflow-hidden">
-          <div class="flex items-center justify-between mb-10">
-            <span class="font-cinzel text-white font-bold tracking-widest text-sm sm:text-base">NEW JACK TATTOO</span>
-            <span class="px-3 py-1 rounded-full text-[10px] tracking-widest uppercase bg-petrol-500/20 border border-petrol-400/40 text-petrol-300">VIP GIFT CARD</span>
-          </div>
-          <div class="mb-8">
-            <div class="text-xs uppercase tracking-widest text-slate-400 mb-1">Gutscheinwert</div>
-            <div id="gutscheinAmount" class="font-cinzel text-4xl sm:text-5xl font-bold text-petrol-300">100 €</div>
-          </div>
-          <div class="flex items-center justify-between text-[11px] text-slate-400 tracking-wider uppercase border-t border-petrol-800/80 pt-4">
-            <span>Beekstraße 6 • Duisburg</span>
-            <span>Alle Artists &amp; Styles</span>
-          </div>
-        </div>
-
-        <!-- Управление сертификатом -->
-        <div>
-          <span class="text-petrol-400 text-xs uppercase tracking-[0.3em] font-semibold block mb-2" data-i18n="gutschein_tag">Geschenkidee</span>
-          <h2 class="font-cinzel text-2xl sm:text-3xl font-bold text-white uppercase tracking-wider mb-3" data-i18n="gutschein_title">Tattoo-Gutschein</h2>
-          <p class="text-slate-300 text-sm leading-relaxed mb-6" data-i18n="gutschein_desc">
-            Das perfekte Geschenk zum Geburtstag oder zu Feiertagen. Betrag wählen und in 1 Klick per WhatsApp bestellen:
-          </p>
-
-          <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-6">
-            <button type="button" onclick="selectGutschein('50 €', this)" class="gutschein-btn py-3 px-4 rounded-xl border border-petrol-700 bg-petrol-950/80 text-white font-semibold text-sm hover:border-petrol-400 transition">50 €</button>
-            <button type="button" onclick="selectGutschein('100 €', this)" class="gutschein-btn py-3 px-4 rounded-xl border border-petrol-300 bg-petrol-500 text-petrol-950 font-semibold text-sm transition">100 €</button>
-            <button type="button" onclick="selectGutschein('200 €', this)" class="gutschein-btn py-3 px-4 rounded-xl border border-petrol-700 bg-petrol-950/80 text-white font-semibold text-sm hover:border-petrol-400 transition">200 €</button>
-            <button type="button" onclick="selectGutschein('Wunschbetrag', this)" class="gutschein-btn py-3 px-4 rounded-xl border border-petrol-700 bg-petrol-950/80 text-white font-semibold text-sm hover:border-petrol-400 transition" data-i18n="gutschein_custom">Wunschbetrag</button>
-          </div>
-
-          <button type="button" onclick="orderGutschein()" class="btn-submit-wa w-full justify-center">
-            <span>🎁</span>
-            <span data-i18n="gutschein_btn">Gutschein bestellen</span>
-          </button>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- УХОД ЗА ТАТУ (AFTERCARE GUIDE) -->
-  <section id="aftercare" class="py-20 px-6 relative reveal">
-    <div class="max-w-7xl mx-auto">
-      <div class="text-center mb-12">
+      <div class="text-center max-w-2xl mx-auto mb-16">
         <span class="text-petrol-400 text-xs uppercase tracking-[0.3em] font-semibold block mb-2" data-i18n="aftercare_tag">Professional Care</span>
-        <h2 class="font-cinzel text-2xl sm:text-4xl font-bold text-white uppercase tracking-wider" data-i18n="aftercare_title">Tattoo-Pflege &amp; Heilung</h2>
+        <h2 class="font-cinzel text-3xl sm:text-5xl font-bold text-white tracking-wider uppercase mb-4" data-i18n="aftercare_title">Tattoo Aftercare Guide</h2>
+        <div class="w-20 h-0.5 bg-gradient-to-r from-transparent via-petrol-400 to-transparent mx-auto"></div>
       </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-        <div class="glass-card p-8 rounded-3xl">
-          <h3 class="text-lg font-bold text-petrol-300 mb-3" data-i18n="care_1_title">1. Schutzfolie &amp; Reinigung</h3>
-          <p class="text-slate-300 text-sm leading-relaxed" data-i18n="care_1_desc">
-            Lass die Folie wie vom Artist empfohlen drauf. Danach vorsichtig mit lauwarmem Wasser und milder, pH-neutraler Seife abwaschen.
-          </p>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div class="glass-card p-8 rounded-3xl space-y-4">
+          <div class="w-12 h-12 rounded-2xl bg-petrol-800 flex items-center justify-center text-petrol-300 font-bold text-lg">01</div>
+          <h3 class="font-cinzel text-xl font-bold text-white" data-i18n="care_1_title">Erste Tage (Folie &amp; Reinigung)</h3>
+          <p class="text-slate-300 text-sm leading-relaxed" data-i18n="care_1_desc">Lass die Schutzfolie je nach Anweisung des Künstlers (24-72 Std.) drauf. Danach vorsichtig mit lauwarmem Wasser und ph-neutraler Seife waschen.</p>
         </div>
-        <div class="glass-card p-8 rounded-3xl">
-          <h3 class="text-lg font-bold text-petrol-300 mb-3" data-i18n="care_2_title">2. Dünn eincremen</h3>
-          <p class="text-slate-300 text-sm leading-relaxed" data-i18n="care_2_desc">
-            Trage 2–3 Mal täglich eine dünne Schicht spezieller Tattoo-Pflegecreme (z.B. Panthenol / Pegasus) mit sauberen Händen auf.
-          </p>
+        <div class="glass-card p-8 rounded-3xl space-y-4">
+          <div class="w-12 h-12 rounded-2xl bg-petrol-800 flex items-center justify-center text-petrol-300 font-bold text-lg">02</div>
+          <h3 class="font-cinzel text-xl font-bold text-white" data-i18n="care_2_title">Eincremen &amp; Regeneration</h3>
+          <p class="text-slate-300 text-sm leading-relaxed" data-i18n="care_2_desc">Trage 3-4 mal täglich eine dünne Schicht Tattoo-Creme auf (z.B. Panthenol). Die Haut muss atmen können, vermeide dicke Fettschichten.</p>
         </div>
-        <div class="glass-card p-8 rounded-3xl">
-          <h3 class="text-lg font-bold text-petrol-300 mb-3" data-i18n="care_3_title">3. Sonne &amp; Wasser meiden</h3>
-          <p class="text-slate-300 text-sm leading-relaxed" data-i18n="care_3_desc">
-            In den ersten 2 Wochen kein Schwimmbad, keine Sauna, kein Solarium und Krusten niemals abkratzen.
-          </p>
+        <div class="glass-card p-8 rounded-3xl space-y-4">
+          <div class="w-12 h-12 rounded-2xl bg-petrol-800 flex items-center justify-center text-petrol-300 font-bold text-lg">03</div>
+          <h3 class="font-cinzel text-xl font-bold text-white" data-i18n="care_3_title">Was du vermeiden solltest</h3>
+          <p class="text-slate-300 text-sm leading-relaxed" data-i18n="care_3_desc">Kein Kratzen bei Schuppenbildung! Vermeide direkte Sonne, Solarium, Sauna und Vollbäder für mindestens 3–4 Wochen.</p>
         </div>
+      </div>
+
+      <div class="mt-12 text-center">
+        <a href="./aftercare.pdf" download="New_Jack_Tattoo_Aftercare.pdf" class="inline-flex items-center gap-3 px-8 py-4 rounded-full bg-gradient-to-r from-petrol-500 to-petrol-400 hover:from-petrol-400 hover:to-petrol-300 text-white font-semibold text-xs sm:text-sm uppercase tracking-[0.2em] transition-all shadow-[0_0_25px_rgba(56,146,174,0.4)] hover:scale-105">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
+          <span data-i18n="btn_aftercare_pdf">PDF-Pflegeanleitung herunterladen</span>
+        </a>
       </div>
     </div>
   </section>
 
-  <!-- FAQ (БЕЗ COVER-UP) -->
-  <section id="faq" class="py-20 px-6 relative reveal">
-    <div class="max-w-3xl mx-auto">
-      <div class="text-center mb-12">
-        <span class="text-petrol-400 text-xs uppercase tracking-[0.3em] font-semibold block mb-2" data-i18n="faq_tag">Wissenswertes</span>
-        <h2 class="font-cinzel text-2xl sm:text-4xl font-bold text-white uppercase tracking-wider" data-i18n="faq_title">Häufige Fragen (FAQ)</h2>
+  <!-- FAQ -->
+  <section id="faq" class="py-24 px-6 bg-gradient-to-b from-petrol-900/30 to-petrol-950 border-t border-petrol-800/40 reveal">
+    <div class="max-w-4xl mx-auto">
+      <div class="text-center max-w-2xl mx-auto mb-16">
+        <span class="text-petrol-400 text-xs uppercase tracking-[0.3em] font-semibold block mb-2" data-i18n="faq_tag">Help &amp; Info</span>
+        <h2 class="font-cinzel text-3xl sm:text-5xl font-bold text-white tracking-wider uppercase mb-4" data-i18n="faq_title">Häufige Fragen (FAQ)</h2>
+        <div class="w-20 h-0.5 bg-gradient-to-r from-transparent via-petrol-400 to-transparent mx-auto"></div>
       </div>
 
       <div class="space-y-4">
         <div class="glass-card rounded-2xl overflow-hidden">
-          <button type="button" onclick="toggleFaq(this)" class="w-full px-6 py-5 text-left flex items-center justify-between font-semibold text-white">
+          <button onclick="toggleFaq(this)" class="w-full px-6 py-5 text-left flex items-center justify-between font-semibold text-white text-sm sm:text-base transition">
             <span data-i18n="faq_q1">Wie viel kostet ein Tattoo bei New Jack Tattoo?</span>
             <span class="text-petrol-300 text-xl font-bold transition-transform">+</span>
           </button>
-          <div class="hidden px-6 pb-5 text-slate-300 text-sm leading-relaxed border-t border-petrol-800/60 pt-3" data-i18n="faq_a1">
-            Der Preis hängt von Größe, Detailgrad und Körperstelle ab. Schreib uns deine Idee per WhatsApp – die Einschätzung und Beratung sind immer kostenlos.
-          </div>
+          <div class="hidden px-6 pb-5 text-slate-300 text-sm leading-relaxed border-t border-petrol-800/60 pt-3" data-i18n="faq_a1">Der Preis hängt von Größe, Detailgrad, Körperstelle und geschätztem Zeitaufwand ab. Kleinere Motive haben einen Mindestpreis, während große Projekte (wie Sleeves oder Japanese Backpieces) nach Tagessätzen oder Absprache kalkuliert werden. Die Beratung ist absolut kostenlos!</div>
         </div>
 
         <div class="glass-card rounded-2xl overflow-hidden">
-          <button type="button" onclick="toggleFaq(this)" class="w-full px-6 py-5 text-left flex items-center justify-between font-semibold text-white">
+          <button onclick="toggleFaq(this)" class="w-full px-6 py-5 text-left flex items-center justify-between font-semibold text-white text-sm sm:text-base transition">
             <span data-i18n="faq_q2">Muss ich einen Termin vereinbaren oder kann ich spontan vorbeikommen?</span>
             <span class="text-petrol-300 text-xl font-bold transition-transform">+</span>
           </button>
-          <div class="hidden px-6 pb-5 text-slate-300 text-sm leading-relaxed border-t border-petrol-800/60 pt-3" data-i18n="faq_a2">
-            Für größere Projekte empfehlen wir einen Termin. Für kleinere Motive haben wir oft auch kurzfristige Fenster – schreib uns einfach kurz per WhatsApp!
-          </div>
+          <div class="hidden px-6 pb-5 text-slate-300 text-sm leading-relaxed border-t border-petrol-800/60 pt-3" data-i18n="faq_a2">Wir arbeiten primär auf Termin, um jedem Kunden individuelle Entwürfe und ungestörte Sessions zu garantieren. Schreib uns am besten über das Formular oder Instagram, um einen Beratungstermin auf der Beekstraße 6 zu vereinbaren.</div>
         </div>
 
         <div class="glass-card rounded-2xl overflow-hidden">
-          <button type="button" onclick="toggleFaq(this)" class="w-full px-6 py-5 text-left flex items-center justify-between font-semibold text-white">
+          <button onclick="toggleFaq(this)" class="w-full px-6 py-5 text-left flex items-center justify-between font-semibold text-white text-sm sm:text-base transition">
             <span data-i18n="faq_q3">Wie bereite ich mich am besten auf den Tattoo-Termin vor?</span>
             <span class="text-petrol-300 text-xl font-bold transition-transform">+</span>
           </button>
-          <div class="hidden px-6 pb-5 text-slate-300 text-sm leading-relaxed border-t border-petrol-800/60 pt-3" data-i18n="faq_a3">
-            Komm ausgeschlafen, iss vorher gut und trinke ausreichend Wasser. Verzichte 24 Stunden vor dem Termin auf Alkohol und blutverdünnende Mittel.
-          </div>
-        </div>
-
-        <div class="glass-card rounded-2xl overflow-hidden">
-          <button type="button" onclick="toggleFaq(this)" class="w-full px-6 py-5 text-left flex items-center justify-between font-semibold text-white">
-            <span data-i18n="faq_q5">Ab welchem Alter tätowiert ihr und gibt es eine Anzahlung?</span>
-            <span class="text-petrol-300 text-xl font-bold transition-transform">+</span>
-          </button>
-          <div class="hidden px-6 pb-5 text-slate-300 text-sm leading-relaxed border-t border-petrol-800/60 pt-3" data-i18n="faq_a5">
-            Wir tätowieren ausnahmslos ab 18 Jahren (bitte gültigen Ausweis mitbringen). Für die Terminreservierung nehmen wir eine Anzahlung, die komplett mit dem Endpreis verrechnet wird.
-          </div>
+          <div class="hidden px-6 pb-5 text-slate-300 text-sm leading-relaxed border-t border-petrol-800/60 pt-3" data-i18n="faq_a3">Schlafe gut in der Nacht vor dem Termin, komm ausgeruht und iss vorher eine ordentliche Mahlzeit. Trinke keinen Alkohol am Tag vor dem Termin und trage bequeme Kleidung, die leichten Zugang zur zu tätowierenden Stelle bietet.</div>
         </div>
       </div>
     </div>
@@ -964,541 +748,475 @@
   <!-- ФУТЕР -->
   <footer class="py-10 px-6 border-t border-petrol-900 bg-petrol-950 text-center text-xs text-slate-500">
     <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
-      <div class="flex items-center gap-3">
-        <span class="font-cinzel text-petrol-300 font-bold tracking-widest text-sm">NEW JACK TATTOO</span>
-        <span>•</span>
-        <span>Beekstraße 6, 47051 Duisburg</span>
-      </div>
-      <p data-i18n="footer_rights">© 2026 New Jack Tattoo Duisburg. Alle Rechte vorbehalten.</p>
-      <div class="flex items-center gap-6">
-        <button type="button" onclick="openModal('impressum')" class="hover:text-petrol-300 transition underline underline-offset-4" data-i18n="footer_impressum">Impressum</button>
-        <button type="button" onclick="openModal('datenschutz')" class="hover:text-petrol-300 transition underline underline-offset-4" data-i18n="footer_privacy">Datenschutz</button>
-        <a href="/admin/" class="hover:text-petrol-300 transition opacity-60 hover:opacity-100">CMS Admin</a>
+      <p data-i18n="footer_rights">© 2026 New Jack Tattoo • Beekstraße 6, 47051 Duisburg.</p>
+      <div class="flex items-center gap-5">
+        <a href="https://www.instagram.com/newjacktattoo/" target="_blank" rel="noopener noreferrer" class="hover:text-petrol-300 transition">Instagram</a>
+        <span class="text-petrol-800 hidden sm:inline">|</span>
+        <a href="impressum.html" class="hover:text-petrol-300 transition">Impressum</a>
+        <a href="datenschutz.html" class="hover:text-petrol-300 transition">Datenschutz</a>
       </div>
     </div>
   </footer>
 
-  <!-- СТРАХОВКА ВИДИМОСТИ СЕКЦИЙ + ОТКЛЮЧЕНИЕ ЛУПЫ И БЛОКА COVER-UP -->
-  <style>
-    .reveal, .reveal.active, .reveal.visible {
-      opacity: 1 !important;
-      transform: none !important;
-      visibility: visible !important;
-    }
-    .zoom-badge, .portfolio-zoom-icon, #coverup, #cover-up, .ba-section, #ba-slider, #beforeAfterSlider {
-      display: none !important;
-    }
-  </style>
-
-  <!-- ВСПЛЫВАЮЩЕЕ УВЕДОМЛЕНИЕ О КОПИРОВАНИИ АДРЕСА -->
-  <div id="copyToast" class="fixed top-6 left-1/2 -translate-x-1/2 -translate-y-4 opacity-0 pointer-events-none z-[9999] bg-petrol-900/95 border border-petrol-400 text-white px-5 py-2.5 rounded-full text-sm font-medium shadow-[0_0_25px_rgba(75,179,210,0.45)] backdrop-blur-md transition-all duration-300">
-    <span data-i18n="toast_copied">✓ Adresse kopiert!</span>
+  <!-- ПОЛНОЭКРАННЫЙ LIGHTBOX С ЛИСТАНИЕМ -->
+  <div id="lightbox" class="lightbox-overlay" onclick="closeLightbox(event)">
+    <button class="lightbox-close" onclick="closeLightbox(event)" aria-label="Close">✕</button>
+    <button class="lightbox-nav lightbox-prev" onclick="changeLightboxSlide(-1, event)" aria-label="Previous">‹</button>
+    <img id="lightbox-img" src="" alt="Fullscreen View" class="lightbox-img">
+    <button class="lightbox-nav lightbox-next" onclick="changeLightboxSlide(1, event)" aria-label="Next">›</button>
+    <div id="lightbox-counter" class="lightbox-counter">1 / 7</div>
   </div>
 
-  <!-- ПЛАВАЮЩАЯ КНОПКА WHATSAPP -->
-  <a href="https://wa.me/4917632460273" target="_blank" rel="noopener" aria-label="WhatsApp Chat"
-     class="fixed bottom-6 right-6 z-50 w-14 h-14 rounded-full bg-gradient-to-tr from-petrol-600 to-petrol-400 text-petrol-950 flex items-center justify-center shadow-[0_0_25px_rgba(75,179,210,0.6)] hover:scale-110 transition-transform duration-300">
-    <svg class="w-7 h-7 fill-current" viewBox="0 0 24 24">
-      <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.86s.274.072.376-.043c.101-.116.433-.506.549-.68.116-.173.231-.145.39-.087s1.011.477 1.184.564.289.13.332.202c.045.072.045.419-.1.824zm-3.423-14.416c-6.627 0-12 5.373-12 12 0 2.126.556 4.124 1.535 5.862l-1.535 5.603 5.755-1.509c1.692.925 3.631 1.454 5.694 1.454 6.627 0 12-5.373 12-12s-5.373-12-12.449-11.41z"/>
-    </svg>
-  </a>
-
-  <!-- LIGHTBOX (ПРОСМОТР РАБОТ ВО ВЕСЬ ЭКРАН БЕЗ ЛУПЫ) -->
-  <div id="lightbox" onclick="closeLightbox()" class="fixed inset-0 z-[9990] bg-black/90 backdrop-blur-md hidden items-center justify-center p-4 cursor-zoom-out">
-    <button type="button" onclick="closeLightbox()" class="absolute top-6 right-6 w-11 h-11 rounded-full bg-petrol-900/80 border border-petrol-400/40 text-white text-2xl flex items-center justify-center hover:bg-petrol-500 hover:text-petrol-950 transition">&times;</button>
-    <img id="lightbox-img" src="" alt="Tattoo Zoom" class="max-w-full max-h-[90vh] rounded-2xl border border-petrol-500/30 shadow-2xl object-contain" onclick="event.stopPropagation()">
-  </div>
-
-  <!-- МОДАЛЬНОЕ ОКНО: IMPRESSUM & DATENSCHUTZ -->
-  <div id="legalModal" onclick="closeModal()" class="fixed inset-0 z-[9995] bg-black/85 backdrop-blur-md hidden items-center justify-center p-4">
-    <div onclick="event.stopPropagation()" class="bg-petrol-900 border border-petrol-500/40 rounded-2xl max-w-2xl w-full max-h-[85vh] overflow-y-auto p-6 sm:p-8 text-slate-300 text-sm leading-relaxed relative shadow-2xl">
-      <button type="button" onclick="closeModal()" class="sticky top-0 float-right w-9 h-9 rounded-full bg-petrol-950 border border-petrol-500/40 text-white flex items-center justify-center hover:bg-petrol-400 hover:text-petrol-950 transition">&times;</button>
-      
-      <div id="modal-impressum" class="hidden space-y-3">
-        <h3 class="text-xl font-cinzel text-white font-bold mb-4">Impressum</h3>
-        <p><strong>Angaben gemäß § 5 DDG:</strong><br>New Jack Tattoo Studio<br>Beekstraße 6<br>47051 Duisburg, Deutschland</p>
-        <p><strong>Kontakt:</strong><br>Telefon / WhatsApp: +49 176 32460273<br>Standort: Beekstraße 6, 47051 Duisburg</p>
-      </div>
-
-      <div id="modal-datenschutz" class="hidden space-y-3">
-        <h3 class="text-xl font-cinzel text-white font-bold mb-4">Datenschutzerklärung (DSGVO)</h3>
-        <p><strong>1. Datenschutz:</strong><br>Beim Besuch dieser Website werden ohne Ihre Zustimmung keine Tracking-Cookies von Drittanbietern geladen.</p>
-        <p><strong>2. WhatsApp-Kontakt:</strong><br>Bei Klick auf unsere WhatsApp-Buttons werden Ihre Angaben direkt an WhatsApp übergeben, um Ihre Anfrage zu bearbeiten (Art. 6 Abs. 1 lit. b DSGVO).</p>
+  <!-- COOKIE BANNER -->
+  <div id="cookie-banner" class="fixed bottom-0 left-0 right-0 z-50 p-4 sm:p-6 bg-petrol-950/95 border-t border-petrol-700/60 backdrop-blur-xl shadow-2xl transition-transform duration-500 hidden">
+    <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4 text-xs sm:text-sm">
+      <p class="text-slate-300 leading-relaxed text-center md:text-left" data-i18n="cookie_text">Wir nutzen Cookies und Analysetools, um unsere Website zu verbessern. Mit Klick auf „Alle akzeptieren“ stimmst du der Verwendung zu.</p>
+      <div class="flex items-center gap-3 shrink-0">
+        <button onclick="acceptCookies('essential')" class="px-5 py-2.5 rounded-full glass hover:bg-petrol-800 text-slate-300 font-semibold uppercase tracking-wider transition" data-i18n="cookie_decline">Nur Essenzielle</button>
+        <button onclick="acceptCookies('all')" class="px-6 py-2.5 rounded-full bg-petrol-500 hover:bg-petrol-400 text-white font-semibold uppercase tracking-wider transition shadow" data-i18n="cookie_accept">Alle akzeptieren</button>
       </div>
     </div>
   </div>
 
-  <!-- СКРИПТЫ -->
+  <!-- ЯРКАЯ ПЛАВАЮЩАЯ КНОПКА WHATSAPP -->
+  <a href="https://wa.me/4917632460273?text=Hallo,%20ich%20interessiere%20mich%20f%C3%BCr%20ein%20Tattoo." 
+     target="_blank" 
+     rel="noopener noreferrer"
+     class="floating-wa-btn"
+     aria-label="WhatsApp Kontakt">
+    <svg style="width:34px;height:34px;fill:currentColor;" viewBox="0 0 24 24">
+      <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/>
+    </svg>
+    <span class="floating-wa-tooltip">Schreib uns auf WhatsApp</span>
+  </a>
+
+  <!-- ЕДИНЫЙ РАБОЧИЙ СКРИПТ САЙТА -->
   <script>
-    const STUDIO_WA = '4917632460273';
-    let currentLang = localStorage.getItem('njt_lang') || 'de';
-    let selectedGutscheinAmount = '100 €';
+    let currentLang = 'de';
+    let currentFilter = 'all';
+    let lightboxImages = [];
+    let lightboxIndex = 0;
+    let touchStartX = 0;
 
-    // 1. Убираем старые иконки лупы 🔍 и скрываем любые блоки Cover-Up, если они были выше в коде
-    function cleanupUpperHtml() {
-      document.querySelectorAll('.zoom-badge, .portfolio-zoom-icon').forEach(el => el.remove());
-      document.querySelectorAll('#portfolio span, #portfolio-grid span, #works-grid span').forEach(el => {
-        if (el.textContent.trim() === '🔍') el.remove();
-      });
-      document.querySelectorAll('section').forEach(sec => {
-        if (sec.id === 'coverup' || sec.id === 'cover-up' || sec.querySelector('#ba-slider, #beforeAfterSlider')) {
-          sec.style.display = 'none';
-        }
-      });
-    }
-
-    // 2. Быстрые теги размера/места в твоей форме (toggleQuickTag)
-    function toggleQuickTag(btn) {
-      const input = document.getElementById('form-size');
-      if (!input) return;
-      btn.classList.toggle('active');
-      const tagText = btn.textContent.trim();
-      let current = input.value.trim();
-      if (current.includes(tagText)) {
-        input.value = current.replace(tagText, '').replace(/,\s*,/g, ',').replace(/^,\s*|\s*,\s*$/g, '');
-      } else {
-        input.value = current ? `${current}, ${tagText}` : tagText;
-      }
-    }
-    window.toggleQuickTag = toggleQuickTag;
-
-    // 3. Выбор мастера из карточки (если кликают «Termin anfragen» у конкретного мастера)
-    function selectArtistForBooking(artistName) {
-      const sel = document.getElementById('form-artist');
-      if (sel && artistName) sel.value = artistName;
-      const formSec = document.getElementById('booking-form') || document.getElementById('contact');
-      if (formSec) formSec.scrollIntoView({ behavior: 'smooth' });
-    }
-    window.selectArtist = selectArtistForBooking;
-    window.bookArtist = selectArtistForBooking;
-
-    // 4. Мобильное меню (MENU ☰)
-    function toggleMobileMenu() {
-      const menu = document.getElementById('mobile-menu') || document.getElementById('mobileMenu');
-      if (!menu) return;
-      menu.classList.toggle('hidden');
-      menu.classList.toggle('open');
-    }
-    window.toggleMenu = toggleMobileMenu;
-
-    // 5. Карта Google Maps (DSGVO)
-    function loadGoogleMap() {
-      const container = document.getElementById('map-container') || document.getElementById('mapContainer');
-      if (!container) return;
-      container.innerHTML = `<iframe src="https://www.google.com/maps?q=Beekstra%C3%9Fe+6,+47051+Duisburg&output=embed" class="w-full h-full min-h-[250px] border-0 rounded-2xl" allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>`;
-    }
-    window.loadMap = loadGoogleMap;
-
-    // 6. Полный словарь переводов (DE / RU / EN) точно под твои ключи data-i18n
-    const translations = {
+    const i18n = {
       de: {
-        nav_home: 'Start', nav_artists: 'Artists', nav_works: 'Portfolio', nav_portfolio: 'Portfolio',
-        nav_process: 'Ablauf', nav_gutschein: 'Gutschein', nav_studio: 'Studio', nav_aftercare: 'Pflege',
-        nav_faq: 'FAQ', nav_contact: 'Kontakt', nav_menu: 'MENÜ', btn_book_nav: 'Termin buchen',
-        hero_sub: 'Premium Tattoo Studio im Herzen von Duisburg. Individuelle Kunstwerke, 100% EU-Hygiene & persönliche Beratung.',
-        hero_cta_primary: 'Termin per WhatsApp', hero_cta_secondary: 'Portfolio ansehen',
-        stat_sterile: '100% EU-Hygiene & Steril', stat_artists: 'Top Google Bewertung',
-        stat_custom: 'Individuelle Entwürfe', stat_consult: 'Kostenlose Beratung',
-        artists_tag: 'Resident Artists', artists_title: 'Unsere Tätowierer', artists_book: 'Termin anfragen',
-        portfolio_tag: 'Selected Works', portfolio_title: 'Portfolio',
-        studio_tag: 'Inside NJT', studio_title: 'Unser Studio auf der Beekstraße 6',
-        studio_desc: 'Modernes Ambiente, entspannte Musik und höchste klinische Sauberkeit mitten in der Duisburger Innenstadt.',
-        book_tag: 'Booking & Consultation', book_title: 'Termin anfragen',
-        form_name: 'Dein Name *', form_name_ph: 'Max Mustermann',
-        form_phone: 'Telefon / Insta *', form_phone_ph: '+49 176 ... / @username',
-        form_artist: 'Tätowierer / Artist',
-        artist_opt_any: 'Egal / Beratung gewünscht',
-        artist_opt_andy: 'Andy (Japanese / Realism)',
-        artist_opt_asty: 'Asty (Japanese / Traditional)',
-        artist_opt_sascha: 'Sascha (Neo-Traditional / Fine Line)',
-        artist_opt_rimma: 'Rimma (Apprentice)',
-        form_style: 'Stilrichtung',
-        style_opt_japanese: 'Japanese',
-        style_opt_bg_realism: 'Black & Grey Realism',
-        style_opt_color_realism: 'Color Realism',
-        style_opt_traditional: 'Traditional (Old School)',
-        style_opt_neotrad: 'Neo-Traditional / Fine Line',
-        style_opt_consult: 'Beratung gewünscht',
-        form_placement: 'Körperstelle & Größe', form_placement_ph: 'Unterarm, ~15 cm',
-        tag_forearm: 'Unterarm', tag_upperarm: 'Oberarm', tag_chest: 'Brust / Rücken',
-        tag_leg: 'Bein', tag_small: '~5–10 cm', tag_medium: '~15–20 cm', tag_sleeve: 'Sleeve / Großprojekt',
-        form_message: 'Deine Tattoo-Idee', form_msg_ph: 'Beschreibe deine Idee, Wunschtermine oder Fragen...',
-        form_hint: 'Hinweis: Referenzbilder können Sie direkt im WhatsApp-Chat senden, der sich gleich öffnet.',
-        form_submit: 'Anfrage per WhatsApp senden',
-        contact_address: 'Studio Adresse', copy_btn: '📋 Adresse kopieren', toast_copied: '✓ Adresse kopiert!',
-        parking_info: '🚗 Parkhäuser in 2–3 Min. Fußweg', ubahn_info: '🚇 U-Bahn: Steinsche Gasse / Rathaus',
-        contact_phone: 'WhatsApp & Telefon', status_open: 'Mo–Sa: 11:00 – 19:00 Uhr',
-        contact_maps: '📍 In Google Maps öffnen →',
-        map_consent: 'Karte aus Datenschutzgründen (DSGVO) ausgeblendet. Mit Klick auf den Button wird Google Maps geladen.',
-        map_btn: 'Google Maps laden',
-        process_tag: 'Dein Weg zum Tattoo', process_title: '4 Schritte von der Idee zum Tattoo',
-        step1_title: 'Kostenlose Beratung', step1_desc: 'Besprechung deiner Idee in WhatsApp oder im Studio auf der Beekstraße 6.',
-        step2_title: 'Individueller Entwurf', step2_desc: 'Dein Artist bereitet ein maßgeschneidertes Projekt passend zu deiner Anatomie vor.',
-        step3_title: '100% Sterile Session', step3_desc: 'Komfortable Atmosphäre, höchste EU-Hygiene und modernstes Premium-Equipment.',
-        step4_title: 'Schnelle Heilung', step4_desc: 'Pflege nach unserer Anleitung und direkter Support durch deinen Artist.',
-        gutschein_tag: 'Geschenkidee', gutschein_title: 'Tattoo-Gutschein',
-        gutschein_desc: 'Das perfekte Geschenk zum Geburtstag oder zu Feiertagen. Betrag wählen und in 1 Klick per WhatsApp bestellen:',
-        gutschein_custom: 'Wunschbetrag', gutschein_btn: 'Gutschein bestellen',
-        aftercare_tag: 'Professional Care', aftercare_title: 'Tattoo-Pflege & Heilung',
-        care_1_title: '1. Schutzfolie & Reinigung', care_1_desc: 'Lass die Folie wie vom Artist empfohlen drauf. Danach vorsichtig mit lauwarmem Wasser und milder, pH-neutraler Seife abwaschen.',
-        care_2_title: '2. Dünn eincremen', care_2_desc: 'Trage 2–3 Mal täglich eine dünne Schicht spezieller Tattoo-Pflegecreme (z.B. Panthenol / Pegasus) mit sauberen Händen auf.',
-        care_3_title: '3. Sonne & Wasser meiden', care_3_desc: 'In den ersten 2 Wochen kein Schwimmbad, keine Sauna, kein Solarium und Krusten niemals abkratzen.',
-        faq_tag: 'Wissenswertes', faq_title: 'Häufige Fragen (FAQ)',
-        faq_q1: 'Wie viel kostet ein Tattoo bei New Jack Tattoo?',
-        faq_a1: 'Der Preis hängt von Größe, Detailgrad und Körperstelle ab. Schreib uns deine Idee per WhatsApp – die Einschätzung und Beratung sind immer kostenlos.',
-        faq_q2: 'Muss ich einen Termin vereinbaren oder kann ich spontan vorbeikommen?',
-        faq_a2: 'Für größere Projekte empfehlen wir einen Termin. Für kleinere Motive haben wir oft auch kurzfristige Fenster – schreib uns einfach kurz per WhatsApp!',
-        faq_q3: 'Wie bereite ich mich am besten auf den Tattoo-Termin vor?',
-        faq_a3: 'Komm ausgeschlafen, iss vorher gut und trinke ausreichend Wasser. Verzichte 24 Stunden vor dem Termin auf Alkohol und blutverdünnende Mittel.',
-        faq_q5: 'Ab welchem Alter tätowiert ihr und gibt es eine Anzahlung?',
-        faq_a5: 'Wir tätowieren ausnahmslos ab 18 Jahren (bitte gültigen Ausweis mitbringen). Für die Terminreservierung nehmen wir eine Anzahlung, die komplett mit dem Endpreis verrechnet wird.',
-        footer_rights: '© 2026 New Jack Tattoo Duisburg. Alle Rechte vorbehalten.',
-        footer_impressum: 'Impressum', footer_privacy: 'Datenschutz'
+        nav_home: "Start", nav_artists: "Artists", nav_portfolio: "Portfolio", nav_studio: "Studio", nav_reviews: "Bewertungen", nav_contact: "Kontakt", nav_aftercare: "Aftercare", nav_faq: "FAQ", nav_menu: "Menu", btn_book_nav: "Termin",
+        hero_sub: "Premium Custom Tattoo Studio im Herzen von Duisburg. Individuelle Designs, höchste Hygienestandards und echte Kunst-Atmosphäre.",
+        hero_cta_primary: "Termin vereinbaren", hero_cta_secondary: "Portfolio ansehen",
+        stat_sterile: "100% EU-Hygiene & Steril", stat_artists: "Top Google Bewertung", stat_custom: "Individuelle Entwürfe", stat_consult: "Kostenlose Beratung",
+        artists_tag: "Resident Artists", artists_title: "Unsere Tätowierer", artists_book: "Termin vereinbaren",
+        portfolio_tag: "Selected Works", portfolio_title: "Portfolio", filter_all: "Alle",
+        studio_tag: "Atmosphere & Hygiene", studio_title: "Das Studio",
+        studio_desc: "New Jack Tattoo auf der Beekstraße 6 in Duisburg — gestaltet in tiefen Petrol-Tönen, ausgestattet mit modernster Technik für maximalen Komfort.",
+        reviews_badge: "Google Rezensionen", reviews_title: "Kundenstimmen", reviews_cta: "Alle Bewertungen auf Google →",
+        rev_1_text: "„Absolut erstklassiges Studio in Duisburg! Super sauber, entspannte Atmosphäre und die Beratung war mega ehrlich. Mein Sleeve ist besser geworden als ich es mir erträumt habe.“",
+        rev_2_text: "„Höchste Hygienestandards und unglaublich talentierte Künstler. Man nimmt sich richtig viel Zeit für den Entwurf. Für Realism und Japanese die beste Adresse in NRW!“",
+        rev_3_text: "„Vom ersten WhatsApp-Kontakt bis zum fertigen Tattoo alles perfekt. Mega schönes Studio auf der Beekstraße, feine Linien und super schnelle Heilung dank guter Pflege-Tipps.“",
+        aftercare_tag: "Professional Care", aftercare_title: "Tattoo Aftercare Guide",
+        care_1_title: "Erste Tage (Folie & Reinigung)", care_1_desc: "Lass die Schutzfolie je nach Anweisung des Künstlers (24-72 Std.) drauf. Danach vorsichtig mit lauwarmem Wasser und ph-neutraler Seife waschen.",
+        care_2_title: "Eincremen & Regeneration", care_2_desc: "Trage 3-4 mal täglich eine dünne Schicht Tattoo-Creme auf (z.B. Panthenol). Die Haut muss atmen können, vermeide dicke Fettschichten.",
+        care_3_title: "Was du vermeiden solltest", care_3_desc: "Kein Kratzen bei Schuppenbildung! Vermeide direkte Sonne, Solarium, Sauna und Vollbäder für mindestens 3–4 Wochen.",
+        btn_aftercare_pdf: "PDF-Pflegeanleitung herunterladen",
+        faq_tag: "Help & Info", faq_title: "Häufige Fragen (FAQ)",
+        faq_q1: "Wie viel kostet ein Tattoo bei New Jack Tattoo?", faq_a1: "Der Preis hängt von Größe, Detailgrad, Körperstelle und geschätztem Zeitaufwand ab. Kleinere Motive haben einen Mindestpreis, während große Projekte (wie Sleeves oder Japanese Backpieces) nach Tagessätzen oder Absprache kalkuliert werden. Die Beratung ist absolut kostenlos!",
+        faq_q2: "Muss ich einen Termin vereinbaren oder kann ich spontan vorbeikommen?", faq_a2: "Wir arbeiten primär auf Termin, um jedem Kunden individuelle Entwürfe und ungestörte Sessions zu garantieren. Schreib uns am besten über das Formular oder Instagram, um einen Beratungstermin auf der Beekstraße 6 zu vereinbaren.",
+        faq_q3: "Wie bereite ich mich am besten auf den Tattoo-Termin vor?", faq_a3: "Schlafe gut in der Nacht vor dem Termin, komm ausgeruht und iss vorher eine ordentliche Mahlzeit. Trinke keinen Alkohol am Tag vor dem Termin und trage bequeme Kleidung, die leichten Zugang zur zu tätowierenden Stelle bietet.",
+        book_tag: "Booking & Consultation", book_title: "Termin anfragen",
+        form_name: "Dein Name *", form_name_ph: "Max Mustermann",
+        form_phone: "Telefon / Insta *", form_phone_ph: "+49 176 ... / @username",
+        form_artist: "Tätowierer / Artist", artist_opt_any: "Egal / Beratung gewünscht",
+        form_style: "Stilrichtung",
+        style_opt_japanese: "Japanese", style_opt_bg_realism: "Black & Grey Realism", style_opt_color_realism: "Color Realism", style_opt_traditional: "Traditional (Old School)", style_opt_consult: "Beratung gewünscht",
+        form_placement: "Körperstelle & Größe", form_placement_ph: "Unterarm, ~15 cm",
+        tag_forearm: "Unterarm", tag_upperarm: "Oberarm", tag_chest: "Brust / Rücken", tag_leg: "Bein", tag_small: "~5–10 cm", tag_medium: "~15–20 cm", tag_sleeve: "Sleeve / Großprojekt",
+        form_message: "Deine Tattoo-Idee", form_msg_ph: "Beschreibe deine Idee, Wunschtermine oder Fragen...",
+        form_hint: "Hinweis: Referenzbilder können Sie direkt im WhatsApp-Chat senden, der sich gleich öffnet.",
+        form_submit: "Anfrage per WhatsApp senden",
+        contact_address: "Adresse:", contact_hours_label: "Öffnungszeiten:", contact_hours_val: "Di – Sa: 11:00 – 19:00 Uhr", contact_phone: "Telefon:", contact_maps: "Google Maps",
+        status_open: "Studio geöffnet • Komm vorbei", status_closed: "WhatsApp Booking 24/7 aktiv",
+        cookie_text: "Wir nutzen Cookies und Analysetools, um unsere Website zu verbessern. Mit Klick auf „Alle akzeptieren“ stimmst du der Verwendung zu.",
+        cookie_decline: "Nur Essenzielle", cookie_accept: "Alle akzeptieren",
+        map_consent: "Klicke hier, um die interaktive Karte zu laden. Dabei werden Daten (inkl. deiner IP-Adresse) an Google übertragen.", map_btn: "Karte laden",
+        footer_rights: "© 2026 New Jack Tattoo • Beekstraße 6, 47051 Duisburg."
       },
-
       ru: {
-        nav_home: 'Главная', nav_artists: 'Мастера', nav_works: 'Портфолио', nav_portfolio: 'Портфолио',
-        nav_process: 'Этапы', nav_gutschein: 'Сертификат', nav_studio: 'Студия', nav_aftercare: 'Уход',
-        nav_faq: 'FAQ', nav_contact: 'Контакты', nav_menu: 'МЕНЮ', btn_book_nav: 'Записаться',
-        hero_sub: 'Премиум тату-студия в самом центре Дуйсбурга. Индивидуальные эскизы, 100% стерильность ЕС и бесплатная консультация.',
-        hero_cta_primary: 'Запись в WhatsApp', hero_cta_secondary: 'Смотреть работы',
-        stat_sterile: '100% стерильность ЕС', stat_artists: 'Топ-рейтинг в Google',
-        stat_custom: 'Индивидуальные эскизы', stat_consult: 'Бесплатная консультация',
-        artists_tag: 'Команда студии', artists_title: 'Наши мастера', artists_book: 'Записаться к мастеру',
-        portfolio_tag: 'Избранные работы', portfolio_title: 'Портфолио',
-        studio_tag: 'Атмосфера NJT', studio_title: 'Наша студия на Beekstraße 6',
-        studio_desc: 'Современный интерьер, крутая атмосфера и идеальная стерильность в самом центре Дуйсбурга.',
-        book_tag: 'Запись и консультация', book_title: 'Записаться на сеанс',
-        form_name: 'Твоё имя *', form_name_ph: 'Например, Алекс',
-        form_phone: 'Телефон / Instagram *', form_phone_ph: '+49 176 ... / @username',
-        form_artist: 'Выбери мастера',
-        artist_opt_any: 'Любой мастер / Нужна консультация',
-        artist_opt_andy: 'Andy (Япония / Реализм)',
-        artist_opt_asty: 'Asty (Япония / Традишнл)',
-        artist_opt_sascha: 'Sascha (Нео-традишнл / Тонкие линии)',
-        artist_opt_rimma: 'Rimma (Ученик / Apprentice)',
-        form_style: 'Стиль татуировки',
-        style_opt_japanese: 'Япония (Japanese)',
-        style_opt_bg_realism: 'Ч/Б Реализм (Black & Grey)',
-        style_opt_color_realism: 'Цветной реализм',
-        style_opt_traditional: 'Традишнл (Old School)',
-        style_opt_neotrad: 'Нео-традишнл / Fine Line',
-        style_opt_consult: 'Нужна консультация мастера',
-        form_placement: 'Место на теле и размер', form_placement_ph: 'Предплечье, ~15 см',
-        tag_forearm: 'Предплечье', tag_upperarm: 'Плечо', tag_chest: 'Грудь / Спина',
-        tag_leg: 'Нога', tag_small: '~5–10 см', tag_medium: '~15–20 см', tag_sleeve: 'Рукав / Крупный проект',
-        form_message: 'Твоя идея татуировки', form_msg_ph: 'Опиши идею, желаемые даты или вопросы...',
-        form_hint: 'Подсказка: Фотографии-примеры (референсы) можно отправить прямо в чате WhatsApp, который сейчас откроется.',
-        form_submit: 'Отправить заявку в WhatsApp',
-        contact_address: 'Адрес студии', copy_btn: '📋 Скопировать адрес', toast_copied: '✓ Адрес скопирован!',
-        parking_info: '🚗 Парковки в 2–3 мин. пешком', ubahn_info: '🚇 Метро: Steinsche Gasse / Rathaus',
-        contact_phone: 'WhatsApp и телефон', status_open: 'Пн–Сб: 11:00 – 19:00',
-        contact_maps: '📍 Открыть в Google Картах →',
-        map_consent: 'Карта скрыта в целях защиты данных (DSGVO). Нажми на кнопку, чтобы загрузить Google Карту.',
-        map_btn: 'Загрузить Google Карту',
-        process_tag: 'Путь к тату', process_title: '4 шага от идеи до тату',
-        step1_title: 'Бесплатная консультация', step1_desc: 'Обсуждение идеи в WhatsApp или лично в студии на Beekstraße 6.',
-        step2_title: 'Индивидуальный эскиз', step2_desc: 'Мастер готовит кастомный проект специально под твою анатомию.',
-        step3_title: 'Сеанс в 100% стерильности', step3_desc: 'Комфортная атмосфера, одноразовые модули и премиум-оборудование.',
-        step4_title: 'Быстрое заживление', step4_desc: 'Уход по нашей памятке и поддержка мастера на всех этапах.',
-        gutschein_tag: 'Идея для подарка', gutschein_title: 'Подарочный сертификат',
-        gutschein_desc: 'Идеальный подарок на день рождения или праздник. Выбери номинал и закажи в 1 клик через WhatsApp:',
-        gutschein_custom: 'Своя сумма', gutschein_btn: 'Заказать сертификат',
-        aftercare_tag: 'Правильный уход', aftercare_title: 'Уход и заживление',
-        care_1_title: '1. Защитная плёнка и промывание', care_1_desc: 'Носи плёнку столько, сколько рекомендовал мастер. Затем аккуратно промой тату тёплой водой с мягким мылом.',
-        care_2_title: '2. Тонкий слой крема', care_2_desc: 'Наноси тонкий слой заживляющего крема (Panthenol / Pegasus) 2–3 раза в день чистыми руками.',
-        care_3_title: '3. Защита от солнца и воды', care_3_desc: 'В первые 2 недели исключи бассейн, сауну, солярий и никогда не сдирай корочки.',
-        faq_tag: 'Полезно знать', faq_title: 'Частые вопросы (FAQ)',
-        faq_q1: 'Сколько стоит татуировка в New Jack Tattoo?',
-        faq_a1: 'Цена зависит от размера, детализации и места нанесения. Напиши нам свою идею в WhatsApp — оценка стоимости и консультация всегда бесплатны.',
-        faq_q2: 'Нужно ли записываться заранее или можно прийти без записи?',
-        faq_a2: 'На крупные работы рекомендуем запись. Для небольших тату у нас часто бывают свободные окна на неделе — просто напиши нам в WhatsApp!',
-        faq_q3: 'Как правильно подготовиться к сеансу татуировки?',
-        faq_a3: 'Хорошо выспись, плотно поешь перед визитом и пей воду. За 24 часа до сеанса исключи алкоголь и препараты, разжижающие кровь.',
-        faq_q5: 'С какого возраста вы бьёте тату и нужна ли предоплата?',
-        faq_a5: 'Мы работаем строго с 18 лет (при себе нужен документ). Для бронирования даты сеанса вносится предоплата, которая полностью входит в стоимость тату.',
-        footer_rights: '© 2026 New Jack Tattoo Duisburg. Все права защищены.',
-        footer_impressum: 'Импрессум', footer_privacy: 'Конфиденциальность'
+        nav_home: "Главная", nav_artists: "Мастера", nav_portfolio: "Портфолио", nav_studio: "Студия", nav_reviews: "Отзывы", nav_contact: "Контакты", nav_aftercare: "Уход", nav_faq: "Вопросы", nav_menu: "Меню", btn_book_nav: "Запись",
+        hero_sub: "Премиальная тату-студия в самом сердце Дуйсбурга. Индивидуальные эскизы, высшие стандарты гигиены и настоящая творческая атмосфера.",
+        hero_cta_primary: "Записаться на сеанс", hero_cta_secondary: "Смотреть работы",
+        stat_sterile: "100% стерильность (ЕС)", stat_artists: "Рейтинг 5.0 в Google", stat_custom: "Индивидуальные эскизы", stat_consult: "Бесплатная консультация",
+        artists_tag: "Наши резиденты", artists_title: "Наши тату-мастера", artists_book: "Записаться к мастеру",
+        portfolio_tag: "Избранные работы", portfolio_title: "Портфолио", filter_all: "Все",
+        studio_tag: "Атмосфера и Чистота", studio_title: "Интерьер Студии",
+        studio_desc: "Студия New Jack Tattoo на Beekstraße 6 оформлена в глубоких петрольных тонах. Современное оборудование, стерильные боксы и максимальный комфорт.",
+        reviews_badge: "Отзывы Google", reviews_title: "Отзывы клиентов", reviews_cta: "Все отзывы в Google →",
+        rev_1_text: "«Топовая студия в Дуйсбурге! Идеальная чистота, крутая атмосфера и очень честная консультация. Рукав получился даже круче, чем я себе представлял.»",
+        rev_2_text: "«Высший уровень стерильности и невероятно талантливые мастера. Уделяют максимум внимания деталям эскиза. Для реализма и Японии — лучшее место в NRW!»",
+        rev_3_text: "«От первого сообщения в WhatsApp до готовой татуировки всё прошло идеально. Очень стильная студия на Beekstraße 6 и быстрое заживление.»",
+        aftercare_tag: "Профессиональный уход", aftercare_title: "Гид по заживлению татуировки",
+        care_1_title: "Первые дни (Пленка и промывка)", care_1_desc: "Носите защитную пленку столько, сколько рекомендовал мастер (24-72 ч). Затем аккуратно промойте теплой водой с мягким мылом.",
+        care_2_title: "Увлажнение и регенерация", care_2_desc: "Наносите тонкий слой заживляющего крема (например, Panthenol) 3-4 раза в день. Кожа должна дышать, избегайте жирных толстых слоев.",
+        care_3_title: "Чего делать нельзя", care_3_desc: "Ни в коем случае не сдирайте корочки! Избегайте прямого солнца, солярия, саун и бассейнов в течение первых 3-4 недель.",
+        btn_aftercare_pdf: "Скачать памятку по уходу (PDF)",
+        faq_tag: "Помощь и инфо", faq_title: "Часто задаваемые вопросы (FAQ)",
+        faq_q1: "Сколько стоит татуировка в New Jack Tattoo?", faq_a1: "Цена зависит от размера, детализации, места нанесения и затраченного времени. Для небольших работ есть минимальная стоимость, а крупные проекты (рукава, масштабные японские проекты) рассчитываются по сеансам. Консультация всегда бесплатная!",
+        faq_q2: "Нужно ли записываться заранее или можно прийти спонтанно?", faq_a2: "Мы работаем по предварительной записи, чтобы уделять каждому клиенту максимум внимания и готовить индивидуальные эскизы. Напишите нам через форму на сайте или в Instagram, чтобы согласовать визит на Beekstraße 6.",
+        faq_q3: "Как правильно подготовиться к сеансу?", faq_a3: "Хорошо выспитесь накануне, приходите отдохнувшими и обязательно поешьте перед сеансом. Не употребляйте алкоголь за день до визита и наденьте удобную одежду.",
+        book_tag: "Запись и Консультация", book_title: "Оставить заявку",
+        form_name: "Ваше имя *", form_name_ph: "Иван Иванов",
+        form_phone: "Телефон / WhatsApp / Insta *", form_phone_ph: "+49 176 ... / @username",
+        form_artist: "Выберите мастера", artist_opt_any: "Любой мастер / Консультация",
+        form_style: "Стиль татуировки",
+        style_opt_japanese: "Японский стиль (Japanese)", style_opt_bg_realism: "Черно-белый реализм", style_opt_color_realism: "Цветной реализм", style_opt_traditional: "Традиционный (Old School)", style_opt_consult: "Нужна консультация",
+        form_placement: "Место и размер (см)", form_placement_ph: "Предплечье, ~15 cm",
+        tag_forearm: "Предплечье", tag_upperarm: "Плечо", tag_chest: "Грудь / Спина", tag_leg: "Нога", tag_small: "~5–10 см", tag_medium: "~15–20 см", tag_sleeve: "Рукав / Крупный проект",
+        form_message: "Описание идеи", form_msg_ph: "Опишите вашу идею, желаемые даты или вопросы...",
+        form_hint: "Примечание: Референсы и фото можно будет прикрепить прямо в чате WhatsApp после отправки.",
+        form_submit: "Отправить заявку в WhatsApp",
+        contact_address: "Адрес:", contact_hours_label: "Часы работы:", contact_hours_val: "Вт – Сб: 11:00 – 19:00", contact_phone: "Телефон:", contact_maps: "Показать на карте",
+        status_open: "Студия открыта • Ждем вас", status_closed: "Запись в WhatsApp 24/7",
+        cookie_text: "Мы используем файлы cookie для улучшения работы сайта. Нажимая «Все принять», вы даете согласие на использование аналитики.",
+        cookie_decline: "Только базовые", cookie_accept: "Все принять",
+        map_consent: "Нажмите здесь, чтобы загрузить карту. При этом ваши данные (включая IP) будут переданы Google.", map_btn: "Загрузить карту",
+        footer_rights: "© 2026 New Jack Tattoo • Beekstraße 6, 47051 Duisburg. Все права защищены."
       },
-
       en: {
-        nav_home: 'Home', nav_artists: 'Artists', nav_works: 'Portfolio', nav_portfolio: 'Portfolio',
-        nav_process: 'Process', nav_gutschein: 'Gift Card', nav_studio: 'Studio', nav_aftercare: 'Aftercare',
-        nav_faq: 'FAQ', nav_contact: 'Contact', nav_menu: 'MENU', btn_book_nav: 'Book Now',
-        hero_sub: 'Premium Tattoo Studio in the heart of Duisburg. Custom artwork, 100% EU hygiene standards & free consultation.',
-        hero_cta_primary: 'Book via WhatsApp', hero_cta_secondary: 'View Portfolio',
-        stat_sterile: '100% EU Hygiene & Sterile', stat_artists: 'Top Google Rating',
-        stat_custom: 'Custom Designs', stat_consult: 'Free Consultation',
-        artists_tag: 'Resident Artists', artists_title: 'Our Tattoo Artists', artists_book: 'Book with Artist',
-        portfolio_tag: 'Selected Works', portfolio_title: 'Portfolio',
-        studio_tag: 'Inside NJT', studio_title: 'Our Studio at Beekstraße 6',
-        studio_desc: 'Modern vibe, great music, and clinical-grade cleanliness right in downtown Duisburg.',
-        book_tag: 'Booking & Consultation', book_title: 'Request an Appointment',
-        form_name: 'Your Name *', form_name_ph: 'Alex Miller',
-        form_phone: 'Phone / Insta *', form_phone_ph: '+49 176 ... / @username',
-        form_artist: 'Tattoo Artist',
-        artist_opt_any: 'Any Artist / Consultation needed',
-        artist_opt_andy: 'Andy (Japanese / Realism)',
-        artist_opt_asty: 'Asty (Japanese / Traditional)',
-        artist_opt_sascha: 'Sascha (Neo-Traditional / Fine Line)',
-        artist_opt_rimma: 'Rimma (Apprentice)',
-        form_style: 'Preferred Style',
-        style_opt_japanese: 'Japanese',
-        style_opt_bg_realism: 'Black & Grey Realism',
-        style_opt_color_realism: 'Color Realism',
-        style_opt_traditional: 'Traditional (Old School)',
-        style_opt_neotrad: 'Neo-Traditional / Fine Line',
-        style_opt_consult: 'Consultation needed',
-        form_placement: 'Placement & Size', form_placement_ph: 'Forearm, ~15 cm',
-        tag_forearm: 'Forearm', tag_upperarm: 'Upper Arm', tag_chest: 'Chest / Back',
-        tag_leg: 'Leg', tag_small: '~5–10 cm', tag_medium: '~15–20 cm', tag_sleeve: 'Sleeve / Large Project',
-        form_message: 'Your Tattoo Idea', form_msg_ph: 'Describe your idea, preferred dates, or questions...',
-        form_hint: 'Note: You can send reference photos directly in the WhatsApp chat that opens next.',
-        form_submit: 'Send Inquiry via WhatsApp',
-        contact_address: 'Studio Address', copy_btn: '📋 Copy Address', toast_copied: '✓ Address copied!',
-        parking_info: '🚗 Parking garages 2–3 min walk', ubahn_info: '🚇 U-Bahn: Steinsche Gasse / Rathaus',
-        contact_phone: 'WhatsApp & Phone', status_open: 'Mon–Sat: 11:00 AM – 7:00 PM',
-        contact_maps: '📍 Open in Google Maps →',
-        map_consent: 'Map hidden for privacy reasons (GDPR). Click the button to load Google Maps.',
-        map_btn: 'Load Google Maps',
-        process_tag: 'Your Tattoo Journey', process_title: '4 Steps from Idea to Ink',
-        step1_title: 'Free Consultation', step1_desc: 'Discuss your idea on WhatsApp or in person at our studio on Beekstraße 6.',
-        step2_title: 'Custom Design', step2_desc: 'Your artist creates a bespoke project tailored specifically to your anatomy.',
-        step3_title: '100% Sterile Session', step3_desc: 'Relaxed atmosphere, strict EU hygiene standards, and premium equipment.',
-        step4_title: 'Fast Healing', step4_desc: 'Easy aftercare with our guide and direct support from your artist.',
-        gutschein_tag: 'Gift Idea', gutschein_title: 'Tattoo Gift Card',
-        gutschein_desc: 'The perfect gift for birthdays or holidays. Choose an amount and order in 1 click via WhatsApp:',
-        gutschein_custom: 'Custom Amount', gutschein_btn: 'Order Gift Card',
-        aftercare_tag: 'Professional Care', aftercare_title: 'Tattoo Aftercare & Healing',
-        care_1_title: '1. Protective Film & Cleaning', care_1_desc: 'Keep the film on as advised by your artist. Afterwards, gently wash with lukewarm water and mild soap.',
-        care_2_title: '2. Moisturize Thinly', care_2_desc: 'Apply a thin layer of tattoo aftercare cream 2–3 times daily with clean hands.',
-        care_3_title: '3. Avoid Sun & Pools', care_3_desc: 'No swimming pool, sauna, solarium, or scratching crusts during the first 2 weeks.',
-        faq_tag: 'Good to Know', faq_title: 'Frequently Asked Questions (FAQ)',
-        faq_q1: 'How much does a tattoo cost at New Jack Tattoo?',
-        faq_a1: 'Pricing depends on size, detail, and placement. Send us your idea via WhatsApp — quotes and consultations are always free.',
-        faq_q2: 'Do I need an appointment or can I walk in?',
-        faq_a2: 'Appointments are recommended for larger pieces. For smaller tattoos, we often have same-week slots — just message us on WhatsApp!',
-        faq_q3: 'How should I prepare for my tattoo appointment?',
-        faq_a3: 'Get a good night’s sleep, eat well beforehand, and drink plenty of water. Avoid alcohol and blood thinners for 24 hours prior.',
-        faq_q5: 'What is the minimum age and do you require a deposit?',
-        faq_a5: 'Strictly 18+ (valid ID required). A deposit is required to secure your appointment, which is deducted from the final price.',
-        footer_rights: '© 2026 New Jack Tattoo Duisburg. All rights reserved.',
-        footer_impressum: 'Imprint', footer_privacy: 'Privacy Policy'
+        nav_home: "Home", nav_artists: "Artists", nav_portfolio: "Portfolio", nav_studio: "Studio", nav_reviews: "Reviews", nav_contact: "Contact", nav_aftercare: "Aftercare", nav_faq: "FAQ", nav_menu: "Menu", btn_book_nav: "Book",
+        hero_sub: "Premium Custom Tattoo Studio in the heart of Duisburg. Individual designs, highest hygiene standards and a true art atmosphere.",
+        hero_cta_primary: "Book an Appointment", hero_cta_secondary: "View Portfolio",
+        stat_sterile: "100% EU Hygiene & Sterile", stat_artists: "5.0 ★ Google Rating", stat_custom: "Custom Designs", stat_consult: "Free Consultation",
+        artists_tag: "Resident Artists", artists_title: "Our Tattoo Artists", artists_book: "Book an Appointment",
+        portfolio_tag: "Selected Works", portfolio_title: "Portfolio", filter_all: "All",
+        studio_tag: "Atmosphere & Hygiene", studio_title: "The Studio",
+        studio_desc: "Located at Beekstraße 6 in Duisburg, New Jack Tattoo features our signature petrol-dark interior and state-of-the-art workstations.",
+        reviews_badge: "Google Reviews", reviews_title: "Client Reviews", reviews_cta: "See all reviews on Google →",
+        rev_1_text: "“Top-tier studio in Duisburg! Super clean, great vibe, and very honest consultation. My sleeve turned out even better than I imagined.”",
+        rev_2_text: "“Highest hygiene standards and incredibly talented artists. They really take their time with custom designs. Best spot in NRW for Realism and Japanese!”",
+        rev_3_text: "“From the first WhatsApp message to the healed tattoo, everything was spot on. Gorgeous studio on Beekstraße and super clean linework.”",
+        aftercare_tag: "Professional Care", aftercare_title: "Tattoo Aftercare Guide",
+        care_1_title: "First Days (Film & Cleaning)", care_1_desc: "Keep the bandage on as advised (24-72 hrs). Wash gently with lukewarm water and mild ph-neutral soap.",
+        care_2_title: "Moisturizing & Healing", care_2_desc: "Apply a thin layer of tattoo cream (e.g., Panthenol) 3-4 times a day. Let the skin breathe, avoid thick greasy layers.",
+        care_3_title: "What to Avoid", care_3_desc: "Do not pick or scratch! Avoid direct sunlight, tanning beds, saunas, and swimming pools for 3-4 weeks.",
+        btn_aftercare_pdf: "Download Aftercare Guide (PDF)",
+        faq_tag: "Help & Info", faq_title: "Frequently Asked Questions",
+        faq_q1: "How much does a tattoo cost?", faq_a1: "Pricing depends on size, detail, placement, and time required. Smaller pieces have a minimum charge, while large custom projects are quoted per session or piece. Consultations are always free!",
+        faq_q2: "Do I need an appointment or can I walk in?", faq_a2: "We operate primarily by appointment to ensure dedicated time for custom artwork and sterile setups. Contact us via form or Instagram to book your visit at Beekstraße 6.",
+        faq_q3: "How should I prepare for my tattoo appointment?", faq_a3: "Get a good night's sleep, arrive rested, and eat a hearty meal beforehand. Avoid alcohol the day before and wear comfortable clothing.",
+        book_tag: "Booking & Consultation", book_title: "Request an Appointment",
+        form_name: "Your Name *", form_name_ph: "John Doe",
+        form_phone: "Phone / WhatsApp / Insta *", form_phone_ph: "+49 176 ... / @username",
+        form_artist: "Preferred Artist", artist_opt_any: "Any Artist / Consultation",
+        form_style: "Tattoo Style",
+        style_opt_japanese: "Japanese", style_opt_bg_realism: "Black & Grey Realism", style_opt_color_realism: "Color Realism", style_opt_traditional: "Traditional (Old School)", style_opt_consult: "I need a consultation",
+        form_placement: "Placement & Size (cm)", form_placement_ph: "Forearm, ~15 cm",
+        tag_forearm: "Forearm", tag_upperarm: "Upper Arm", tag_chest: "Chest / Back", tag_leg: "Leg", tag_small: "~5–10 cm", tag_medium: "~15–20 cm", tag_sleeve: "Sleeve / Large Piece",
+        form_message: "Your Tattoo Idea", form_msg_ph: "Describe your idea, preferred dates, or ask questions...",
+        form_hint: "Note: You can attach reference images directly in the WhatsApp chat that opens next.",
+        form_submit: "Send Request via WhatsApp",
+        contact_address: "Address:", contact_hours_label: "Opening Hours:", contact_hours_val: "Tue – Sat: 11:00 AM – 7:00 PM", contact_phone: "Phone:", contact_maps: "Google Maps",
+        status_open: "Studio Open Now", status_closed: "WhatsApp Booking 24/7",
+        cookie_text: "We use cookies and analytics to improve your experience. By clicking 'Accept All', you consent to our use of cookies.",
+        cookie_decline: "Essential Only", cookie_accept: "Accept All",
+        map_consent: "Click here to load the interactive map. Data (including your IP) will be transferred to Google.", map_btn: "Load Map",
+        footer_rights: "© 2026 New Jack Tattoo • Beekstraße 6, 47051 Duisburg. All rights reserved."
       }
     };
 
-    // Сохраняем оригинальный немецкий текст из верстки как резерв
-    function backupGermanOriginals() {
-      document.querySelectorAll('[data-i18n]').forEach(el => {
-        if (!el.dataset.origDe) el.dataset.origDe = el.textContent;
-      });
-      document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
-        if (!el.dataset.origDePh) el.dataset.origDePh = el.getAttribute('placeholder') || '';
-      });
+    function updateStudioLiveStatus() {
+      const dot = document.getElementById('studio-status-dot');
+      const text = document.getElementById('studio-status-text');
+      if (!dot || !text) return;
+
+      const now = new Date();
+      const day = now.getDay();
+      const hour = now.getHours();
+      const isOpen = (day >= 2 && day <= 6) && (hour >= 11 && hour < 19);
+      const dict = i18n[currentLang] || i18n.de;
+
+      if (isOpen) {
+        dot.style.background = '#25D366';
+        dot.style.boxShadow = '0 0 10px #25D366';
+        text.innerText = dict.status_open;
+      } else {
+        dot.style.background = '#4bb3d2';
+        dot.style.boxShadow = '0 0 10px #4bb3d2';
+        text.innerText = dict.status_closed;
+      }
     }
 
     function setLang(lang) {
-      if (!translations[lang]) lang = 'de';
       currentLang = lang;
-      localStorage.setItem('njt_lang', lang);
-      document.documentElement.lang = lang;
+      ['de', 'ru', 'en'].forEach(l => {
+        const btn = document.getElementById('lang-' + l);
+        if (btn) {
+          btn.className = (l === lang)
+            ? "px-2.5 py-1 rounded-full bg-petrol-500 text-white transition"
+            : "px-2.5 py-1 rounded-full text-slate-400 hover:text-white transition";
+        }
+      });
 
-      backupGermanOriginals();
-      const dict = translations[lang];
+      const dict = i18n[lang];
+      if (!dict) return;
 
       document.querySelectorAll('[data-i18n]').forEach(el => {
         const key = el.getAttribute('data-i18n');
-        if (dict && dict[key]) {
-          el.textContent = dict[key];
-        } else if (lang === 'de' && el.dataset.origDe) {
-          el.textContent = el.dataset.origDe;
-        }
+        if (dict[key]) el.innerText = dict[key];
       });
 
       document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
         const key = el.getAttribute('data-i18n-placeholder');
-        if (dict && dict[key]) {
-          el.setAttribute('placeholder', dict[key]);
-        } else if (lang === 'de' && el.dataset.origDePh) {
-          el.setAttribute('placeholder', el.dataset.origDePh);
-        }
+        if (dict[key]) el.setAttribute('placeholder', dict[key]);
       });
 
-      // Подсветка активного языка в шапке
-      ['de', 'ru', 'en'].forEach(l => {
-        const btn = document.getElementById('lang-' + l);
-        if (btn) {
-          btn.classList.toggle('active', l === lang);
-          btn.classList.toggle('bg-petrol-500', l === lang);
-          btn.classList.toggle('text-petrol-950', l === lang);
+      updateStudioLiveStatus();
+    }
+
+    function toggleQuickTag(btn) {
+      const input = document.getElementById('form-size');
+      if (!input) return;
+      const val = btn.innerText.trim();
+      btn.classList.toggle('active');
+
+      let parts = input.value.split(',').map(s => s.trim()).filter(Boolean);
+      if (btn.classList.contains('active')) {
+        if (!parts.includes(val)) parts.push(val);
+      } else {
+        parts = parts.filter(p => p !== val);
+      }
+      input.value = parts.join(', ');
+    }
+
+    function selectArtistAndBook(artistName, event) {
+      if (event) event.preventDefault();
+      const contactSection = document.getElementById('contact');
+      const artistSelect = document.getElementById('form-artist');
+      if (contactSection) contactSection.scrollIntoView({ behavior: 'smooth' });
+      if (artistSelect) {
+        artistSelect.value = artistName;
+        artistSelect.classList.remove('highlight-field');
+        void artistSelect.offsetWidth;
+        artistSelect.classList.add('highlight-field');
+      }
+    }
+
+    function updateLightboxView() {
+      const lbImg = document.getElementById('lightbox-img');
+      const lbCounter = document.getElementById('lightbox-counter');
+      if (!lbImg || !lightboxImages.length) return;
+      lbImg.src = lightboxImages[lightboxIndex];
+      if (lbCounter) lbCounter.innerText = `${lightboxIndex + 1} / ${lightboxImages.length}`;
+    }
+
+    function openLightboxFromCard(card) {
+      const parentGrid = card.parentElement;
+      const cards = Array.from(parentGrid.children).filter(el => el.style.display !== 'none');
+      lightboxImages = cards.map(c => {
+        const img = c.querySelector('img');
+        return img ? img.src : '';
+      }).filter(Boolean);
+
+      const clickedImg = card.querySelector('img');
+      const clickedSrc = clickedImg ? clickedImg.src : '';
+      lightboxIndex = Math.max(0, lightboxImages.indexOf(clickedSrc));
+
+      const lb = document.getElementById('lightbox');
+      if (lb && lightboxImages.length) {
+        updateLightboxView();
+        lb.classList.add('open');
+      }
+    }
+
+    function changeLightboxSlide(step, event) {
+      if (event) event.stopPropagation();
+      if (!lightboxImages.length) return;
+      lightboxIndex = (lightboxIndex + step + lightboxImages.length) % lightboxImages.length;
+      updateLightboxView();
+    }
+
+    function closeLightbox(event) {
+      if (!event || event.target.id === 'lightbox' || event.target.classList.contains('lightbox-close')) {
+        const lb = document.getElementById('lightbox');
+        if (lb) lb.classList.remove('open');
+      }
+    }
+
+    const lbElement = document.getElementById('lightbox');
+    if (lbElement) {
+      lbElement.addEventListener('touchstart', e => {
+        touchStartX = e.changedTouches[0].screenX;
+      }, { passive: true });
+
+      lbElement.addEventListener('touchend', e => {
+        const diff = e.changedTouches[0].screenX - touchStartX;
+        if (Math.abs(diff) > 45) {
+          changeLightboxSlide(diff < 0 ? 1 : -1);
         }
+      }, { passive: true });
+    }
+
+    document.addEventListener('click', function(e) {
+      const card = e.target.closest('.portfolio-item, #studio-grid > div');
+      if (card) {
+        openLightboxFromCard(card);
+      }
+
+      const menu = document.getElementById('mobile-menu');
+      const btn = document.getElementById('menu-toggle-btn');
+      if (menu && !menu.classList.contains('hidden')) {
+        if (!menu.contains(e.target) && (!btn || !btn.contains(e.target))) {
+          closeMobileMenu();
+        }
+      }
+    });
+
+    document.addEventListener('keydown', function(e) {
+      const lb = document.getElementById('lightbox');
+      const isLbOpen = lb && lb.classList.contains('open');
+      if (e.key === 'Escape') {
+        closeLightbox();
+        closeMobileMenu();
+      } else if (isLbOpen && e.key === 'ArrowRight') {
+        changeLightboxSlide(1);
+      } else if (isLbOpen && e.key === 'ArrowLeft') {
+        changeLightboxSlide(-1);
+      }
+    });
+
+    function filterPortfolio(style) {
+      currentFilter = style;
+      document.querySelectorAll('.filter-btn').forEach(btn => {
+        btn.className = (btn.dataset.filter === style)
+          ? "filter-btn active px-4 py-2 rounded-full text-xs uppercase tracking-widest font-semibold bg-petrol-500 text-white transition"
+          : "filter-btn px-4 py-2 rounded-full text-xs uppercase tracking-widest font-semibold glass text-slate-300 hover:text-white transition";
+      });
+
+      document.querySelectorAll('.portfolio-item').forEach(el => {
+        el.style.display = (style === 'all' || el.getAttribute('data-style') === style) ? '' : 'none';
       });
     }
-    window.setLang = setLang;
 
-    // 7. Отправка твоей формы #booking-form в WhatsApp
-    function handleBookingFormSubmit(e) {
-      if (e) e.preventDefault();
-      const val = (id) => (document.getElementById(id)?.value || '').trim();
-      const name = val('form-name') || '-';
-      const contact = val('form-contact') || '-';
-      const artist = val('form-artist') || 'Egal / Beratung';
-      const style = val('form-style') || '-';
-      const size = val('form-size') || '-';
-      const idea = val('form-idea') || '-';
+    function toggleMobileMenu(e) {
+      if (e) e.stopPropagation();
+      const menu = document.getElementById('mobile-menu');
+      if (menu) {
+        menu.classList.toggle('hidden');
+        menu.classList.toggle('flex');
+      }
+    }
 
-      const text = `Hallo New Jack Tattoo! 🔥\n\n*Neue Termin-Anfrage:*\n👤 Name: ${name}\n📞 Kontakt: ${contact}\n🎨 Artist: ${artist}\n✨ Stil: ${style}\n📍 Stelle & Größe: ${size}\n💬 Idee: ${idea}`;
-      window.open(`https://wa.me/${STUDIO_WA}?text=${encodeURIComponent(text)}`, '_blank');
+    function closeMobileMenu() {
+      const menu = document.getElementById('mobile-menu');
+      if (menu && !menu.classList.contains('hidden')) {
+        menu.classList.add('hidden');
+        menu.classList.remove('flex');
+      }
+    }
+
+    function toggleFaq(btn) {
+      const content = btn.nextElementSibling;
+      const sign = btn.querySelector('span:last-child');
+      if (!content || !sign) return;
+      const isOpen = !content.classList.contains('hidden');
+      document.querySelectorAll('#faq .glass-card div').forEach(el => el.classList.add('hidden'));
+      document.querySelectorAll('#faq button span:last-child').forEach(el => el.style.transform = 'rotate(0deg)');
+      if (!isOpen) {
+        content.classList.remove('hidden');
+        sign.style.transform = 'rotate(45deg)';
+      }
+    }
+
+    window.addEventListener('scroll', () => {
+      const nav = document.getElementById('navbar');
+      if (nav) {
+        nav.classList.toggle('glass', window.scrollY > 40);
+        nav.classList.toggle('shadow-lg', window.scrollY > 40);
+      }
+    });
+
+    function loadGoogleMap() {
+      const wrapper = document.getElementById('map-wrapper');
+      if (wrapper) {
+        wrapper.innerHTML = `<iframe title="New Jack Tattoo Beekstraße 6 Duisburg" src="https://www.google.com/maps?q=Beekstra%C3%9Fe+6,+47051+Duisburg,+Germany&output=embed" width="100%" height="100%" style="border:0; filter: invert(90%) hue-rotate(165deg) contrast(105%);" allowfullscreen="" loading="lazy"></iframe>`;
+      }
+    }
+
+    function acceptCookies(type) {
+      localStorage.setItem('njt_cookie_consent', type);
+      const banner = document.getElementById('cookie-banner');
+      if (banner) banner.classList.add('hidden');
+    }
+
+    if (!localStorage.getItem('njt_cookie_consent')) {
+      setTimeout(() => {
+        const banner = document.getElementById('cookie-banner');
+        if (banner) banner.classList.remove('hidden');
+      }, 1000);
     }
 
     const bookingForm = document.getElementById('booking-form');
     if (bookingForm) {
-      bookingForm.addEventListener('submit', handleBookingFormSubmit);
+      bookingForm.addEventListener('submit', function(event) {
+        event.preventDefault();
+        const name = document.getElementById('form-name') ? document.getElementById('form-name').value.trim() : '';
+        const contact = document.getElementById('form-contact') ? document.getElementById('form-contact').value.trim() : '';
+        const artist = document.getElementById('form-artist') ? document.getElementById('form-artist').value : '';
+        const style = document.getElementById('form-style') ? document.getElementById('form-style').value : '';
+        const size = document.getElementById('form-size') ? document.getElementById('form-size').value.trim() : '';
+        const idea = document.getElementById('form-idea') ? document.getElementById('form-idea').value.trim() : '';
+
+        let message = `*Neue Tattoo-Anfrage über die Website!*\n\n*Name:* ${name}\n*Kontakt (Tel/Insta):* ${contact}\n`;
+        if (artist !== '') message += `*Artist:* ${artist}\n`;
+        message += `*Stil:* ${style}\n`;
+        if (size !== '') message += `*Körperstelle & Größe:* ${size}\n`;
+        if (idea !== '') message += `*Idee/Fragen:* ${idea}\n`;
+        message += `\n_Hier können Sie nun Ihre Referenzbilder anhängen!_`;
+
+        window.location.href = `https://wa.me/4917632460273?text=${encodeURIComponent(message)}`;
+      });
     }
 
-    // 8. Подарочный сертификат (Gutschein)
-    function selectGutschein(amount, btnEl) {
-      selectedGutscheinAmount = amount;
-      const preview = document.getElementById('gutscheinAmount');
-      if (preview) preview.textContent = selectedGutscheinAmount;
+    document.addEventListener("DOMContentLoaded", function() {
+      setLang('de');
 
-      document.querySelectorAll('.gutschein-btn').forEach(b => {
-        b.classList.remove('bg-petrol-500', 'text-petrol-950', 'border-petrol-300');
-        b.classList.add('bg-petrol-950/80', 'text-white', 'border-petrol-700');
-      });
-      if (btnEl) {
-        btnEl.classList.remove('bg-petrol-950/80', 'text-white', 'border-petrol-700');
-        btnEl.classList.add('bg-petrol-500', 'text-petrol-950', 'border-petrol-300');
+      const revealEls = document.querySelectorAll('.reveal');
+      if ('IntersectionObserver' in window) {
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('visible');
+              observer.unobserve(entry.target);
+            }
+          });
+        }, { threshold: 0.12 });
+        revealEls.forEach(el => observer.observe(el));
+      } else {
+        revealEls.forEach(el => el.classList.add('visible'));
       }
-    }
-    window.selectAmount = selectGutschein;
 
-    function orderGutschein() {
-      const msgs = {
-        de: `Hallo! Ich möchte einen Tattoo-Gutschein bei New Jack Tattoo im Wert von ${selectedGutscheinAmount} bestellen.`,
-        ru: `Привет! Хочу приобрести подарочный сертификат в New Jack Tattoo на сумму ${selectedGutscheinAmount}.`,
-        en: `Hi! I would like to order a New Jack Tattoo Gift Card for ${selectedGutscheinAmount}.`
-      };
-      window.open(`https://wa.me/${STUDIO_WA}?text=${encodeURIComponent(msgs[currentLang] || msgs.de)}`, '_blank');
-    }
-
-    // 9. Копирование адреса
-    function copyAddress() {
-      navigator.clipboard.writeText('Beekstraße 6, 47051 Duisburg').then(() => {
-        const toast = document.getElementById('copyToast');
-        if (!toast) return;
-        toast.classList.remove('opacity-0', '-translate-y-4');
-        toast.classList.add('opacity-100', 'translate-y-0');
-        setTimeout(() => {
-          toast.classList.add('opacity-0', '-translate-y-4');
-          toast.classList.remove('opacity-100', 'translate-y-0');
-        }, 2500);
-      });
-    }
-
-    // 10. Полоска прогресса скролла
-    window.addEventListener('scroll', () => {
-      const bar = document.getElementById('scrollProgress') || document.getElementById('scroll-progress');
-      if (!bar) return;
-      const top = window.scrollY || document.documentElement.scrollTop;
-      const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-      bar.style.width = (height > 0 ? (top / height) * 100 : 0) + '%';
-    }, { passive: true });
-
-    // 11. Lightbox для портфолио (без лупы) + подгрузка /data.json
-    function openLightbox(src) {
-      const lb = document.getElementById('lightbox');
-      const img = document.getElementById('lightbox-img');
-      if (!lb || !img) return;
-      img.src = src;
-      lb.classList.remove('hidden');
-      lb.classList.add('flex');
-    }
-
-    function closeLightbox() {
-      const lb = document.getElementById('lightbox');
-      if (!lb) return;
-      lb.classList.add('hidden');
-      lb.classList.remove('flex');
-    }
-
-    function bindPortfolioClicks() {
-      cleanupUpperHtml();
-      document.querySelectorAll('img[src*="work-"], .portfolio-card img, #portfolio-grid img, #works-grid img').forEach(img => {
-        const card = img.parentElement;
-        if (!card || card.dataset.boundClick) return;
-        card.dataset.boundClick = 'true';
-        card.classList.add('cursor-pointer');
-        card.addEventListener('click', () => openLightbox(img.src));
-      });
-    }
-
-    fetch('/data.json')
-      .then(r => r.ok ? r.json() : null)
-      .then(data => {
-        if (data) {
-          const items = data.gallery || data.works || [];
-          const grid = document.getElementById('portfolio-grid') || document.getElementById('works-grid');
-          if (grid && Array.isArray(items) && items.length > 0) {
-            items.forEach(item => {
-              const src = item.image || item.src;
-              if (!src) return;
-              const div = document.createElement('div');
-              div.className = 'rounded-2xl overflow-hidden border border-petrol-800 bg-petrol-900/40 aspect-[4/5] cursor-pointer group';
-              div.innerHTML = `<img src="${src}" alt="${item.title || 'Tattoo'}" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">`;
-              grid.appendChild(div);
-            });
-          }
-        }
-        bindPortfolioClicks();
-      })
-      .catch(() => bindPortfolioClicks());
-
-    // 12. FAQ и модальные окна Impressum / Datenschutz
-    function toggleFaq(btn) {
-      const content = btn.nextElementSibling;
-      const icon = btn.querySelector('span:last-child');
-      if (!content) return;
-      const isHidden = content.classList.contains('hidden');
-      content.classList.toggle('hidden', !isHidden);
-      if (icon) icon.style.transform = isHidden ? 'rotate(45deg)' : 'rotate(0deg)';
-    }
-
-    function openModal(type) {
-      const modal = document.getElementById('legalModal');
-      const imp = document.getElementById('modal-impressum');
-      const dat = document.getElementById('modal-datenschutz');
-      if (!modal) return;
-      if (imp) imp.classList.toggle('hidden', type !== 'impressum');
-      if (dat) dat.classList.toggle('hidden', type !== 'datenschutz');
-      modal.classList.remove('hidden');
-      modal.classList.add('flex');
-    }
-
-    function closeModal() {
-      const modal = document.getElementById('legalModal');
-      if (!modal) return;
-      modal.classList.add('hidden');
-      modal.classList.remove('flex');
-    }
-
-    // 13. Автозапуск фонового видео на iPhone
-    function ensureHeroVideoPlays() {
-      document.querySelectorAll('video').forEach(video => {
-        video.muted = true;
-        video.setAttribute('playsinline', '');
-        if (video.paused) video.play().catch(() => {});
-      });
-    }
-
-    document.addEventListener('DOMContentLoaded', () => {
-      cleanupUpperHtml();
-      setLang(currentLang);
-      bindPortfolioClicks();
-      ensureHeroVideoPlays();
+      fetch('/data.json')
+        .then(response => {
+          if (!response.ok) throw new Error('Данные не найдены');
+          return response.json();
+        })
+        .then(data => {
+          const grid = document.getElementById('portfolio-grid');
+          if (!grid || !data.gallery) return;
+          data.gallery.reverse().forEach(item => {
+            if (!item.photo) return;
+            const styleName = item.style ? item.style : 'BlackGreyRealism';
+            const artistName = item.artist ? item.artist : 'New Jack Tattoo';
+            const cardHTML = `
+              <div data-style="${styleName}" class="portfolio-item portfolio-card group relative h-80 rounded-2xl overflow-hidden border border-petrol-800/60 bg-petrol-950">
+                <img src="${item.photo}" alt="Tattoo by ${artistName}" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                <div class="absolute inset-0 bg-gradient-to-t from-petrol-950/90 via-petrol-950/20 to-transparent opacity-85 group-hover:opacity-100 transition flex flex-col justify-end p-5 pointer-events-none">
+                  <span class="text-[10px] uppercase tracking-[0.25em] text-petrol-300 font-bold">${styleName}</span>
+                  <h4 class="text-white font-semibold text-sm mt-0.5">${artistName}</h4>
+                </div>
+              </div>`;
+            grid.insertAdjacentHTML('afterbegin', cardHTML);
+          });
+        })
+        .catch(() => {});
     });
-    window.addEventListener('touchstart', ensureHeroVideoPlays, { once: true, passive: true });
-    window.addEventListener('click', ensureHeroVideoPlays, { once: true });
   </script>
 </body>
 </html>
