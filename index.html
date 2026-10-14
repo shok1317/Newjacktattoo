@@ -1291,7 +1291,7 @@
     </div>
   </section>
 
-       <!-- ФУТЕР -->
+        <!-- ФУТЕР -->
   <footer class="py-10 px-6 border-t border-petrol-900 bg-petrol-950 text-center text-xs text-slate-500">
     <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
       <div class="flex items-center gap-3">
@@ -1299,7 +1299,7 @@
         <span>•</span>
         <span>Beekstraße 6, 47051 Duisburg</span>
       </div>
-      <p data-i18n="footer_copy">© 2026 New Jack Tattoo Duisburg. Alle Rechte vorbehalten.</p>
+      <p data-i18n="footer_rights">© 2026 New Jack Tattoo Duisburg. Alle Rechte vorbehalten.</p>
       <div class="flex items-center gap-6">
         <button type="button" onclick="openModal('impressum')" class="hover:text-petrol-300 transition underline underline-offset-4" data-i18n="footer_impressum">Impressum</button>
         <button type="button" onclick="openModal('datenschutz')" class="hover:text-petrol-300 transition underline underline-offset-4" data-i18n="footer_privacy">Datenschutz</button>
@@ -1308,7 +1308,7 @@
     </div>
   </footer>
 
-  <!-- СТРАХОВКА ВИДИМОСТИ СЕКЦИЙ (.reveal) -->
+  <!-- СТИЛИ: ВИДИМОСТЬ СЕКЦИЙ + ОТКЛЮЧЕНИЕ ЛУПЫ И БЛОКА COVER-UP -->
   <style>
     .reveal.active,
     .reveal.visible,
@@ -1316,6 +1316,16 @@
       opacity: 1 !important;
       transform: translateY(0) !important;
       visibility: visible !important;
+    }
+    /* Полностью убираем иконку лупы на карточках и секцию Cover-Up слайдера */
+    .zoom-badge,
+    .portfolio-zoom-icon,
+    #coverup,
+    #cover-up,
+    .ba-section,
+    #ba-slider,
+    #beforeAfterSlider {
+      display: none !important;
     }
   </style>
 
@@ -1332,7 +1342,7 @@
     </svg>
   </a>
 
-  <!-- LIGHTBOX (ПРОСМОТР РАБОТ ВО ВЕСЬ ЭКРАН) -->
+  <!-- LIGHTBOX (ПРОСМОТР РАБОТ ВО ВЕСЬ ЭКРАН БЕЗ ЛУПЫ) -->
   <div id="lightbox" onclick="closeLightbox()" class="fixed inset-0 z-[9990] bg-black/90 backdrop-blur-md hidden items-center justify-center p-4 cursor-zoom-out">
     <button type="button" onclick="closeLightbox()" class="absolute top-6 right-6 w-11 h-11 rounded-full bg-petrol-900/80 border border-petrol-400/40 text-white text-2xl flex items-center justify-center hover:bg-petrol-500 hover:text-petrol-950 transition">&times;</button>
     <img id="lightbox-img" src="" alt="Tattoo Zoom" class="max-w-full max-h-[90vh] rounded-2xl border border-petrol-500/30 shadow-2xl object-contain" onclick="event.stopPropagation()">
@@ -1365,28 +1375,27 @@
     let currentLang = localStorage.getItem('njt_lang') || 'de';
     let selectedGutscheinAmount = '100 €';
 
-    // 1. ВКЛЮЧАЕМ ВИДИМОСТЬ ВСЕХ СЕКЦИЙ (.reveal) СРАЗУ И ПРИ СКРОЛЛЕ
-    function initRevealAnimations() {
+    // 1. ВКЛЮЧАЕМ ВИДИМОСТЬ ВСЕХ СЕКЦИЙ (.reveal) И УБИРАЕМ COVER-UP + ЛУПЫ
+    function initPageCleanupAndReveal() {
       document.body.classList.add('loaded');
-      const reveals = document.querySelectorAll('.reveal');
-      reveals.forEach(el => {
-        el.classList.add('active', 'visible');
+      document.querySelectorAll('.reveal').forEach(el => el.classList.add('active', 'visible'));
+
+      // Автоматически скрываем секцию со слайдером До/После (Cover-Up), если она есть в верхнем HTML
+      document.querySelectorAll('section, div').forEach(el => {
+        if (el.id === 'coverup' || el.id === 'cover-up' || el.querySelector('#ba-slider, #beforeAfterSlider, #beforeImage')) {
+          if (el.tagName === 'SECTION') el.style.display = 'none';
+        }
       });
 
-      if ('IntersectionObserver' in window) {
-        const observer = new IntersectionObserver((entries) => {
-          entries.forEach(entry => {
-            if (entry.isIntersecting) {
-              entry.target.classList.add('active', 'visible');
-            }
-          });
-        }, { threshold: 0.05 });
-        reveals.forEach(el => observer.observe(el));
-      }
+      // Удаляем любые иконки лупы 🔍 с карточек портфолио
+      document.querySelectorAll('.zoom-badge, .portfolio-zoom-icon').forEach(el => el.remove());
+      document.querySelectorAll('#portfolio-grid span, #works-grid span, #portfolio span').forEach(el => {
+        if (el.textContent.trim() === '🔍') el.remove();
+      });
     }
-    initRevealAnimations();
+    initPageCleanupAndReveal();
 
-    // 2. МОБИЛЬНОЕ МЕНЮ (КНОПКА MENU ☰)
+    // 2. МОБИЛЬНОЕ МЕНЮ (MENU ☰)
     function toggleMobileMenu() {
       const menu = document.getElementById('mobile-menu') || document.getElementById('mobileMenu');
       if (!menu) return;
@@ -1418,9 +1427,11 @@
       if (banner) banner.classList.add('hidden');
     }
 
-    // 4. СЛОВАРЬ ПЕРЕВОДОВ (DE / RU / EN)
+    // 4. ПОЛНЫЙ СЛОВАРЬ ПЕРЕВОДОВ (DE / RU / EN) ДЛЯ ВСЕХ СЕКЦИЙ САЙТА
     const translations = {
       de: {
+        // Навигация и Hero
+        nav_home: 'Start',
         nav_artists: 'Artists',
         nav_works: 'Portfolio',
         nav_portfolio: 'Portfolio',
@@ -1428,81 +1439,262 @@
         nav_gutschein: 'Gutschein',
         nav_studio: 'Studio',
         nav_aftercare: 'Pflege',
-        nav_contact: 'Kontakt',
         nav_faq: 'FAQ',
-        process_title: '4 Schritte von der Idee bis zum Tattoo',
+        nav_contact: 'Kontakt',
+        nav_menu: 'MENÜ',
+        btn_book_nav: 'Termin buchen',
+        hero_sub: 'Premium Tattoo Studio im Herzen von Duisburg. Individuelle Kunstwerke, 100% EU-Hygiene & persönliche Beratung.',
+        hero_desc: 'Premium Tattoo Studio im Herzen von Duisburg. Individuelle Kunstwerke, 100% EU-Hygiene & persönliche Beratung.',
+        hero_cta_primary: 'Termin per WhatsApp',
+        hero_cta_secondary: 'Portfolio ansehen',
+        hero_cta: 'Termin per WhatsApp',
+        hero_works_btn: 'Portfolio ansehen',
+
+        // Цифры (Stats)
+        stat_sterile: '100% EU-Hygiene & Steril',
+        stat_artists: 'Top Google Bewertung',
+        stat_custom: 'Individuelle Entwürfe',
+        stat_consult: 'Kostenlose Beratung',
+
+        // Мастера и Портфолио
+        artists_tag: 'RESIDENT ARTISTS',
+        artists_title: 'Unsere Tätowierer',
+        artists_book: 'Termin beim Artist anfragen',
+        portfolio_tag: 'SELECTED WORKS',
+        portfolio_title: 'Unsere Arbeiten',
+
+        // 4 шага от идеи до тату (Process Timeline)
+        process_tag: 'ABLAUF',
+        process_badge: 'DEIN WEG ZUM TATTOO',
+        process_title: '4 Schritte von der Idee zum Tattoo',
         step1_title: 'Kostenlose Beratung',
         step1_desc: 'Besprechung deiner Idee per WhatsApp oder persönlich im Studio auf der Beekstraße 6.',
         step2_title: 'Individuelles Design',
-        step2_desc: 'Dein Artist entwirft ein maßgeschneidertes Projekt, perfekt angepasst an deine Anatomie.',
+        step2_desc: 'Dein Artist bereitet ein maßgeschneidertes Projekt passend zu deiner Anatomie vor.',
         step3_title: '100% Sterile Session',
-        step3_desc: 'Entspannte Atmosphäre, höchste EU-Hygienestandards und modernstes Premium-Equipment.',
+        step3_desc: 'Komfortable Atmosphäre, höchste Hygiene und modernstes Premium-Equipment.',
         step4_title: 'Schnelle Heilung',
-        step4_desc: 'Klare Pflegeanleitung nach unserer Checkliste und direkter Support durch deinen Artist.',
-        ba_title: 'Cover-Up: Vorher / Nachher',
-        ba_desc: 'Bewege den Regler nach links und rechts, um das Ergebnis unserer Cover-Up-Arbeiten zu sehen.',
-        ba_before: 'VORHER',
-        ba_after: 'NACHHER',
-        gift_title: 'Tattoo-Gutschein in 1 Klick',
-        gift_desc: 'Überrasche deine Liebsten zum Geburtstag oder zu Feiertagen mit einer edlen VIP Gift Card.',
+        step4_desc: 'Pflege nach unserer Anleitung und direkter Support durch deinen Artist.',
+
+        // Подарочные сертификаты (Gutschein)
+        gutschein_tag: 'GESCHENKIDEE',
+        gift_badge: 'GESCHENKIDEE',
+        gutschein_title: 'Tattoo-Gutschein verschenken',
+        gift_title: 'Tattoo-Gutschein verschenken',
+        gutschein_desc: 'Das perfekte Geschenk zum Geburtstag oder zu Feiertagen. Betrag wählen und in 1 Klick per WhatsApp bestellen.',
+        gift_desc: 'Das perfekte Geschenk zum Geburtstag oder zu Feiertagen. Betrag wählen und in 1 Klick per WhatsApp bestellen.',
+        gutschein_custom: 'Wunschbetrag',
         gift_custom: 'Wunschbetrag',
-        gift_btn: 'Gutschein per WhatsApp bestellen',
+        gutschein_btn: 'Gutschein bestellen',
+        gift_btn: 'Gutschein bestellen',
+
+        // Студия и Уход (Aftercare)
+        studio_tag: 'INSIDE NJT',
+        studio_title: 'Unser Studio auf der Beekstraße 6',
+        studio_desc: 'Modernes Ambiente, entspannte Musik und höchste klinische Sauberkeit mitten in der Duisburger Innenstadt.',
+        aftercare_tag: 'PROFESSIONAL CARE',
+        aftercare_title: 'Tattoo-Pflege & Heilung',
+        care_1_title: '1. Schutzfolie & Erste Stunden',
+        care_1_desc: 'Lass die Second-Skin-Folie gemäß Empfehlung deines Artists drauf. Danach vorsichtig mit lauwarmem Wasser und pH-neutraler Seife abwaschen.',
+        care_2_title: '2. Dünn eincremen',
+        care_2_desc: 'Trage 2–3 Mal täglich eine dünne Schicht spezieller Tattoo-Pflegecreme (z.B. Panthenol) mit sauberen Händen auf.',
+        care_3_title: '3. Sonne, Sport & Wasser meiden',
+        care_3_desc: 'In den ersten 2 Wochen kein Schwimmbad, keine Sauna, kein Solarium und Krusten niemals abkratzen.',
+        btn_aftercare_pdf: 'Pflegeanleitung',
+
+        // Бронирование и Экспресс-кнопка
+        book_tag: 'BOOKING & CONSULTATION',
+        book_title: 'Termin oder Beratung anfragen',
         express_title: '🔥 Kurzfristige Termine & Wanna-Dos',
-        express_btn: 'Freie Termine anfragen →',
+        express_text: '🔥 Kurzfristige Termine & Wanna-Dos',
+        express_desc: 'Frag direkt freie Termine für diese Woche oder freie Designs in 1 Klick per WhatsApp an.',
+        express_btn: 'Freie Termine anfragen',
+        form_name: 'Dein Name',
+        form_name_ph: 'z.B. Max Mustermann',
+        form_phone: 'Telefon / WhatsApp',
+        form_phone_ph: '+49 176 ...',
+        form_style: 'Stil / Richtung',
+        form_placement: 'Körperstelle & Größe (cm)',
+        form_placement_ph: 'z.B. Unterarm, ca. 15 cm',
+        form_message: 'Deine Tattoo-Idee',
+        form_msg_ph: 'Beschreibe kurz dein Wunschmotiv...',
+        form_ref: 'Hast du Referenzfotos? Du kannst sie uns direkt im nächsten Schritt im WhatsApp-Chat schicken.',
+        form_hint: 'Unverbindliche Anfrage – öffnet direkt WhatsApp.',
+        form_submit: 'Anfrage per WhatsApp senden',
+        style_opt_japanese: 'Japanese / Neo-Japanese',
+        style_opt_bg_realism: 'Black & Grey / Realism',
+        style_opt_color_realism: 'Color / Fine Line',
+        style_opt_traditional: 'Blackwork / Dark Lettering / Traditional',
+        style_opt_consult: 'Noch unsicher – Beratung gewünscht',
+
+        // Контакты, парковка, карта
+        contact_address: 'Adresse',
+        contact_phone: 'WhatsApp & Telefon',
+        contact_maps: 'In Google Maps öffnen',
         copy_btn: '📋 Adresse kopieren',
         toast_copied: '✓ Adresse kopiert!',
+        parking_info: '🚗 Parkhäuser in 2–3 Min. Fußweg',
         parking_badge: '🚗 Parkhäuser in 2–3 Min. Fußweg',
+        ubahn_info: '🚇 U-Bahn: Steinsche Gasse / Rathaus',
         ubahn_badge: '🚇 U-Bahn: Steinsche Gasse / Rathaus',
-        faq_coverup_q: 'Macht ihr auch Cover-Ups (Überdecken alter Tattoos oder Narben)?',
-        faq_coverup_a: 'Ja! Unsere Artists sind auf komplexe Cover-Ups spezialisiert. Schick uns einfach ein Foto deines alten Tattoos per WhatsApp oder komm zur kostenlosen Beratung vorbei.',
-        faq_age_q: 'Ab welchem Alter tätowiert ihr und gibt es eine Anzahlung?',
-        faq_age_a: 'Wir tätowieren ausnahmslos ab 18 Jahren (bitte gültigen Ausweis mitbringen). Für die Terminreservierung nehmen wir eine Anzahlung, die komplett mit dem Endpreis verrechnet wird.',
+        status_open: 'Heute geöffnet • 11:00 – 19:00',
+        status_closed: 'Nach Vereinbarung • Mo–Sa 11:00 – 19:00',
+        map_consent: 'Karte aus Datenschutzgründen (DSGVO) ausgeblendet.',
+        map_btn: 'Google Maps laden',
+
+        // FAQ (все 5 вопросов)
+        faq_tag: 'WISSENSWERTES',
+        faq_title: 'Häufige Fragen (FAQ)',
+        faq_q1: 'Wie viel kostet ein Tattoo bei New Jack Tattoo?',
+        faq_a1: 'Der Preis hängt von Größe, Detailgrad und Körperstelle ab. Schreib uns deine Idee per WhatsApp – die Einschätzung und Beratung sind komplett kostenlos.',
+        faq_q2: 'Muss ich einen Termin vereinbaren oder geht Walk-In?',
+        faq_a2: 'Für größere Projekte empfehlen wir einen Termin. Für kleinere Motive haben wir oft auch kurzfristige Fenster – schreib uns einfach kurz per WhatsApp!',
+        faq_q3: 'Wie bereite ich mich am besten auf den Tattoo-Termin vor?',
+        faq_a3: 'Komm ausgeschlafen, iss vorher gut und trinke genug Wasser. Bitte verzichte 24 Stunden vor dem Termin auf Alkohol und blutverdünnende Medikamente.',
+        faq_q4: 'Macht ihr auch Cover-Ups (Überdecken alter Tattoos oder Narben)?',
+        faq_a4: 'Ja! Unsere Artists haben große Erfahrung mit Cover-Ups. Schick uns einfach ein Foto per WhatsApp oder komm zur kostenlosen Beratung ins Studio.',
+        faq_q5: 'Ab welchem Alter tätowiert ihr und gibt es eine Anzahlung?',
+        faq_a5: 'Wir tätowieren ausnahmslos ab 18 Jahren (gültiger Ausweis erforderlich). Für die Terminreservierung und Skizze nehmen wir eine Anzahlung, die mit dem Endpreis verrechnet wird.',
+
+        // Куки и Футер
+        cookie_text: 'Wir nutzen optionale Karten-Dienste erst nach deiner Zustimmung (DSGVO).',
+        cookie_decline: 'Nur notwendige',
+        cookie_accept: 'Alle akzeptieren',
+        footer_rights: '© 2026 New Jack Tattoo Duisburg. Alle Rechte vorbehalten.',
         footer_copy: '© 2026 New Jack Tattoo Duisburg. Alle Rechte vorbehalten.',
         footer_impressum: 'Impressum',
         footer_privacy: 'Datenschutz'
       },
+
       ru: {
+        nav_home: 'Главная',
         nav_artists: 'Мастера',
         nav_works: 'Портфолио',
         nav_portfolio: 'Портфолио',
         nav_process: 'Этапы',
-        nav_gutschein: 'Сертификаты',
+        nav_gutschein: 'Сертификат',
         nav_studio: 'Студия',
         nav_aftercare: 'Уход',
-        nav_contact: 'Контакты',
         nav_faq: 'FAQ',
+        nav_contact: 'Контакты',
+        nav_menu: 'МЕНЮ',
+        btn_book_nav: 'Записаться',
+        hero_sub: 'Премиум тату-студия в самом центре Дуйсбурга. Индивидуальные эскизы, 100% стерильность по стандартам ЕС и бесплатная консультация.',
+        hero_desc: 'Премиум тату-студия в самом центре Дуйсбурга. Индивидуальные эскизы, 100% стерильность по стандартам ЕС и бесплатная консультация.',
+        hero_cta_primary: 'Запись в WhatsApp',
+        hero_cta_secondary: 'Смотреть работы',
+        hero_cta: 'Запись в WhatsApp',
+        hero_works_btn: 'Смотреть работы',
+
+        stat_sterile: '100% стерильность ЕС',
+        stat_artists: 'Топ-рейтинг в Google',
+        stat_custom: 'Индивидуальные эскизы',
+        stat_consult: 'Бесплатная консультация',
+
+        artists_tag: 'НАША КОМАНДА',
+        artists_title: 'Наши мастера',
+        artists_book: 'Записаться к мастеру',
+        portfolio_tag: ' ПОРТФОЛИО',
+        portfolio_title: 'Избранные работы',
+
+        process_tag: 'КАК МЫ РАБОТАЕМ',
+        process_badge: 'ПУТЬ К ТАТУ',
         process_title: '4 шага от идеи до тату',
         step1_title: 'Бесплатная консультация',
         step1_desc: 'Обсуждение идеи в WhatsApp или лично в студии на Beekstraße 6.',
         step2_title: 'Индивидуальный эскиз',
         step2_desc: 'Мастер готовит кастомный проект специально под твою анатомию.',
         step3_title: 'Сеанс в 100% стерильности',
-        step3_desc: 'Комфортная атмосфера, строгие стандарты ЕС и премиум-оборудование.',
+        step3_desc: 'Комфортная атмосфера, одноразовые расходники и премиум-оборудование.',
         step4_title: 'Быстрое заживление',
-        step4_desc: 'Уход по нашей памятке и личная поддержка мастера до полного заживления.',
-        ba_title: 'Cover-Up: До и После',
-        ba_desc: 'Двигай ползунок влево-вправо, чтобы оценить перекрытие старых татуировок.',
-        ba_before: 'ДО',
-        ba_after: 'ПОСЛЕ',
-        gift_title: 'Подарочный сертификат в 1 клик',
-        gift_desc: 'Подари близким стильную карту New Jack Tattoo Gift Card на день рождения или праздник.',
+        step4_desc: 'Уход по нашей памятке и поддержка мастера на всех этапах.',
+
+        gutschein_tag: 'ИДЕЯ ДЛЯ ПОДАРКА',
+        gift_badge: 'ИДЕЯ ДЛЯ ПОДАРКА',
+        gutschein_title: 'Подарочный сертификат (Gutschein)',
+        gift_title: 'Подарочный сертификат (Gutschein)',
+        gutschein_desc: 'Идеальный подарок на день рождения или праздник. Выбери сумму и закажи в 1 клик через WhatsApp.',
+        gift_desc: 'Идеальный подарок на день рождения или праздник. Выбери сумму и закажи в 1 клик через WhatsApp.',
+        gutschein_custom: 'Своя сумма',
         gift_custom: 'Своя сумма',
-        gift_btn: 'Заказать сертификат в WhatsApp',
+        gutschein_btn: 'Заказать сертификат',
+        gift_btn: 'Заказать сертификат',
+
+        studio_tag: 'АТМОСФЕРА NJT',
+        studio_title: 'Наша студия на Beekstraße 6',
+        studio_desc: 'Стильный интерьер, правильная атмосфера и безупречная медицинская чистота в центре Дуйсбурга.',
+        aftercare_tag: 'ПРАВИЛЬНЫЙ УХОД',
+        aftercare_title: 'Уход и заживление тату',
+        care_1_title: '1. Защитная плёнка и первые дни',
+        care_1_desc: 'Носи заживляющую плёнку столько, сколько рекомендовал мастер. После снятия аккуратно промой тату тёплой водой с мягким мылом.',
+        care_2_title: '2. Увлажнение и крем',
+        care_2_desc: 'Наноси тонкий слой заживляющего крема (например, Panthenol / Pegasus) 2–3 раза в день чистыми руками.',
+        care_3_title: '3. Защита от солнца и воды',
+        care_3_desc: 'В первые 2 недели исключи бассейн, сауну, солярий и активный спорт. Не сдирай плёночку и шелушения.',
+        btn_aftercare_pdf: 'Памятка по уходу',
+
+        book_tag: 'ЗАПИСЬ НА СЕАНС',
+        book_title: 'Записаться или задать вопрос',
         express_title: '🔥 Свободные окна и Wanna-Dos',
-        express_btn: 'Узнать свободные даты →',
+        express_text: '🔥 Свободные окна и Wanna-Dos',
+        express_desc: 'Узнай ближайшие свободные даты на этой неделе или свободные эскизы в 1 клик.',
+        express_btn: 'Узнать свободные даты',
+        form_name: 'Твоё имя',
+        form_name_ph: 'Например, Алекс',
+        form_phone: 'Телефон / WhatsApp',
+        form_phone_ph: '+49 176 ...',
+        form_style: 'Стиль татуировки',
+        form_placement: 'Место на теле и размер (см)',
+        form_placement_ph: 'Например: предплечье, около 15 см',
+        form_message: 'Опиши свою идею',
+        form_msg_ph: 'Кратко расскажи, что хочешь набить...',
+        form_ref: 'Есть примеры или референсы? Ты сможешь сразу прикрепить их в чате WhatsApp.',
+        form_hint: 'Заявка ни к чему не обязывает — сразу откроется чат WhatsApp.',
+        form_submit: 'Отправить заявку в WhatsApp',
+        style_opt_japanese: 'Япония / Neo-Japanese',
+        style_opt_bg_realism: 'Ч/Б Реализм (Black & Grey)',
+        style_opt_color_realism: 'Цветная тату / Fine Line',
+        style_opt_traditional: 'Blackwork / Dark Lettering / Traditional',
+        style_opt_consult: 'Нужна помощь с выбором — консультация',
+
+        contact_address: 'Адрес студии',
+        contact_phone: 'WhatsApp и телефон',
+        contact_maps: 'Открыть в Google Картах',
         copy_btn: '📋 Скопировать адрес',
         toast_copied: '✓ Адрес скопирован!',
+        parking_info: '🚗 Парковки в 2–3 мин. пешком',
         parking_badge: '🚗 Парковки в 2–3 мин. пешком',
+        ubahn_info: '🚇 U-Bahn: Steinsche Gasse / Rathaus',
         ubahn_badge: '🚇 U-Bahn: Steinsche Gasse / Rathaus',
-        faq_coverup_q: 'Делаете ли вы Cover-Up (перекрытие старых/неудачных татуировок)?',
-        faq_coverup_a: 'Да! Наши мастера специализируются на перекрытиях любой сложности. Пришли фото старой тату в WhatsApp или приходи на бесплатную консультацию на Beekstraße 6.',
-        faq_age_q: 'Со скольки лет бьёте тату и нужна ли предоплата (Anzahlung)?',
-        faq_age_a: 'Работаем строго с 18 лет (при себе нужен документ). Для закрепления даты сеанса и подготовки эскиза вносится предоплата, которая входит в стоимость тату.',
+        status_open: 'Сегодня открыто • 11:00 – 19:00',
+        status_closed: 'По записи • Пн–Сб 11:00 – 19:00',
+        map_consent: 'Карта скрыта в соответствии с правилами DSGVO.',
+        map_btn: 'Загрузить Google Карту',
+
+        faq_tag: 'ЧАСТЫЕ ВОПРОСЫ',
+        faq_title: 'Ответы на вопросы (FAQ)',
+        faq_q1: 'Сколько стоит татуировка в New Jack Tattoo?',
+        faq_a1: 'Стоимость зависит от размера, детализации и места нанесения. Напиши нам свою идею в WhatsApp — расчёт цены и консультация всегда бесплатны.',
+        faq_q2: 'Нужно ли записываться заранее или можно прийти без записи?',
+        faq_a2: 'На крупные проекты лучше записываться заранее. Для небольших тату часто бывают свободные окошки на неделе — просто напиши нам в WhatsApp!',
+        faq_q3: 'Как правильно подготовиться к сеансу татуировки?',
+        faq_a3: 'Хорошо выспись, плотно поешь перед визитом и пей воду. За 24 часа до сеанса исключи алкоголь и препараты, разжижающие кровь.',
+        faq_q4: 'Исправляете ли вы старые или неудачные татуировки?',
+        faq_a4: 'Да! Наши мастера имеют большой опыт перекрытия и обновления старых работ. Пришли фото в WhatsApp или загляни на бесплатную консультацию.',
+        faq_q5: 'С какого возраста вы бьёте тату и нужна ли предоплата?',
+        faq_a5: 'Мы работаем строго с 18 лет (при себе нужен документ). Для бронирования даты и подготовки эскиза вносится предоплата, которая входит в стоимость тату.',
+
+        cookie_text: 'Мы загружаем внешние карты только с твоего согласия (DSGVO).',
+        cookie_decline: 'Только необходимые',
+        cookie_accept: 'Принять все',
+        footer_rights: '© 2026 New Jack Tattoo Duisburg. Все права защищены.',
         footer_copy: '© 2026 New Jack Tattoo Duisburg. Все права защищены.',
         footer_impressum: 'Импрессум',
         footer_privacy: 'Конфиденциальность'
       },
+
       en: {
+        nav_home: 'Home',
         nav_artists: 'Artists',
         nav_works: 'Portfolio',
         nav_portfolio: 'Portfolio',
@@ -1510,40 +1702,134 @@
         nav_gutschein: 'Gift Card',
         nav_studio: 'Studio',
         nav_aftercare: 'Aftercare',
-        nav_contact: 'Contact',
         nav_faq: 'FAQ',
+        nav_contact: 'Contact',
+        nav_menu: 'MENU',
+        btn_book_nav: 'Book Now',
+        hero_sub: 'Premium Tattoo Studio in the heart of Duisburg. Custom artwork, 100% EU hygiene standards & free consultation.',
+        hero_desc: 'Premium Tattoo Studio in the heart of Duisburg. Custom artwork, 100% EU hygiene standards & free consultation.',
+        hero_cta_primary: 'Book via WhatsApp',
+        hero_cta_secondary: 'View Portfolio',
+        hero_cta: 'Book via WhatsApp',
+        hero_works_btn: 'View Portfolio',
+
+        stat_sterile: '100% EU Hygiene & Sterile',
+        stat_artists: 'Top Google Rating',
+        stat_custom: 'Custom Designs',
+        stat_consult: 'Free Consultation',
+
+        artists_tag: 'RESIDENT ARTISTS',
+        artists_title: 'Our Tattoo Artists',
+        artists_book: 'Book with this Artist',
+        portfolio_tag: 'SELECTED WORKS',
+        portfolio_title: 'Our Portfolio',
+
+        process_tag: 'HOW IT WORKS',
+        process_badge: 'YOUR TATTOO JOURNEY',
         process_title: '4 Steps from Idea to Ink',
         step1_title: 'Free Consultation',
         step1_desc: 'Discuss your idea via WhatsApp or in person at our studio on Beekstraße 6.',
         step2_title: 'Custom Design',
-        step2_desc: 'Your artist creates a bespoke project tailored specifically to your anatomy.',
+        step2_desc: 'Your artist creates a bespoke design tailored to your anatomy.',
         step3_title: '100% Sterile Session',
-        step3_desc: 'Relaxed vibe, strict EU hygiene standards, and premium equipment.',
+        step3_desc: 'Relaxed atmosphere, strict EU hygiene, and premium equipment.',
         step4_title: 'Fast Healing',
-        step4_desc: 'Clear aftercare instructions and direct support from your artist until healed.',
-        ba_title: 'Cover-Up: Before / After',
-        ba_desc: 'Drag the slider left and right to see how our artists transform old ink.',
-        ba_before: 'BEFORE',
-        ba_after: 'AFTER',
-        gift_title: 'Tattoo Gift Card in 1 Click',
-        gift_desc: 'Surprise someone special on their birthday or holidays with a VIP Gift Card.',
+        step4_desc: 'Easy aftercare with our guide and direct support from your artist.',
+
+        gutschein_tag: 'GIFT IDEA',
+        gift_badge: 'GIFT IDEA',
+        gutschein_title: 'Tattoo Gift Card (Gutschein)',
+        gift_title: 'Tattoo Gift Card (Gutschein)',
+        gutschein_desc: 'The perfect gift for birthdays or holidays. Choose an amount and order in 1 click via WhatsApp.',
+        gift_desc: 'The perfect gift for birthdays or holidays. Choose an amount and order in 1 click via WhatsApp.',
+        gutschein_custom: 'Custom Amount',
         gift_custom: 'Custom Amount',
-        gift_btn: 'Order Gift Card via WhatsApp',
+        gutschein_btn: 'Order Gift Card',
+        gift_btn: 'Order Gift Card',
+
+        studio_tag: 'INSIDE NJT',
+        studio_title: 'Our Studio at Beekstraße 6',
+        studio_desc: 'Modern vibe, great music, and clinical-grade cleanliness right in downtown Duisburg.',
+        aftercare_tag: 'PROFESSIONAL CARE',
+        aftercare_title: 'Tattoo Aftercare & Healing',
+        care_1_title: '1. Second Skin & First Hours',
+        care_1_desc: 'Keep the protective film on as advised by your artist. Afterwards, gently wash with lukewarm water and mild soap.',
+        care_2_title: '2. Moisturize Gently',
+        care_2_desc: 'Apply a thin layer of tattoo aftercare cream 2–3 times daily with clean hands.',
+        care_3_title: '3. Avoid Sun, Pools & Saunas',
+        care_3_desc: 'No swimming, sauna, tanning beds, or scratching for the first 2 weeks.',
+        btn_aftercare_pdf: 'Aftercare Guide',
+
+        book_tag: 'BOOKING & CONSULTATION',
+        book_title: 'Book an Appointment',
         express_title: '🔥 Last-Minute Slots & Wanna-Dos',
-        express_btn: 'Check available dates →',
-        copy_btn: '📋 Copy address',
+        express_text: '🔥 Last-Minute Slots & Wanna-Dos',
+        express_desc: 'Ask directly about open slots for this week or available Wanna-Dos in 1 tap.',
+        express_btn: 'Check available dates',
+        form_name: 'Your Name',
+        form_name_ph: 'e.g. Alex Miller',
+        form_phone: 'Phone / WhatsApp',
+        form_phone_ph: '+49 176 ...',
+        form_style: 'Preferred Style',
+        form_placement: 'Body Placement & Size (cm)',
+        form_placement_ph: 'e.g. Forearm, approx. 15 cm',
+        form_message: 'Your Tattoo Idea',
+        form_msg_ph: 'Briefly describe your idea...',
+        form_ref: 'Have reference photos? You can send them directly in the WhatsApp chat.',
+        form_hint: 'No obligation — opens WhatsApp directly.',
+        form_submit: 'Send Inquiry via WhatsApp',
+        style_opt_japanese: 'Japanese / Neo-Japanese',
+        style_opt_bg_realism: 'Black & Grey / Realism',
+        style_opt_color_realism: 'Color / Fine Line',
+        style_opt_traditional: 'Blackwork / Dark Lettering / Traditional',
+        style_opt_consult: 'Not sure yet – Consultation needed',
+
+        contact_address: 'Address',
+        contact_phone: 'WhatsApp & Phone',
+        contact_maps: 'Open in Google Maps',
+        copy_btn: '📋 Copy Address',
         toast_copied: '✓ Address copied!',
+        parking_info: '🚗 Parking garages 2–3 min walk',
         parking_badge: '🚗 Parking garages 2–3 min walk',
+        ubahn_info: '🚇 U-Bahn: Steinsche Gasse / Rathaus',
         ubahn_badge: '🚇 U-Bahn: Steinsche Gasse / Rathaus',
-        faq_coverup_q: 'Do you do Cover-Ups (covering old or unwanted tattoos)?',
-        faq_coverup_a: 'Yes! Our artists specialize in cover-ups. Send us a clear photo of your existing tattoo via WhatsApp or drop by for a free consultation.',
-        faq_age_q: 'What is the minimum age and do you require a deposit?',
-        faq_age_a: 'We tattoo strictly 18+ (valid ID required). A deposit is required to lock in your appointment and design, which is deducted from the final price.',
+        status_open: 'Open Today • 11:00 – 19:00',
+        status_closed: 'By Appointment • Mon–Sat 11:00 – 19:00',
+        map_consent: 'Map hidden for privacy reasons (GDPR).',
+        map_btn: 'Load Google Map',
+
+        faq_tag: 'GOOD TO KNOW',
+        faq_title: 'Frequently Asked Questions (FAQ)',
+        faq_q1: 'How much does a tattoo cost at New Jack Tattoo?',
+        faq_a1: 'Pricing depends on size, detail, and placement. Send us your idea via WhatsApp — quotes and consultations are always free.',
+        faq_q2: 'Do I need an appointment or do you take walk-ins?',
+        faq_a2: 'Appointments are recommended for larger pieces, but we often have same-week slots for smaller tattoos — just message us on WhatsApp!',
+        faq_q3: 'How should I prepare for my tattoo session?',
+        faq_a3: 'Get plenty of sleep, eat a good meal beforehand, and stay hydrated. Avoid alcohol and blood thinners for 24 hours prior.',
+        faq_q4: 'Do you rework or cover up old tattoos?',
+        faq_a4: 'Yes! Our artists are experienced in reworks and cover-ups. Send us a clear photo via WhatsApp or stop by for a free consultation.',
+        faq_q5: 'What is the minimum age and do you require a deposit?',
+        faq_a5: 'Strictly 18+ (valid ID required). A deposit is required to secure your appointment and custom sketch, which is deducted from the final price.',
+
+        cookie_text: 'We only load external map services with your consent (GDPR).',
+        cookie_decline: 'Essential only',
+        cookie_accept: 'Accept all',
+        footer_rights: '© 2026 New Jack Tattoo Duisburg. All rights reserved.',
         footer_copy: '© 2026 New Jack Tattoo Duisburg. All rights reserved.',
         footer_impressum: 'Imprint',
         footer_privacy: 'Privacy Policy'
       }
     };
+
+    // Сохраняем оригинальные немецкие тексты из HTML при первом запуске, чтобы DE никогда не терял ни одной фразы
+    function backupOriginalGermanTexts() {
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+        if (!el.dataset.origDe) el.dataset.origDe = el.textContent;
+      });
+      document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
+        if (!el.dataset.origDePh) el.dataset.origDePh = el.getAttribute('placeholder') || '';
+      });
+    }
 
     function setLang(lang) {
       if (!translations[lang]) lang = 'de';
@@ -1551,10 +1837,25 @@
       localStorage.setItem('njt_lang', lang);
       document.documentElement.lang = lang;
 
+      backupOriginalGermanTexts();
       const dict = translations[lang];
+
       document.querySelectorAll('[data-i18n]').forEach(el => {
         const key = el.getAttribute('data-i18n');
-        if (dict[key]) el.textContent = dict[key];
+        if (dict && dict[key]) {
+          el.textContent = dict[key];
+        } else if (lang === 'de' && el.dataset.origDe) {
+          el.textContent = el.dataset.origDe;
+        }
+      });
+
+      document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
+        const key = el.getAttribute('data-i18n-placeholder');
+        if (dict && dict[key]) {
+          el.setAttribute('placeholder', dict[key]);
+        } else if (lang === 'de' && el.dataset.origDePh) {
+          el.setAttribute('placeholder', el.dataset.origDePh);
+        }
       });
 
       ['de', 'ru', 'en'].forEach(l => {
@@ -1562,9 +1863,12 @@
         if (btn) {
           btn.classList.toggle('bg-petrol-500', l === lang);
           btn.classList.toggle('text-petrol-950', l === lang);
+          btn.classList.toggle('text-white', l !== lang && !btn.classList.contains('text-slate-400'));
         }
       });
     }
+    window.changeLang = setLang;
+    window.switchLang = setLang;
 
     // 5. ПОЛОСКА ПРОГРЕССА СКРОЛЛА
     window.addEventListener('scroll', () => {
@@ -1626,29 +1930,7 @@
     }
     window.copyStudioAddress = copyAddress;
 
-    // 9. ПОЛЗУНОК «ДО / ПОСЛЕ»
-    function updateBeforeAfter(val) {
-      const beforeWrap = document.getElementById('baBeforeWrap') || document.getElementById('ba-before-wrap') || document.getElementById('beforeImage');
-      const handle = document.getElementById('baHandle') || document.getElementById('ba-handle') || document.getElementById('sliderLine');
-      if (beforeWrap) beforeWrap.style.width = val + '%';
-      if (handle) handle.style.left = val + '%';
-    }
-    window.moveSlider = updateBeforeAfter;
-
-    const baContainer = document.getElementById('ba-slider') || document.getElementById('beforeAfterSlider');
-    if (baContainer) {
-      let dragging = false;
-      const onMove = (clientX) => {
-        const rect = baContainer.getBoundingClientRect();
-        const pct = Math.max(5, Math.min(95, ((clientX - rect.left) / rect.width) * 100));
-        updateBeforeAfter(pct);
-      };
-      baContainer.addEventListener('pointerdown', (e) => { dragging = true; onMove(e.clientX); });
-      window.addEventListener('pointermove', (e) => { if (dragging) onMove(e.clientX); });
-      window.addEventListener('pointerup', () => { dragging = false; });
-    }
-
-    // 10. LIGHTBOX И КАРТОЧКИ ПОРТФОЛИО (/data.json + work-1..7)
+    // 9. LIGHTBOX И КАРТОЧКИ ПОРТФОЛИО (БЕЗ ЛУПЫ)
     function openLightbox(src) {
       const lb = document.getElementById('lightbox');
       const img = document.getElementById('lightbox-img');
@@ -1665,21 +1947,12 @@
       lb.classList.remove('flex');
     }
 
-    function decoratePortfolioCards() {
+    function bindPortfolioLightbox() {
       document.querySelectorAll('img[src*="work-"], .portfolio-card img, #portfolio-grid img, #works-grid img').forEach(img => {
         const card = img.parentElement;
-        if (!card || card.dataset.enhanced) return;
-        card.dataset.enhanced = 'true';
-        card.classList.add('relative', 'group', 'overflow-hidden', 'cursor-pointer');
-
-        const overlay = document.createElement('div');
-        overlay.className = 'pointer-events-none absolute inset-0 bg-gradient-to-t from-petrol-950/85 via-transparent to-transparent opacity-90 transition-opacity';
-        const zoomBadge = document.createElement('div');
-        zoomBadge.className = 'pointer-events-none absolute top-3 right-3 w-9 h-9 rounded-full bg-petrol-950/70 border border-petrol-400/50 backdrop-blur-md flex items-center justify-center text-sm shadow-lg group-hover:scale-110 group-hover:bg-petrol-500 transition-all';
-        zoomBadge.textContent = '🔍';
-
-        card.appendChild(overlay);
-        card.appendChild(zoomBadge);
+        if (!card || card.dataset.boundLightbox) return;
+        card.dataset.boundLightbox = 'true';
+        card.classList.add('cursor-pointer');
         card.addEventListener('click', () => openLightbox(img.src));
       });
     }
@@ -1695,17 +1968,17 @@
               const src = item.image || item.src;
               if (!src) return;
               const div = document.createElement('div');
-              div.className = 'rounded-2xl overflow-hidden border border-petrol-800 bg-petrol-900/40 aspect-[4/5]';
+              div.className = 'rounded-2xl overflow-hidden border border-petrol-800 bg-petrol-900/40 aspect-[4/5] cursor-pointer group';
               div.innerHTML = `<img src="${src}" alt="${item.title || 'Tattoo'}" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">`;
               grid.appendChild(div);
             });
           }
         }
-        decoratePortfolioCards();
+        bindPortfolioLightbox();
       })
-      .catch(() => decoratePortfolioCards());
+      .catch(() => bindPortfolioLightbox());
 
-    // 11. ФОРМА ЗАПИСИ WHATSAPP
+    // 10. ФОРМА ЗАПИСИ WHATSAPP
     function sendWhatsApp(e) {
       if (e) e.preventDefault();
       const val = (id) => (document.getElementById(id)?.value || '').trim();
@@ -1713,16 +1986,15 @@
       const artist = val('artist') || 'Beratung';
       const style = val('style') || '-';
       const part = val('placement') || val('bodyPart') || '-';
-      const size = val('size') || '-';
       const idea = val('idea') || val('message') || '-';
 
-      const text = `Hallo New Jack Tattoo! 🔥\n\n*Neue Termin-Anfrage:*\n👤 Name: ${name}\n🎨 Artist: ${artist}\n✨ Stil: ${style}\n📍 Körperstelle: ${part}\n📏 Größe: ${size}\n💬 Idee: ${idea}`;
+      const text = `Hallo New Jack Tattoo! 🔥\n\n*Neue Termin-Anfrage:*\n👤 Name: ${name}\n🎨 Artist: ${artist}\n✨ Stil: ${style}\n📍 Körperstelle: ${part}\n💬 Idee: ${idea}`;
       window.open(`https://wa.me/${STUDIO_WA}?text=${encodeURIComponent(text)}`, '_blank');
     }
     window.submitBooking = sendWhatsApp;
     window.handleBookingSubmit = sendWhatsApp;
 
-    // 12. АККОРДЕОН FAQ И МОДАЛКИ
+    // 11. АККОРДЕОН FAQ И МОДАЛКИ
     function toggleFaq(btn) {
       const content = btn.nextElementSibling;
       const icon = btn.querySelector('span:last-child, svg');
@@ -1750,7 +2022,7 @@
       modal.classList.remove('flex');
     }
 
-    // 13. ЗАЩИТА ФОНОВОГО ВИДЕО НА IPHONE
+    // 12. ЗАЩИТА ФОНОВОГО ВИДЕО НА IPHONE
     function ensureHeroVideoPlays() {
       document.querySelectorAll('video').forEach(video => {
         video.muted = true;
@@ -1760,9 +2032,9 @@
     }
 
     document.addEventListener('DOMContentLoaded', () => {
-      initRevealAnimations();
+      initPageCleanupAndReveal();
       setLang(currentLang);
-      decoratePortfolioCards();
+      bindPortfolioLightbox();
       ensureHeroVideoPlays();
       if (localStorage.getItem('njt_cookies') === 'accepted') loadGoogleMap();
     });
@@ -1771,4 +2043,5 @@
   </script>
 </body>
 </html>
-       
+ 
+              
