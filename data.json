@@ -2,16 +2,5 @@
   "title": "",
   "description": "",
   "main_image": "",
-  "gallery": [
-    {
-      "photo": "/images/uploads/IMG_7398.PNG",
-      "artist": "RIMMA",
-      "style": "BlackGreyRealism"
-    },
-    {
-      "photo": "/images/uploads/60656.jpg",
-      "artist": "ASTY",
-      "style": "ColorRealism"
-    }
-  ]
+  "gallery": []
 }
