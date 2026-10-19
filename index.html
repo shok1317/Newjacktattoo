@@ -224,7 +224,7 @@
     .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.65s ease-out, transform 0.65s ease-out; }
     .reveal.visible { opacity: 1; transform: translateY(0); }
 
-    /* Прокачанный стиль для FAQ */
+    /* Прокачанный стиль для FAQ с выверенными отступами */
     .faq-card {
       background: linear-gradient(145deg, rgba(14, 37, 45, 0.45) 0%, rgba(5, 13, 16, 0.85) 100%);
       border: 1px solid rgba(56, 146, 174, 0.25);
@@ -247,9 +247,17 @@
       color: #7dd3fc;
       background: rgba(56, 146, 174, 0.16);
       border: 1px solid rgba(75, 179, 210, 0.35);
-      padding: 4px 9px;
-      border-radius: 0.6rem;
+      min-width: 40px;
+      height: 34px;
+      padding: 0 10px;
+      margin-right: 16px;
+      border-radius: 0.65rem;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
       flex-shrink: 0;
+      line-height: 1;
+      letter-spacing: 0.05em;
       transition: all 0.3s ease;
     }
     .faq-card.active .faq-num {
@@ -259,8 +267,9 @@
       box-shadow: 0 0 12px rgba(56, 146, 174, 0.5);
     }
     .faq-icon-wrap {
-      width: 32px;
-      height: 32px;
+      width: 34px;
+      height: 34px;
+      margin-left: 14px;
       border-radius: 9999px;
       background: rgba(14, 37, 45, 0.9);
       border: 1px solid rgba(75, 179, 210, 0.35);
@@ -777,74 +786,74 @@
       <div class="space-y-4">
         <!-- Вопрос 1 (Открыт по умолчанию) -->
         <div class="faq-card glass-card overflow-hidden active">
-          <button onclick="toggleFaq(this)" class="w-full px-6 py-5 text-left flex items-center justify-between gap-4 font-semibold text-white text-sm sm:text-base transition">
-            <div class="flex items-center gap-3.5">
+          <button onclick="toggleFaq(this)" class="w-full px-6 py-5 text-left flex items-center justify-between font-semibold text-white text-sm sm:text-base transition">
+            <div class="flex items-center">
               <span class="faq-num">01</span>
               <span data-i18n="faq_q1">Wie viel kostet ein Tattoo bei New Jack Tattoo?</span>
             </div>
             <span class="faq-icon-wrap">+</span>
           </button>
-          <div class="faq-answer px-6 pb-5 text-slate-300 text-sm leading-relaxed border-t border-petrol-800/60 pt-3.5" data-i18n="faq_a1">Der Preis hängt von Größe, Detailgrad, Körperstelle und geschätztem Zeitaufwand ab. Kleinere Motive haben einen Mindestpreis, während große Projekte (wie Sleeves oder Japanese Backpieces) nach Tagessätzen oder Absprache kalkuliert werden. Die Beratung ist absolut kostenlos!</div>
+          <div class="faq-answer px-6 pb-5 text-slate-300 text-sm leading-relaxed border-t border-petrol-800/60 pt-3" data-i18n="faq_a1">Der Preis hängt von Größe, Detailgrad, Körperstelle und geschätztem Zeitaufwand ab. Kleinere Motive haben einen Mindestpreis, während große Projekte (wie Sleeves oder Japanese Backpieces) nach Tagessätzen oder Absprache kalkuliert werden. Die Beratung ist absolut kostenlos!</div>
         </div>
 
         <!-- Вопрос 2 -->
         <div class="faq-card glass-card overflow-hidden">
-          <button onclick="toggleFaq(this)" class="w-full px-6 py-5 text-left flex items-center justify-between gap-4 font-semibold text-white text-sm sm:text-base transition">
-            <div class="flex items-center gap-3.5">
+          <button onclick="toggleFaq(this)" class="w-full px-6 py-5 text-left flex items-center justify-between font-semibold text-white text-sm sm:text-base transition">
+            <div class="flex items-center">
               <span class="faq-num">02</span>
               <span data-i18n="faq_q2">Muss ich einen Termin vereinbaren oder kann ich spontan vorbeikommen?</span>
             </div>
             <span class="faq-icon-wrap">+</span>
           </button>
-          <div class="faq-answer hidden px-6 pb-5 text-slate-300 text-sm leading-relaxed border-t border-petrol-800/60 pt-3.5" data-i18n="faq_a2">Wir arbeiten primär auf Termin, um jedem Kunden individuelle Entwürfe und ungestörte Sessions zu garantieren. Schreib uns am besten über das Formular oder Instagram, um einen Beratungstermin auf der Beekstraße 6 zu vereinbaren.</div>
+          <div class="faq-answer hidden px-6 pb-5 text-slate-300 text-sm leading-relaxed border-t border-petrol-800/60 pt-3" data-i18n="faq_a2">Wir arbeiten primär auf Termin, um jedem Kunden individuelle Entwürfe und ungestörte Sessions zu garantieren. Schreib uns am besten über das Formular oder Instagram, um einen Beratungstermin auf der Beekstraße 6 zu vereinbaren.</div>
         </div>
 
         <!-- Вопрос 3 -->
         <div class="faq-card glass-card overflow-hidden">
-          <button onclick="toggleFaq(this)" class="w-full px-6 py-5 text-left flex items-center justify-between gap-4 font-semibold text-white text-sm sm:text-base transition">
-            <div class="flex items-center gap-3.5">
+          <button onclick="toggleFaq(this)" class="w-full px-6 py-5 text-left flex items-center justify-between font-semibold text-white text-sm sm:text-base transition">
+            <div class="flex items-center">
               <span class="faq-num">03</span>
               <span data-i18n="faq_q3">Wie bereite ich mich am besten auf den Tattoo-Termin vor?</span>
             </div>
             <span class="faq-icon-wrap">+</span>
           </button>
-          <div class="faq-answer hidden px-6 pb-5 text-slate-300 text-sm leading-relaxed border-t border-petrol-800/60 pt-3.5" data-i18n="faq_a3">Schlafe gut in der Nacht vor dem Termin, komm ausgeruht und iss vorher eine ordentliche Mahlzeit. Trinke keinen Alkohol am Tag vor dem Termin und trage bequeme Kleidung, die leichten Zugang zur zu tätowierenden Stelle bietet.</div>
+          <div class="faq-answer hidden px-6 pb-5 text-slate-300 text-sm leading-relaxed border-t border-petrol-800/60 pt-3" data-i18n="faq_a3">Schlafe gut in der Nacht vor dem Termin, komm ausgeruht und iss vorher eine ordentliche Mahlzeit. Trinke keinen Alkohol am Tag vor dem Termin und trage bequeme Kleidung, die leichten Zugang zur zu tätowierenden Stelle bietet.</div>
         </div>
 
         <!-- Вопрос 4 (Cover-Up и коррекция) -->
         <div class="faq-card glass-card overflow-hidden">
-          <button onclick="toggleFaq(this)" class="w-full px-6 py-5 text-left flex items-center justify-between gap-4 font-semibold text-white text-sm sm:text-base transition">
-            <div class="flex items-center gap-3.5">
+          <button onclick="toggleFaq(this)" class="w-full px-6 py-5 text-left flex items-center justify-between font-semibold text-white text-sm sm:text-base transition">
+            <div class="flex items-center">
               <span class="faq-num">04</span>
               <span data-i18n="faq_q4">Stecht ihr auch Cover-Ups oder überarbeitet alte Tattoos?</span>
             </div>
             <span class="faq-icon-wrap">+</span>
           </button>
-          <div class="faq-answer hidden px-6 pb-5 text-slate-300 text-sm leading-relaxed border-t border-petrol-800/60 pt-3.5" data-i18n="faq_a4">Ja, absolut! Unsere erfahrenen Artists sind darauf spezialisiert, ungeliebte oder verblasste Tattoos durch ein durchdachtes Custom-Design komplett neu in Szene zu setzen oder aufzufrischen. Komm einfach für eine kostenlose Einschätzung bei uns im Studio vorbei.</div>
+          <div class="faq-answer hidden px-6 pb-5 text-slate-300 text-sm leading-relaxed border-t border-petrol-800/60 pt-3" data-i18n="faq_a4">Ja, absolut! Unsere erfahrenen Artists sind darauf spezialisiert, ungeliebte oder verblasste Tattoos durch ein durchdachtes Custom-Design komplett neu in Szene zu setzen oder aufzufrischen. Komm einfach für eine kostenlose Einschätzung bei uns im Studio vorbei.</div>
         </div>
 
         <!-- Вопрос 5 (Предоплата и перенос записи) -->
         <div class="faq-card glass-card overflow-hidden">
-          <button onclick="toggleFaq(this)" class="w-full px-6 py-5 text-left flex items-center justify-between gap-4 font-semibold text-white text-sm sm:text-base transition">
-            <div class="flex items-center gap-3.5">
+          <button onclick="toggleFaq(this)" class="w-full px-6 py-5 text-left flex items-center justify-between font-semibold text-white text-sm sm:text-base transition">
+            <div class="flex items-center">
               <span class="faq-num">05</span>
               <span data-i18n="faq_q5">Wie funktioniert die Anzahlung und falls ich den Termin verschieben muss?</span>
             </div>
             <span class="faq-icon-wrap">+</span>
           </button>
-          <div class="faq-answer hidden px-6 pb-5 text-slate-300 text-sm leading-relaxed border-t border-petrol-800/60 pt-3.5" data-i18n="faq_a5">Zur festen Reservierung deines Termins und für die Erstellung deines individuellen Entwurfs wird eine Anzahlung fällig, die am Stechtag selbstverständlich mit dem Gesamtpreis verrechnet wird. Eine Terminverschiebung ist bis 48 Stunden vorher problemlos möglich.</div>
+          <div class="faq-answer hidden px-6 pb-5 text-slate-300 text-sm leading-relaxed border-t border-petrol-800/60 pt-3" data-i18n="faq_a5">Zur festen Reservierung deines Termins und für die Erstellung deines individuellen Entwurfs wird eine Anzahlung fällig, die am Stechtag selbstverständlich mit dem Gesamtpreis verrechnet wird. Eine Terminverschiebung ist bis 48 Stunden vorher problemlos möglich.</div>
         </div>
 
         <!-- Вопрос 6 (Возраст 18+, гигиена и краски EU-REACH) -->
         <div class="faq-card glass-card overflow-hidden">
-          <button onclick="toggleFaq(this)" class="w-full px-6 py-5 text-left flex items-center justify-between gap-4 font-semibold text-white text-sm sm:text-base transition">
-            <div class="flex items-center gap-3.5">
+          <button onclick="toggleFaq(this)" class="w-full px-6 py-5 text-left flex items-center justify-between font-semibold text-white text-sm sm:text-base transition">
+            <div class="flex items-center">
               <span class="faq-num">06</span>
               <span data-i18n="faq_q6">Ab welchem Alter tätowiert ihr und welche Farben werden verwendet?</span>
             </div>
             <span class="faq-icon-wrap">+</span>
           </button>
-          <div class="faq-answer hidden px-6 pb-5 text-slate-300 text-sm leading-relaxed border-t border-petrol-800/60 pt-3.5" data-i18n="faq_a6">Wir tätowieren ausnahmslos ab 18 Jahren (bitte gültigen Ausweis zum Termin mitbringen). Bei der Hygiene gehen wir keine Kompromisse ein: Wir arbeiten ausschließlich mit sterilen Einweg-Modulen und geprüften, EU-REACH-konformen Premium-Tattoofarben.</div>
+          <div class="faq-answer hidden px-6 pb-5 text-slate-300 text-sm leading-relaxed border-t border-petrol-800/60 pt-3" data-i18n="faq_a6">Wir tätowieren ausnahmslos ab 18 Jahren (bitte gültigen Ausweis zum Termin mitbringen). Bei der Hygiene gehen wir keine Kompromisse ein: Wir arbeiten ausschließlich mit sterilen Einweg-Modulen und geprüften, EU-REACH-konformen Premium-Tattoofarben.</div>
         </div>
       </div>
 
