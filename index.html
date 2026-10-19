@@ -224,6 +224,63 @@
     .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.65s ease-out, transform 0.65s ease-out; }
     .reveal.visible { opacity: 1; transform: translateY(0); }
 
+    /* Прокачанный стиль для FAQ */
+    .faq-card {
+      background: linear-gradient(145deg, rgba(14, 37, 45, 0.45) 0%, rgba(5, 13, 16, 0.85) 100%);
+      border: 1px solid rgba(56, 146, 174, 0.25);
+      border-radius: 1.25rem;
+      transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .faq-card:hover {
+      border-color: rgba(75, 179, 210, 0.5);
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+    }
+    .faq-card.active {
+      background: linear-gradient(145deg, rgba(19, 50, 61, 0.7) 0%, rgba(7, 19, 24, 0.95) 100%);
+      border-color: #4bb3d2;
+      box-shadow: 0 12px 35px rgba(0, 0, 0, 0.6), 0 0 25px rgba(56, 146, 174, 0.22);
+    }
+    .faq-num {
+      font-family: 'Cinzel', serif;
+      font-size: 11px;
+      font-weight: 700;
+      color: #7dd3fc;
+      background: rgba(56, 146, 174, 0.16);
+      border: 1px solid rgba(75, 179, 210, 0.35);
+      padding: 4px 9px;
+      border-radius: 0.6rem;
+      flex-shrink: 0;
+      transition: all 0.3s ease;
+    }
+    .faq-card.active .faq-num {
+      background: #3892ae;
+      color: #ffffff;
+      border-color: #7dd3fc;
+      box-shadow: 0 0 12px rgba(56, 146, 174, 0.5);
+    }
+    .faq-icon-wrap {
+      width: 32px;
+      height: 32px;
+      border-radius: 9999px;
+      background: rgba(14, 37, 45, 0.9);
+      border: 1px solid rgba(75, 179, 210, 0.35);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #7dd3fc;
+      font-size: 18px;
+      font-weight: 700;
+      flex-shrink: 0;
+      transition: all 0.3s ease;
+    }
+    .faq-card.active .faq-icon-wrap {
+      background: #3892ae;
+      color: #ffffff;
+      border-color: #7dd3fc;
+      transform: rotate(45deg);
+      box-shadow: 0 0 14px rgba(56, 146, 174, 0.5);
+    }
+
     html::-webkit-scrollbar { width: 10px; }
     html::-webkit-scrollbar-track { background: #050d10; }
     html::-webkit-scrollbar-thumb { background: #3892ae; border-radius: 10px; border: 2px solid #050d10; }
@@ -492,7 +549,7 @@
       <div class="relative h-72 rounded-3xl overflow-hidden group border border-petrol-800/60"><img src="./img/studio/stidia-6.jpg" alt="New Jack Tattoo Studio 6" class="w-full h-full object-cover group-hover:scale-105 transition duration-500"><div class="absolute inset-0 bg-gradient-to-t from-petrol-950/90 via-transparent to-transparent flex items-end p-5 pointer-events-none"></div></div>
     </div>
   </section>
-  <!-- КОНЕЦ 1 ЧАСТИ (СЮДА ВСТАВЛЯТЬ 2 ЧАСТЬ) -->
+
   <!-- ОТЗЫВЫ КЛИЕНТОВ (GOOGLE REVIEWS 5.0 ★) -->
   <section id="reviews" class="py-20 px-6 max-w-7xl mx-auto border-t border-petrol-800/40 reveal">
     <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
@@ -708,7 +765,7 @@
     </div>
   </section>
 
-  <!-- FAQ -->
+  <!-- ПРОКАЧАННЫЙ БЛОК FAQ (6 ВОПРОСОВ + БЫСТРАЯ СВЯЗЬ) -->
   <section id="faq" class="py-24 px-6 bg-gradient-to-b from-petrol-900/30 to-petrol-950 border-t border-petrol-800/40 reveal">
     <div class="max-w-4xl mx-auto">
       <div class="text-center max-w-2xl mx-auto mb-16">
@@ -718,29 +775,88 @@
       </div>
 
       <div class="space-y-4">
-        <div class="glass-card rounded-2xl overflow-hidden">
-          <button onclick="toggleFaq(this)" class="w-full px-6 py-5 text-left flex items-center justify-between font-semibold text-white text-sm sm:text-base transition">
-            <span data-i18n="faq_q1">Wie viel kostet ein Tattoo bei New Jack Tattoo?</span>
-            <span class="text-petrol-300 text-xl font-bold transition-transform">+</span>
+        <!-- Вопрос 1 (Открыт по умолчанию) -->
+        <div class="faq-card glass-card overflow-hidden active">
+          <button onclick="toggleFaq(this)" class="w-full px-6 py-5 text-left flex items-center justify-between gap-4 font-semibold text-white text-sm sm:text-base transition">
+            <div class="flex items-center gap-3.5">
+              <span class="faq-num">01</span>
+              <span data-i18n="faq_q1">Wie viel kostet ein Tattoo bei New Jack Tattoo?</span>
+            </div>
+            <span class="faq-icon-wrap">+</span>
           </button>
-          <div class="hidden px-6 pb-5 text-slate-300 text-sm leading-relaxed border-t border-petrol-800/60 pt-3" data-i18n="faq_a1">Der Preis hängt von Größe, Detailgrad, Körperstelle und geschätztem Zeitaufwand ab. Kleinere Motive haben einen Mindestpreis, während große Projekte (wie Sleeves oder Japanese Backpieces) nach Tagessätzen oder Absprache kalkuliert werden. Die Beratung ist absolut kostenlos!</div>
+          <div class="faq-answer px-6 pb-5 text-slate-300 text-sm leading-relaxed border-t border-petrol-800/60 pt-3.5" data-i18n="faq_a1">Der Preis hängt von Größe, Detailgrad, Körperstelle und geschätztem Zeitaufwand ab. Kleinere Motive haben einen Mindestpreis, während große Projekte (wie Sleeves oder Japanese Backpieces) nach Tagessätzen oder Absprache kalkuliert werden. Die Beratung ist absolut kostenlos!</div>
         </div>
 
-        <div class="glass-card rounded-2xl overflow-hidden">
-          <button onclick="toggleFaq(this)" class="w-full px-6 py-5 text-left flex items-center justify-between font-semibold text-white text-sm sm:text-base transition">
-            <span data-i18n="faq_q2">Muss ich einen Termin vereinbaren oder kann ich spontan vorbeikommen?</span>
-            <span class="text-petrol-300 text-xl font-bold transition-transform">+</span>
+        <!-- Вопрос 2 -->
+        <div class="faq-card glass-card overflow-hidden">
+          <button onclick="toggleFaq(this)" class="w-full px-6 py-5 text-left flex items-center justify-between gap-4 font-semibold text-white text-sm sm:text-base transition">
+            <div class="flex items-center gap-3.5">
+              <span class="faq-num">02</span>
+              <span data-i18n="faq_q2">Muss ich einen Termin vereinbaren oder kann ich spontan vorbeikommen?</span>
+            </div>
+            <span class="faq-icon-wrap">+</span>
           </button>
-          <div class="hidden px-6 pb-5 text-slate-300 text-sm leading-relaxed border-t border-petrol-800/60 pt-3" data-i18n="faq_a2">Wir arbeiten primär auf Termin, um jedem Kunden individuelle Entwürfe und ungestörte Sessions zu garantieren. Schreib uns am besten über das Formular oder Instagram, um einen Beratungstermin auf der Beekstraße 6 zu vereinbaren.</div>
+          <div class="faq-answer hidden px-6 pb-5 text-slate-300 text-sm leading-relaxed border-t border-petrol-800/60 pt-3.5" data-i18n="faq_a2">Wir arbeiten primär auf Termin, um jedem Kunden individuelle Entwürfe und ungestörte Sessions zu garantieren. Schreib uns am besten über das Formular oder Instagram, um einen Beratungstermin auf der Beekstraße 6 zu vereinbaren.</div>
         </div>
 
-        <div class="glass-card rounded-2xl overflow-hidden">
-          <button onclick="toggleFaq(this)" class="w-full px-6 py-5 text-left flex items-center justify-between font-semibold text-white text-sm sm:text-base transition">
-            <span data-i18n="faq_q3">Wie bereite ich mich am besten auf den Tattoo-Termin vor?</span>
-            <span class="text-petrol-300 text-xl font-bold transition-transform">+</span>
+        <!-- Вопрос 3 -->
+        <div class="faq-card glass-card overflow-hidden">
+          <button onclick="toggleFaq(this)" class="w-full px-6 py-5 text-left flex items-center justify-between gap-4 font-semibold text-white text-sm sm:text-base transition">
+            <div class="flex items-center gap-3.5">
+              <span class="faq-num">03</span>
+              <span data-i18n="faq_q3">Wie bereite ich mich am besten auf den Tattoo-Termin vor?</span>
+            </div>
+            <span class="faq-icon-wrap">+</span>
           </button>
-          <div class="hidden px-6 pb-5 text-slate-300 text-sm leading-relaxed border-t border-petrol-800/60 pt-3" data-i18n="faq_a3">Schlafe gut in der Nacht vor dem Termin, komm ausgeruht und iss vorher eine ordentliche Mahlzeit. Trinke keinen Alkohol am Tag vor dem Termin und trage bequeme Kleidung, die leichten Zugang zur zu tätowierenden Stelle bietet.</div>
+          <div class="faq-answer hidden px-6 pb-5 text-slate-300 text-sm leading-relaxed border-t border-petrol-800/60 pt-3.5" data-i18n="faq_a3">Schlafe gut in der Nacht vor dem Termin, komm ausgeruht und iss vorher eine ordentliche Mahlzeit. Trinke keinen Alkohol am Tag vor dem Termin und trage bequeme Kleidung, die leichten Zugang zur zu tätowierenden Stelle bietet.</div>
         </div>
+
+        <!-- Вопрос 4 (Cover-Up и коррекция) -->
+        <div class="faq-card glass-card overflow-hidden">
+          <button onclick="toggleFaq(this)" class="w-full px-6 py-5 text-left flex items-center justify-between gap-4 font-semibold text-white text-sm sm:text-base transition">
+            <div class="flex items-center gap-3.5">
+              <span class="faq-num">04</span>
+              <span data-i18n="faq_q4">Stecht ihr auch Cover-Ups oder überarbeitet alte Tattoos?</span>
+            </div>
+            <span class="faq-icon-wrap">+</span>
+          </button>
+          <div class="faq-answer hidden px-6 pb-5 text-slate-300 text-sm leading-relaxed border-t border-petrol-800/60 pt-3.5" data-i18n="faq_a4">Ja, absolut! Unsere erfahrenen Artists sind darauf spezialisiert, ungeliebte oder verblasste Tattoos durch ein durchdachtes Custom-Design komplett neu in Szene zu setzen oder aufzufrischen. Komm einfach für eine kostenlose Einschätzung bei uns im Studio vorbei.</div>
+        </div>
+
+        <!-- Вопрос 5 (Предоплата и перенос записи) -->
+        <div class="faq-card glass-card overflow-hidden">
+          <button onclick="toggleFaq(this)" class="w-full px-6 py-5 text-left flex items-center justify-between gap-4 font-semibold text-white text-sm sm:text-base transition">
+            <div class="flex items-center gap-3.5">
+              <span class="faq-num">05</span>
+              <span data-i18n="faq_q5">Wie funktioniert die Anzahlung und falls ich den Termin verschieben muss?</span>
+            </div>
+            <span class="faq-icon-wrap">+</span>
+          </button>
+          <div class="faq-answer hidden px-6 pb-5 text-slate-300 text-sm leading-relaxed border-t border-petrol-800/60 pt-3.5" data-i18n="faq_a5">Zur festen Reservierung deines Termins und für die Erstellung deines individuellen Entwurfs wird eine Anzahlung fällig, die am Stechtag selbstverständlich mit dem Gesamtpreis verrechnet wird. Eine Terminverschiebung ist bis 48 Stunden vorher problemlos möglich.</div>
+        </div>
+
+        <!-- Вопрос 6 (Возраст 18+, гигиена и краски EU-REACH) -->
+        <div class="faq-card glass-card overflow-hidden">
+          <button onclick="toggleFaq(this)" class="w-full px-6 py-5 text-left flex items-center justify-between gap-4 font-semibold text-white text-sm sm:text-base transition">
+            <div class="flex items-center gap-3.5">
+              <span class="faq-num">06</span>
+              <span data-i18n="faq_q6">Ab welchem Alter tätowiert ihr und welche Farben werden verwendet?</span>
+            </div>
+            <span class="faq-icon-wrap">+</span>
+          </button>
+          <div class="faq-answer hidden px-6 pb-5 text-slate-300 text-sm leading-relaxed border-t border-petrol-800/60 pt-3.5" data-i18n="faq_a6">Wir tätowieren ausnahmslos ab 18 Jahren (bitte gültigen Ausweis zum Termin mitbringen). Bei der Hygiene gehen wir keine Kompromisse ein: Wir arbeiten ausschließlich mit sterilen Einweg-Modulen und geprüften, EU-REACH-konformen Premium-Tattoofarben.</div>
+        </div>
+      </div>
+
+      <!-- Плашка быстрого контакта под FAQ -->
+      <div class="mt-10 p-6 rounded-3xl glass-card border border-petrol-700/50 flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left">
+        <div>
+          <h4 class="font-cinzel text-base sm:text-lg font-bold text-white uppercase tracking-wider" data-i18n="faq_more_title">Noch Fragen offen?</h4>
+          <p class="text-xs sm:text-sm text-slate-400 mt-1" data-i18n="faq_more_sub">Schreib uns direkt auf WhatsApp — wir beraten dich gerne persönlich und unverbindlich.</p>
+        </div>
+        <a href="#contact" class="px-6 py-3 rounded-full bg-petrol-500 hover:bg-petrol-400 text-white text-xs font-semibold uppercase tracking-widest transition shadow-[0_0_20px_rgba(56,146,174,0.4)] whitespace-nowrap shrink-0" data-i18n="faq_more_btn">
+          Frage stellen →
+        </a>
       </div>
     </div>
   </section>
@@ -821,6 +937,10 @@
         faq_q1: "Wie viel kostet ein Tattoo bei New Jack Tattoo?", faq_a1: "Der Preis hängt von Größe, Detailgrad, Körperstelle und geschätztem Zeitaufwand ab. Kleinere Motive haben einen Mindestpreis, während große Projekte (wie Sleeves oder Japanese Backpieces) nach Tagessätzen oder Absprache kalkuliert werden. Die Beratung ist absolut kostenlos!",
         faq_q2: "Muss ich einen Termin vereinbaren oder kann ich spontan vorbeikommen?", faq_a2: "Wir arbeiten primär auf Termin, um jedem Kunden individuelle Entwürfe und ungestörte Sessions zu garantieren. Schreib uns am besten über das Formular oder Instagram, um einen Beratungstermin auf der Beekstraße 6 zu vereinbaren.",
         faq_q3: "Wie bereite ich mich am besten auf den Tattoo-Termin vor?", faq_a3: "Schlafe gut in der Nacht vor dem Termin, komm ausgeruht und iss vorher eine ordentliche Mahlzeit. Trinke keinen Alkohol am Tag vor dem Termin und trage bequeme Kleidung, die leichten Zugang zur zu tätowierenden Stelle bietet.",
+        faq_q4: "Stecht ihr auch Cover-Ups oder überarbeitet alte Tattoos?", faq_a4: "Ja, absolut! Unsere erfahrenen Artists sind darauf spezialisiert, ungeliebte oder verblasste Tattoos durch ein durchdachtes Custom-Design komplett neu in Szene zu setzen oder aufzufrischen. Komm einfach für eine kostenlose Einschätzung bei uns im Studio vorbei.",
+        faq_q5: "Wie funktioniert die Anzahlung und falls ich den Termin verschieben muss?", faq_a5: "Zur festen Reservierung deines Termins und für die Erstellung deines individuellen Entwurfs wird eine Anzahlung fällig, die am Stechtag selbstverständlich mit dem Gesamtpreis verrechnet wird. Eine Terminverschiebung ist bis 48 Stunden vorher problemlos möglich.",
+        faq_q6: "Ab welchem Alter tätowiert ihr und welche Farben werden verwendet?", faq_a6: "Wir tätowieren ausnahmslos ab 18 Jahren (bitte gültigen Ausweis zum Termin mitbringen). Bei der Hygiene gehen wir keine Kompromisse ein: Wir arbeiten ausschließlich mit sterilen Einweg-Modulen und geprüften, EU-REACH-konformen Premium-Tattoofarben.",
+        faq_more_title: "Noch Fragen offen?", faq_more_sub: "Schreib uns direkt auf WhatsApp — wir beraten dich gerne persönlich und unverbindlich.", faq_more_btn: "Frage stellen →",
         book_tag: "Booking & Consultation", book_title: "Termin anfragen",
         form_name: "Dein Name *", form_name_ph: "Max Mustermann",
         form_phone: "Telefon / Insta *", form_phone_ph: "+49 176 ... / @username",
@@ -861,6 +981,10 @@
         faq_q1: "Сколько стоит татуировка в New Jack Tattoo?", faq_a1: "Цена зависит от размера, детализации, места нанесения и затраченного времени. Для небольших работ есть минимальная стоимость, а крупные проекты (рукава, масштабные японские проекты) рассчитываются по сеансам. Консультация всегда бесплатная!",
         faq_q2: "Нужно ли записываться заранее или можно прийти спонтанно?", faq_a2: "Мы работаем по предварительной записи, чтобы уделять каждому клиенту максимум внимания и готовить индивидуальные эскизы. Напишите нам через форму на сайте или в Instagram, чтобы согласовать визит на Beekstraße 6.",
         faq_q3: "Как правильно подготовиться к сеансу?", faq_a3: "Хорошо выспитесь накануне, приходите отдохнувшими и обязательно поешьте перед сеансом. Не употребляйте алкоголь за день до визита и наденьте удобную одежду.",
+        faq_q4: "Делаете ли вы перекрытие старых тату (Cover-Up) или коррекцию?", faq_a4: "Да, конечно! Наши мастера специализируются на перекрытии (Cover-Up) старых или выцветших татуировок продуманными индивидуальными эскизами, а также на обновлении контуров и цвета. Приходите в студию на бесплатную оценку.",
+        faq_q5: "Как работает предоплата и что делать, если нужно перенести сеанс?", faq_a5: "Для бронирования даты и разработки индивидуального эскиза вносится предоплата, которая в день сеанса полностью входит в итоговую стоимость татуировки. Перенести запись без потери залога можно не позднее чем за 48 часов до визита.",
+        faq_q6: "С какого возраста вы делаете тату и какие краски используете?", faq_a6: "Мы работаем строго с клиентами с 18 лет (при себе необходимо иметь удостоверение личности). В вопросах гигиены у нас нет компромиссов: мы используем только стерильные одноразовые картриджи и сертифицированные в ЕС пигменты стандарта REACH.",
+        faq_more_title: "Остались вопросы?", faq_more_sub: "Напишите нам напрямую в WhatsApp — мы с радостью проконсультируем вас лично и бесплатно.", faq_more_btn: "Задать вопрос →",
         book_tag: "Запись и Консультация", book_title: "Оставить заявку",
         form_name: "Ваше имя *", form_name_ph: "Иван Иванов",
         form_phone: "Телефон / WhatsApp / Insta *", form_phone_ph: "+49 176 ... / @username",
@@ -901,6 +1025,10 @@
         faq_q1: "How much does a tattoo cost?", faq_a1: "Pricing depends on size, detail, placement, and time required. Smaller pieces have a minimum charge, while large custom projects are quoted per session or piece. Consultations are always free!",
         faq_q2: "Do I need an appointment or can I walk in?", faq_a2: "We operate primarily by appointment to ensure dedicated time for custom artwork and sterile setups. Contact us via form or Instagram to book your visit at Beekstraße 6.",
         faq_q3: "How should I prepare for my tattoo appointment?", faq_a3: "Get a good night's sleep, arrive rested, and eat a hearty meal beforehand. Avoid alcohol the day before and wear comfortable clothing.",
+        faq_q4: "Do you do cover-ups or rework old tattoos?", faq_a4: "Yes, absolutely! Our experienced artists specialize in covering up unwanted or faded tattoos with a well-planned custom design, as well as refreshing old ink. Drop by the studio for a free assessment.",
+        faq_q5: "How does the deposit work and what if I need to reschedule?", faq_a5: "To secure your appointment and start working on your custom design, a deposit is required, which is deducted from the final price on the day of your session. You can easily reschedule up to 48 hours in advance.",
+        faq_q6: "What is the minimum age and what kind of inks do you use?", faq_a6: "We strictly tattoo clients aged 18 and older (please bring a valid ID). When it comes to safety, we make no compromises: we use only sterile single-use needle cartridges and certified, EU-REACH compliant premium tattoo inks.",
+        faq_more_title: "Still have questions?", faq_more_sub: "Message us directly on WhatsApp — we are happy to advise you personally and free of charge.", faq_more_btn: "Ask a question →",
         book_tag: "Booking & Consultation", book_title: "Request an Appointment",
         form_name: "Your Name *", form_name_ph: "John Doe",
         form_phone: "Phone / WhatsApp / Insta *", form_phone_ph: "+49 176 ... / @username",
@@ -1112,15 +1240,21 @@
     }
 
     function toggleFaq(btn) {
-      const content = btn.nextElementSibling;
-      const sign = btn.querySelector('span:last-child');
-      if (!content || !sign) return;
+      const card = btn.closest('.faq-card');
+      const content = card ? card.querySelector('.faq-answer') : null;
+      if (!card || !content) return;
+
       const isOpen = !content.classList.contains('hidden');
-      document.querySelectorAll('#faq .glass-card div').forEach(el => el.classList.add('hidden'));
-      document.querySelectorAll('#faq button span:last-child').forEach(el => el.style.transform = 'rotate(0deg)');
+
+      document.querySelectorAll('#faq .faq-card').forEach(el => {
+        el.classList.remove('active');
+        const ans = el.querySelector('.faq-answer');
+        if (ans) ans.classList.add('hidden');
+      });
+
       if (!isOpen) {
+        card.classList.add('active');
         content.classList.remove('hidden');
-        sign.style.transform = 'rotate(45deg)';
       }
     }
 
