@@ -4,11 +4,6 @@
   "main_image": "",
   "gallery": [
     {
-      "photo": "/images/uploads/60656.jpg",
-      "artist": "ASTY",
-      "style": "ColorRealism"
-    },
-    {
       "photo": "/images/uploads/62545.webp",
       "artist": "ANDY",
       "style": "BlackGreyRealism"
@@ -82,6 +77,11 @@
       "photo": "/images/uploads/62198.webp",
       "artist": "ASTY",
       "style": "BlackGreyRealism"
+    },
+    {
+      "photo": "/images/uploads/60656.jpg",
+      "artist": "ASTY",
+      "style": "ColorRealism"
     }
   ]
 }
